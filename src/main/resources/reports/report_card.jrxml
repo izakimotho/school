@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.19.1.final using JasperReports Library version 6.19.1-867c00bf88cd4d784d404379d6c05e1b419e8a4c  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report_card" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="108e3d5e-b816-4e08-a58e-a42fb5791dc4">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="377"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="614"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="School"/>
+	<parameter name="student_id" class="java.lang.String">
+		<defaultValueExpression><![CDATA[$P{student_id}]]></defaultValueExpression>
+	</parameter>
+	<queryString language="SQL">
+		<![CDATA[SELECT * FROM view_report_card WHERE CAST(student_id AS char(36)) =  $P{student_id}]]>
+	</queryString>
+	<field name="student_id" class="java.util.UUID">
+		<property name="com.jaspersoft.studio.field.name" value="student_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="student_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="view_report_card"/>
+	</field>
+	<field name="org_id" class="java.util.UUID">
+		<property name="com.jaspersoft.studio.field.name" value="org_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="org_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="view_report_card"/>
+	</field>
+	<field name="student_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="student_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="student_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="view_report_card"/>
+	</field>
+	<field name="adm_number" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="adm_number"/>
+		<property name="com.jaspersoft.studio.field.label" value="adm_number"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="view_report_card"/>
+	</field>
+	<field name="org_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="org_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="org_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="view_report_card"/>
+	</field>
+	<field name="grade" class="java.lang.Float">
+		<property name="com.jaspersoft.studio.field.name" value="grade"/>
+		<property name="com.jaspersoft.studio.field.label" value="grade"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="view_report_card"/>
+	</field>
+	<field name="subject_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="subject_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="subject_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="view_report_card"/>
+	</field>
+	<field name="class_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="class_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="class_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="view_report_card"/>
+	</field>
+	<field name="stream_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="stream_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="stream_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="view_report_card"/>
+	</field>
+	<field name="class_teacher" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="class_teacher"/>
+		<property name="com.jaspersoft.studio.field.label" value="class_teacher"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="view_report_card"/>
+	</field>
+	<field name="remarks" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="remarks"/>
+		<property name="com.jaspersoft.studio.field.label" value="remarks"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="view_report_card"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<textField isBlankWhenNull="false">
+				<reportElement x="90" y="9" width="374" height="60" uuid="c8729d10-6802-45c7-bd44-9a5dacc14db6"/>
+				<textElement textAlignment="Center">
+					<font size="18"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{org_name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="81" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="140" height="30" uuid="b236a733-5c50-48ea-b38d-e8388ad47ce2"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Student Name:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="150" y="0" width="100" height="30" uuid="108f71de-be2f-4612-be26-ef6a801ad272"/>
+				<textFieldExpression><![CDATA[$F{student_name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="30" width="140" height="30" uuid="2f1b8d7b-576c-40a4-a3da-a082bea638f6"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Admission Number:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="150" y="30" width="100" height="30" uuid="10599d1a-12a9-477d-a5d0-9fbde22b0bf4"/>
+				<textFieldExpression><![CDATA[$F{adm_number}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="280" y="0" width="100" height="30" uuid="cbd4506f-b3e1-4569-980a-d423205a8939"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Class Teacher]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="280" y="30" width="100" height="30" uuid="328ffe73-fdcc-4870-8a44-34bfb9e0ee7e"/>
+				<textFieldExpression><![CDATA[$F{class_teacher}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="410" y="0" width="50" height="30" uuid="c7c9b230-0eb3-47d6-a207-c8e2fbe9fb4b"/>
+				<textElement textAlignment="Left">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Class:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="410" y="30" width="50" height="30" uuid="7942c634-50d8-4348-8551-df2d461d2e52"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{class_name}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="460" y="0" width="90" height="30" uuid="9c74c406-68fe-451f-a07e-e90effbd26d9"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Stream:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="460" y="30" width="90" height="30" uuid="93575da2-0532-42e3-a586-90ffd4f650b1"/>
+				<textFieldExpression><![CDATA[$F{stream_name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="39" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="131" height="30" uuid="cd60ecae-f5be-412b-8aa7-c04906711831"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Subject Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="131" y="0" width="100" height="30" uuid="b9bd54a0-ecc2-4dbf-af69-2ece5353ef61"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Grade]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="231" y="0" width="129" height="30" uuid="54f80dac-710f-4aaa-8931-6278ffd346b3"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Remarks]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="36" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="131" height="30" uuid="65809f63-d21f-4963-bd9c-c317b4fe69c5"/>
+				<textFieldExpression><![CDATA[$F{subject_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="131" y="0" width="100" height="30" uuid="d4c31e52-0cf6-4899-b63f-d75746dd671b"/>
+				<textFieldExpression><![CDATA[$F{grade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="231" y="0" width="129" height="30" uuid="31328cb3-62b2-4fdc-952b-d461c15c7540"/>
+				<textFieldExpression><![CDATA[$F{remarks}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

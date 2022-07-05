@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.19.1.final using JasperReports Library version 6.19.1-867c00bf88cd4d784d404379d6c05e1b419e8a4c  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="exam_time_table" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8c1afc4b-d3a8-4b8c-8d71-1c558bd84d67">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="440"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="547"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="School"/>
+	<parameter name="class_id" class="java.lang.String"/>
+	<parameter name="exam_type_id" class="java.lang.String"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT  * 
+FROM view_exam_time_table
+WHERE CAST(class_id AS char(36)) = $P{class_id}]]>
+	</queryString>
+	<field name="exam_schedule_id" class="java.util.UUID">
+		<property name="com.jaspersoft.studio.field.name" value="exam_schedule_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="exam_schedule_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="view_exam_time_table"/>
+	</field>
+	<field name="created_at" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.name" value="created_at"/>
+		<property name="com.jaspersoft.studio.field.label" value="created_at"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="view_exam_time_table"/>
+	</field>
+	<field name="exam_date" class="java.sql.Timestamp">
+		<property name="com.jaspersoft.studio.field.name" value="exam_date"/>
+		<property name="com.jaspersoft.studio.field.label" value="exam_date"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="view_exam_time_table"/>
+	</field>
+	<field name="exam_schedule_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="exam_schedule_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="exam_schedule_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="view_exam_time_table"/>
+	</field>
+	<field name="exam_time" class="java.sql.Time">
+		<property name="com.jaspersoft.studio.field.name" value="exam_time"/>
+		<property name="com.jaspersoft.studio.field.label" value="exam_time"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="view_exam_time_table"/>
+	</field>
+	<field name="org_id" class="java.util.UUID">
+		<property name="com.jaspersoft.studio.field.name" value="org_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="org_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="view_exam_time_table"/>
+	</field>
+	<field name="school_stream_id" class="java.util.UUID">
+		<property name="com.jaspersoft.studio.field.name" value="school_stream_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="school_stream_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="view_exam_time_table"/>
+	</field>
+	<field name="exam_type_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="exam_type_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="exam_type_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="view_exam_time_table"/>
+	</field>
+	<field name="term_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="term_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="term_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="view_exam_time_table"/>
+	</field>
+	<field name="subject_abbr" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="subject_abbr"/>
+		<property name="com.jaspersoft.studio.field.label" value="subject_abbr"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="view_exam_time_table"/>
+	</field>
+	<field name="subject_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="subject_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="subject_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="view_exam_time_table"/>
+	</field>
+	<field name="class_id" class="java.util.UUID">
+		<property name="com.jaspersoft.studio.field.name" value="class_id"/>
+		<property name="com.jaspersoft.studio.field.label" value="class_id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="view_exam_time_table"/>
+	</field>
+	<field name="class_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="class_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="class_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="view_exam_time_table"/>
+	</field>
+	<field name="org_name" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="org_name"/>
+		<property name="com.jaspersoft.studio.field.label" value="org_name"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="view_exam_time_table"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="46" splitType="Stretch">
+			<textField>
+				<reportElement x="140" y="0" width="270" height="30" uuid="fc290fc0-daf6-422b-a0c8-73e810fff216"/>
+				<textFieldExpression><![CDATA[$F{org_name}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="71" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="30" uuid="8232dc0a-934f-4e9e-8232-1c8e73e332e6"/>
+				<text><![CDATA[Class]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="30" width="100" height="30" uuid="e28c01f8-ba96-46b4-b7ed-4baf405d191c"/>
+				<text><![CDATA[Exam Type]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="120" y="0" width="100" height="30" uuid="80be275d-c970-4750-8fa8-47c83fd3f15a"/>
+				<textFieldExpression><![CDATA[$F{class_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="120" y="30" width="100" height="30" uuid="f2240193-d071-458c-908a-4c0f9d19bfcc"/>
+				<textFieldExpression><![CDATA[$F{exam_type_name}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report" pattern="dd-MM-yyyy">
+				<reportElement x="240" y="40" width="100" height="20" uuid="4581ecf0-3ef3-4c0a-b0c8-fc65ad0a3dbf"/>
+				<textFieldExpression><![CDATA[$F{exam_date}]]></textFieldExpression>
+			</textField>
+			<textField pattern="HH:mm:ss">
+				<reportElement x="350" y="40" width="100" height="20" uuid="cbde41b0-8640-48fe-983c-0aa29721836c"/>
+				<textFieldExpression><![CDATA[$F{exam_time}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="37" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="30" uuid="ec17c81e-dbf4-4963-b158-b353dcf5bfb6"/>
+				<text><![CDATA[Subject]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="140" y="0" width="100" height="30" uuid="41408295-3e57-4eb7-8e58-6f8933bf4322"/>
+				<text><![CDATA[Date]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="270" y="0" width="100" height="30" uuid="25837ec9-c54e-4285-a96c-8cd410f459aa"/>
+				<text><![CDATA[Time]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="3f4864a8-64c3-409c-baed-ff6dc740f0b4"/>
+				<textFieldExpression><![CDATA[$F{subject_name}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report" pattern="dd-MM-yyyy">
+				<reportElement x="140" y="0" width="100" height="20" uuid="29a5e6b8-55fb-40c1-b9f9-235ec4fb6754"/>
+				<textFieldExpression><![CDATA[$F{exam_date}]]></textFieldExpression>
+			</textField>
+			<textField pattern="HH:mm:ss">
+				<reportElement x="270" y="0" width="100" height="20" uuid="ac65853b-0914-4f81-a9ab-693cbe9c1780"/>
+				<textFieldExpression><![CDATA[$F{exam_time}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
