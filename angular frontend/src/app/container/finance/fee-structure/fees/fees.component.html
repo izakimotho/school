@@ -1,0 +1,317 @@
+<ngx-ui-loader fgsSize="180" bdColor="rgba(245, 54, 92,0.8)" size="large" color="#fff" [fgsType]="spinnerType">
+</ngx-ui-loader>
+
+<div class="ms-content-wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <!--      <app-breadcrumb></app-breadcrumb>-->
+            <breadcrumb #parent>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb breadcrumb-arrow has-gap first-rounded pl-0">
+                        <ng-template ngFor let-route [ngForOf]="parent.breadcrumbs">
+                            <li class="breadcrumb breadcrumb-arrow has-gap first-rounded"><a
+                                    routerLink="/schools/list"><i class="material-icons">home</i> Home</a></li>
+                            <!-- <li *ngIf="!route.terminal" class="breadcrumb-item">
+                 <a href="" [routerLink]="[route.url]">{{ route.displayName }}</a>
+               </li>-->
+                            <li *ngIf="route.terminal" class="breadcrumb-item active" aria-current="page">{{
+                                route.displayName }}</li>
+                        </ng-template>
+                    </ol>
+                </nav>
+            </breadcrumb>
+            <div class="ms-panel">
+                <div class="row ms-panel-header">
+                    <div class="col">
+                        <h6>Fee Structure List</h6>
+                    </div>
+                    <div class="col">
+                        <button class="btn btn-danger btn-sm btn-rounded float-right" (click)="openmax(add)"
+                            data-toggle="modal">
+                            <i class="fa fa-plus"></i> Add Fee Structure
+                        </button>
+                    </div>
+                </div>
+                <div class="ms-panel-body">
+                    <div class="table-responsive">
+
+                        <table *ngIf="feeStructureList" datatable [dtOptions]="dtOptions"
+                            class="table table-striped table-bordered">
+                            <thead class="thead-light pb-3 mb-5">
+                                <tr>
+                                    <th>#SN</th>
+                                    <th class="sort" data-sort="title">Year</th>
+                                    <th>Name</th>
+                                    <th>Sessions</th>
+                                    <th>Total</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+
+
+
+                            <tbody class="list">
+                                <tr *ngFor="let feeStructure of feeStructureList; let ix = index">
+                                    <td scope="row">{{ ix + 1 }}</td>
+
+
+                                    
+                                    <td scope="row">{{ feeStructure.academic_year.academic_year_name }}</td>
+                                    <td scope="row">{{ feeStructure.class_model.class_name }}</td>
+                                    <td scope="row">
+                                        <div *ngFor="let term of feeStructure.terms;">
+                                                {{ term.name | titlecase}}
+                                        </div>                                        
+                                    </td>
+                                    <td scope="row">ksh {{ feeStructure.total_amount }}</td>
+                                    <td>
+
+                                    <a [routerLink]="['/finance/view-fee-strcture/', feeStructure.fee_structure_id]" class="">
+                                        <i class="fa fa-eye"><strong></strong></i> 
+                                    </a>
+                                       <!-- 
+                                           <a class="" (click)="viewDetails(feeStructure,view)">
+                                            <i class="fa fa-eye"><strong></strong></i>
+                                        </a>
+                                         <a class="" (click)="editDetails(feeStructure,edit)">
+                                            <i class="fas fa-edit"><strong></strong></i> 
+                                        </a>-->
+                                        <a class="" (click)="delete_class(feeStructure)">
+                                            <i class="fas fa-trash"><strong></strong></i> 
+                                        </a>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+
+                        <ngb-alert *ngIf="!feeStructureList" [dismissible]="false" type="info">
+                            <i class="flaticon-information"></i><strong>Heads up!</strong>There are no records found
+                        </ngb-alert>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #add let-modal>
+    <div class="modal-body">
+        <button type="button" class="close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <h1>Add Fee Structure</h1>
+
+        <form #myForm="ngForm" (ngSubmit)="addFeeStructure(myForm)" autocomplete="off" class="form form-register">
+            <fieldset>
+
+                <div class="ms-form-group has-icon">
+                    <label>Academic Year</label>
+                    <ng-select placeholder="Choose academic year.." [(ngModel)]="feeStructure.academicYear"
+                        name="academic_year_id" #academic_year_id="ngModel" required>
+                        <ng-option *ngFor="let academicYear of academicYearList"
+                            [value]="academicYear.academic_year_id">
+                            {{academicYear.academic_year_name}}</ng-option>
+                    </ng-select>
+                    <small class="text-danger" *ngIf="academic_year_id?.errors && academic_year_id.touched"> Academic
+                        year is empty or invalid </small>
+                </div>
+
+
+                <div class="ms-form-group has-icon">
+                    <label>Class </label>
+                    <ng-select placeholder="Choose Class..." [(ngModel)]="feeStructure.classModel" name="class_id"
+                        #class_id="ngModel" required>
+                        <ng-option *ngFor="let class of classesList" [value]="class.class_id">
+                            {{class.class_name}}</ng-option>
+                    </ng-select>
+                    <small class="text-danger" *ngIf="class_id?.errors && class_id.touched"> Class is empty or
+                        invalid </small>
+                </div>
+
+
+                <div class="ms-form-group has-icon">
+                    <label>Term/Session</label>
+                    <ng-select placeholder="Choose term/session.." [(ngModel)]="feeStructure.termDetails"
+                        name="term_details_id" #term_details_id="ngModel" required>
+                        <ng-option *ngFor="let termDetail of termDetailsList" [value]="termDetail.term_details_id">
+                            {{termDetail.terms.name}}</ng-option>
+                    </ng-select>
+                    <small class="text-danger" *ngIf="term_details_id?.errors && term_details_id.touched"> Term is empty
+                        or invalid </small>
+                </div>
+
+                <div class="ms-form-group has-icon">
+                    <label>Vote Head </label>
+                    <ng-select placeholder="Choose vote head..." [(ngModel)]="feeStructure.voteHead" name="fee_vote_id"
+                        #fee_vote_id="ngModel" required>
+                        <ng-option *ngFor="let vote_head of voteheadList" [value]="vote_head.fee_vote_id">
+                            {{vote_head.vote_head_name}}</ng-option>
+                    </ng-select>
+                    <small class="text-danger" *ngIf="fee_vote_id?.errors && fee_vote_id.touched"> Vote_head Master is
+                        empty or invalid </small>
+                </div>
+
+
+                <div class="ms-form-group has-icon">
+                    <label>Amount</label>
+                    <input type="number" placeholder="amount" class="form-control" [(ngModel)]="feeStructure.amount"
+                        name="amount" #amount="ngModel" required />
+                    <div *ngIf="(amount.touched || submitted) && amount.invalid">
+                        <span class="text-danger" *ngIf="amount.errors.required">Amount is required.</span>
+                    </div>
+                </div>
+
+
+
+
+
+            </fieldset>
+            <div class="d-flex justify-content-between">
+                <button type="button" class="btn btn-light" (click)="modal.dismiss('Cross click')">
+                    Cancel
+                </button>
+                <button type="submit" class="btn btn-primary shadow-none">Save</button>
+            </div>
+        </form>
+    </div>
+</ng-template>
+
+<ng-template #edit let-modal>
+    <div class="modal-body">
+        <button type="button" class="close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <h1>Edit position</h1>
+
+        <form #myForm="ngForm" (ngSubmit)="editFeeStructure(myForm)" autocomplete="off" class="form form-register">
+            <fieldset>
+
+                <div class="ms-form-group has-icon">
+                    <label>Academic Year</label>
+                    <ng-select placeholder="Choose academic year.." [(ngModel)]="feeStructure.classModel"
+                        name="academic_year_id" #academic_year_id="ngModel" required>
+                        <ng-option *ngFor="let academicYear of academicYearList"
+                            [value]="academicYear.academic_year_id">
+                            {{academicYear.name}}</ng-option>
+                    </ng-select>
+                    <small class="text-danger" *ngIf="academic_year_id?.errors && academic_year_id.touched"> Academic
+                        year is empty or invalid </small>
+                </div>
+
+
+                <div class="ms-form-group has-icon">
+                    <label>Class </label>
+                    <ng-select placeholder="Choose Class..." [(ngModel)]="feeStructure.classModel" name="class_id"
+                        #class_id="ngModel" required>
+                        <ng-option *ngFor="let class of classesList" [value]="class.class_id">
+                            {{class.class_name}}</ng-option>
+                    </ng-select>
+                    <small class="text-danger" *ngIf="class_id?.errors && class_id.touched"> Class is empty or
+                        invalid </small>
+                </div>
+
+
+                <div class="ms-form-group has-icon">
+                    <label>Term/Session</label>
+                    <ng-select placeholder="Choose term/session.." [(ngModel)]="feeStructure.termDetails"
+                        name="termDetails_id" #termDetails_id="ngModel" required>
+                        <ng-option *ngFor="let termDetail of termDetailsList" [value]="termDetail.termDetails_id">
+                            {{termDetail.name}}</ng-option>
+                    </ng-select>
+                    <small class="text-danger" *ngIf="termDetails_id?.errors && termDetails_id.touched"> Term is empty
+                        or invalid </small>
+                </div>
+
+                <div class="ms-form-group has-icon">
+                    <label>Vote Head </label>
+                    <ng-select placeholder="Choose vote head..." [(ngModel)]="feeStructure.voteHead" name="vote_head"
+                        #vote_head="ngModel" required>
+                        <ng-option *ngFor="let vote_head of voteheadList" [value]="vote_head.voteHead_id">
+                            {{vote_head.vote_head_name}}</ng-option>
+                    </ng-select>
+                    <small class="text-danger" *ngIf="vote_head?.errors && vote_head.touched"> vote_head Master is empty
+                        or
+                        invalid </small>
+                </div>
+
+
+                <div class="ms-form-group has-icon">
+                    <label>Amount</label>
+                    <input type="number" placeholder="amount" class="form-control" [(ngModel)]="feeStructure.amount"
+                        name="amount" #amount="ngModel" required />
+                    <div *ngIf="(amount.touched || submitted) && amount.invalid">
+                        <span class="text-danger" *ngIf="amount.errors.required">Amount is required.</span>
+                    </div>
+                </div>
+
+
+
+            </fieldset>
+            <div class="d-flex justify-content-between">
+                <button type="button" class="btn btn-light" (click)="modal.dismiss('Cross click')">
+                    Cancel
+                </button>
+                <button type="submit" class="btn btn-primary shadow-none">Save</button>
+            </div>
+        </form>
+    </div>
+</ng-template>
+
+<ng-template #view let-modal>
+    <div class="modal-body">
+        <button type="button" class="close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <h1>View position</h1>
+
+        <form autocomplete="off" class="form form-register">
+            <fieldset>
+                <div class="ms-form-group has-icon">
+                    <label>Academic Year</label>
+                    <input type="text" placeholder="position Name" class="form-control"
+                        [(ngModel)]="feeStructure.academicYear.academic_year_name" name="position_name"
+                        #position_name="ngModel" readonly required />
+                </div>
+
+                <div class="ms-form-group has-icon">
+                    <label>Class</label>
+                    <textarea rows="5" class="form-control" placeholder="description"
+                        [(ngModel)]="feeStructure.classModel.class_name" name="description" #description="ngModel"
+                        readonly required></textarea>
+                </div>
+
+                <div class="ms-form-group has-icon">
+                    <label>Term</label>
+                    <input type="text" placeholder="position capacity" class="form-control"
+                        [(ngModel)]="feeStructure.termDetails.name" name="position_capacity" #vote_head="ngModel"
+                        readonly required />
+                </div>
+
+                <div class="ms-form-group has-icon">
+                    <label>Vote Head</label>
+                    <input type="text" placeholder="position capacity" class="form-control"
+                        [(ngModel)]="feeStructure.voteHead.vote_head_name" name="position_capacity" #vote_head="ngModel"
+                        readonly required />
+                </div>
+
+
+                <div class="ms-form-group has-icon">
+                    <label>Amount</label>
+                    <input type="text" placeholder="amount" class="form-control"
+                        [(ngModel)]="feeStructure.amount" name="amount" #amount="ngModel"
+                        readonly required />
+                </div>
+            </fieldset>
+            <div class="">
+                <button type="button" class="btn btn-light" (click)="modal.dismiss('Cross click')">
+                    Cancel
+                </button>
+            </div>
+        </form>
+    </div>
+</ng-template>

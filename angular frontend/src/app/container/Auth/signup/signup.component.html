@@ -1,0 +1,57 @@
+<div class="ms-content-wrapper ms-auth">
+  <div class="ms-auth-container">
+      <div class="ms-auth-col">
+          <div class="ms-auth-bg"></div>
+      </div>
+      <div class="ms-auth-col">
+          <div class="ms-auth-form">
+              <form [formGroup]="signupForm" (validSubmit)="onSubmit()" class="clearfix">
+                  <h1>Create Account</h1>
+                  <p>Please enter personal information to continue</p>
+                  <div class="form-row">
+                      <div class="col-md-6 ">
+                          <label>First name</label>
+                          <div class="input-group">
+                              <input type="text" class="form-control" placeholder="First name" formControlName="Firstname">
+                          </div>
+                      </div>
+                      <div class="col-md-6 ">
+                          <label>Last name</label>
+                          <div class="input-group">
+                              <input type="text" class="form-control" placeholder="Last name" formControlName="Lastname">
+                          </div>
+                      </div>
+                  </div>
+                  <div class="form-row">
+                      <div class="col-md-12 ">
+                          <label>Email Address</label>
+                          <div class="input-group">
+                              <input type="email" class="form-control" placeholder="Email Address" formControlName="Email">
+                          </div>
+                      </div>
+                      <div class="col-md-12 ">
+                          <label>Password</label>
+                          <div class="input-group">
+                              <input type="password" class="form-control" placeholder="Password" formControlName="Password">
+                          </div>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <div class="form-check pl-0">
+                          <label class="ms-checkbox-wrap">
+                              <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required="">
+                              <i class="ms-checkbox-check"></i>
+                          </label>
+                          <span> Agree to terms and conditions </span>
+                      </div>
+                  </div>
+                  <button class="btn btn-primary mt-4 d-block w-100" type="submit">Create Account</button>
+                  <span class="d-block text-center my-4">Or</span>
+                  <button type="button" class="btn mt-4 d-block w-100 btn-social-login"> <img src="assets/img/others/facebook.png" alt="image"> <span>Signup with Facebook</span> </button>
+                  <button type="button" class="btn mt-4 d-block w-100 btn-social-login"> <img src="assets/img/others/google.png" alt="image"> <span>Signup with Google</span> </button>
+                  <p class="mb-0 mt-3 text-center">Already have an account? <a class="btn-link" routerLink="/prebuilt-pages/default-login">Login</a> </p>
+              </form>
+          </div>
+      </div>
+  </div>
+</div>

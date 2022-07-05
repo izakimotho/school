@@ -1,0 +1,490 @@
+[
+    {
+        "id": 1,
+        "linktext": "Dashboard",
+        "iconclass": "material-icons fs-16",
+        "icon": "dashboard",
+        "child": true,
+        "submenu": [
+            {
+                "id": 1.1,
+                "linktext": "Medjestic",
+                "link": "/"
+            }
+        ]
+    },
+  {
+    "id": 2,
+    "linktext": "Schools",
+    "iconclass": "material-icons fs-16", 
+    "icon": "schools",
+    "child": true,
+    "submenu": [
+      {
+        "id": 2.1,
+        "linktext": "schools",
+        "link": "/schools/schools-list"
+      }
+    ]
+  },
+    {
+        "id": 3,
+        "linktext": "Menus",
+        "iconclass": "fa fa-archive fs-16",
+        "icon": "",
+        "child": true,
+        "submenu": [
+            {
+                "id": 72.1,
+                "linktext": "Menu Catalogue",
+                "link": "/product/product-catalogue"
+            },
+            {
+                "id": 2.2,
+                "linktext": "Menu List",
+                "link": "/product/product-list"
+            },
+            {
+                "id": 2.3,
+                "linktext": "Menu Grid",
+                "link": "/product/product-grid"
+            },
+            {
+                "id": 2.4,
+                "linktext": "Add Menu",
+                "link": "/product/add-product"
+            },
+            {
+                "id": 2.5,
+                "linktext": "Menu Detail",
+                "link": "/product/product-detail/1"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "linktext": "Invoice",
+        "iconclass": "fas fa-file-invoice fs-16",
+        "icon": "",
+        "child": true,
+        "submenu": [
+            {
+                "id": 3.1,
+                "linktext": "Invoice Detail",
+                "link": "/invoice/invoice-detail"
+            },
+            {
+                "id": 3.2,
+                "linktext": "Invoice List",
+                "link": "/invoice/invoice-list"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "linktext": "Customer",
+        "iconclass": "fas fa-user-friends fs-16",
+        "icon": "",
+        "child": true,
+        "submenu": [
+            {
+                "id": 4.1,
+                "linktext": "Customer Review",
+                "link": "/customer/customer-review"
+            },
+            {
+                "id": 4.2,
+                "linktext": "Customer List",
+                "link": "/customer/customer-list"
+            },
+            {
+                "id": 4.3,
+                "linktext": "Social Activity",
+                "link": "/customer/social"
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "linktext": "Basic UI Elements",
+        "iconclass":"material-icons fs-16",
+        "icon":"filter_list",
+        "child": true,
+        "submenu": [
+            {
+                "id": 5.1,
+                "linktext": "Accordions",
+                "link": "/ui-basic/accordions"
+            },
+            {
+                "id": 5.2,
+                "linktext": "Alerts",
+                "link": "/ui-basic/alerts"
+            },
+            {
+                "id": 5.3,
+                "linktext": "Buttons",
+                "link": "/ui-basic/buttons"
+            },
+            {
+                "id": 5.4,
+                "linktext": "Breadcrumbs",
+                "link": "/ui-basic/breadcrumbs"
+            },
+            {
+                "id": 5.5,
+                "linktext": "Badges",
+                "link": "/ui-basic/badges"
+            },
+            {
+                "id": 5.6,
+                "linktext": "Cards",
+                "link": "/ui-basic/cards"
+            },
+            {
+                "id": 5.7,
+                "linktext": "Progress-bars",
+                "link": "/ui-basic/progress-bars"
+            },
+            {
+                "id": 5.8,
+                "linktext": "Preloaders",
+                "link": "/ui-basic/preloaders"
+            },
+            {
+                "id": 5.9,
+                "linktext": "Pagination",
+                "link": "/ui-basic/pagination"
+            },
+            {
+                "id": 5.10,
+                "linktext": "Tabs",
+                "link": "/ui-basic/tabs"
+            },
+            {
+                "id": 5.11,
+                "linktext": "Typography",
+                "link": "/ui-basic/typography"
+            }
+        ]
+    },
+    {
+        "id": 7,
+        "linktext": "Advanced UI Elements",
+        "iconclass":"material-icons fs-16",
+        "icon":"code",
+        "child": true,
+        "submenu": [
+            {
+                "id": 6.1,
+                "linktext": "Draggables",
+                "link": "/ui-advanced/draggables"
+            },
+            {
+                "id": 6.2,
+                "linktext": "Sliders",
+                "link": "/ui-advanced/sliders"
+            },
+            {
+                "id": 6.3,
+                "linktext": "Modals",
+                "link": "/ui-advanced/modals"
+            },
+            {
+                "id": 6.4,
+                "linktext": "Rating",
+                "link": "/ui-advanced/rating"
+            },
+            {
+                "id": 6.5,
+                "linktext": "Tour",
+                "link": "/ui-advanced/tour"
+            },
+            {
+                "id": 6.6,
+                "linktext": "Cropper JS",
+                "link": "/ui-advanced/cropper"
+            },
+            {
+                "id": 6.7,
+                "linktext": "Range Slider",
+                "link": "/ui-advanced/range-slider"
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "linktext": "Form Elements",
+        "iconclass":"material-icons fs-16",
+        "icon":"input",
+        "child": true,
+        "submenu": [
+            {
+                "id": 7.1,
+                "linktext": "Form Elements",
+                "link": "/form/form-elements"
+            },
+            {
+                "id": 7.2,
+                "linktext": "Form Layouts",
+                "link": "/form/form-layouts"
+            },
+            {
+                "id": 7.3,
+                "linktext": "Form Validation",
+                "link": "/form/form-validation"
+            },
+            {
+                "id": 7.4,
+                "linktext": "Form Wizard",
+                "link": "/form/form-wizard"
+            }
+        ]
+    },
+    {
+        "id": 9,
+        "linktext": "Charts",
+        "iconclass":"material-icons fs-16",
+        "icon":"equalizer",
+        "child": true,
+        "submenu": [
+            {
+                "id": 8.1,
+                "linktext": "ChartJS",
+                "link": "/charts/chartjs"
+            },
+            {
+                "id": 8.2,
+                "linktext": "Google Charts",
+                "link": "/charts/google-charts"
+            }
+        ]
+    },
+    {
+        "id": 10,
+        "linktext": "Tables",
+        "iconclass":"material-icons fs-16",
+        "icon":"tune",
+        "child": true,
+        "submenu": [
+            {
+                "id": 9.1,
+                "linktext": "Basic Tables",
+                "link": "/tables/basic-tables"
+            },
+            {
+                "id": 9.2,
+                "linktext": "Data Tables",
+                "link": "/tables/data-tables"
+            }
+        ]
+    },
+    {
+        "id": 11,
+        "linktext": "Popups",
+        "iconclass":"material-icons fs-16",
+        "icon":"message",
+        "child": true,
+        "submenu": [
+            {
+                "id": 10.1,
+                "linktext": "Sweet Alerts",
+                "link": "/popups/sweet-alerts"
+            },
+            {
+                "id": 10.2,
+                "linktext": "Toast",
+                "link": "/popups/toast"
+            }
+        ]
+    },
+    {
+        "id": 12,
+        "linktext": "Icons",
+        "iconclass":"material-icons fs-16",
+        "icon":"border_color",
+        "child": true,
+        "submenu": [
+            {
+                "id": 11.1,
+                "linktext": "Fontawesome",
+                "link": "/icons/fontawesome"
+            },
+            {
+                "id": 11.2,
+                "linktext": "Flaticons",
+                "link": "/icons/flaticons"
+            },
+            {
+                "id": 11.3,
+                "linktext": "Materialize",
+                "link": "/icons/materialize"
+            }
+        ]
+    },
+    {
+        "id": 13,
+        "linktext": "Maps",
+        "iconclass":"material-icons fs-16",
+        "icon":"map",
+        "child": true,
+        "submenu": [
+            {
+                "id": 12.1,
+                "linktext": "Google Maps",
+                "link": "/maps/google-maps"
+            },
+            {
+                "id": 12.2,
+                "linktext": "Vector Maps",
+                "link": "/maps/vector-maps"
+            }
+        ]
+    },
+    {
+        "id": 14,
+        "linktext": "Bonus Pages",
+        "iconclass":"material-icons fs-16",
+        "icon":"dashboard",
+        "child": true,
+        "submenu": [
+            {
+                "id": 13.1,
+                "linktext": "Web Analytics",
+                "link": "/dashboard/web-analytics"
+            },
+            {
+                "id": 13.2,
+                "linktext": "Stock Management",
+                "link": "/dashboard/project-management"
+            },
+            {
+                "id": 13.3,
+                "linktext": "Client Management",
+                "link": "/dashboard/client-management"
+            }
+        ]
+    },
+    {
+        "id": 15,
+        "linktext": "Pages",
+        "iconclass":"material-icons fs-16",
+        "icon":"insert_drive_file",
+        "child": true,
+        "submenu": [
+            {
+                "id": 14.1,
+                "linktext": "Default Login",
+                "link": "/prebuilt-pages/default-login"
+            },
+            {
+                "id": 14.2,
+                "linktext": "Modal Login",
+                "link": "/prebuilt-pages/modal-login"
+            },
+            {
+                "id": 14.3,
+                "linktext": "Default Register",
+                "link": "/prebuilt-pages/default-register"
+            },
+            {
+                "id": 14.4,
+                "linktext": "Modal Register",
+                "link": "/prebuilt-pages/modal-register"
+            },
+            {
+                "id": 14.5,
+                "linktext": "Lockscreen",
+                "link": "/prebuilt-pages/lock-screen"
+            },
+            {
+                "id": 14.6,
+                "linktext": "Coming Soon",
+                "link": "/prebuilt-pages/coming-soon"
+            },
+            {
+                "id": 14.7,
+                "linktext": "Error 404",
+                "link": "/prebuilt-pages/error"
+            },
+            {
+                "id": 14.8,
+                "linktext": "FAQ's",
+                "link": "/prebuilt-pages/faqs"
+            },
+            {
+                "id": 14.9,
+                "linktext": "Portfolio",
+                "link": "/prebuilt-pages/portfolio"
+            },
+            {
+                "id": 14.10,
+                "linktext": "User Profile",
+                "link": "/prebuilt-pages/user-profile"
+            },
+            {
+                "id": 14.11,
+                "linktext": "Invoice",
+                "link": "/prebuilt-pages/invoice"
+            }
+        ]
+    },
+    {
+        "id": 16,
+        "linktext": "Apps",
+        "iconclass":"material-icons fs-16",
+        "icon":"phone_iphone",
+        "child": true,
+        "submenu": [
+            {
+                "id": 15.1,
+                "linktext": "Chat",
+                "link": "/apps/chat"
+            },
+            {
+                "id": 15.2,
+                "linktext": "Email",
+                "link": "/apps/email"
+            },
+            {
+                "id": 15.3,
+                "linktext": "To-do List",
+                "link": "/apps/to-do-list"
+            }
+        ]
+    },
+    {
+        "id": 17,
+        "linktext": "Additional",
+        "iconclass":"material-icons fs-16",
+        "icon":"widgets",
+        "child": true,
+        "submenu": [
+            {
+                "id": 16.1,
+                "linktext": "Orders",
+                "link": "/orders"
+            },
+            {
+                "id": 16.2,
+                "linktext": "Restaurant List",
+                "link": "/restaurants"
+            },
+            {
+                "id": 16.3,
+                "linktext": "Sales",
+                "link": "/sales"
+            },
+            {
+                "id": 16.4,
+                "linktext": "Widgets",
+                "link": "/widgets"
+            },
+            {
+                "id": 16.5,
+                "linktext": "Animations",
+                "link": "/animation"
+            }
+        ]
+    }
+]

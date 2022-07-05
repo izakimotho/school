@@ -1,0 +1,61 @@
+<ngx-ui-loader fgsSize="180" bdColor="rgba(245, 54, 92,0.8)" size="large" color="#fff" [fgsType]="spinnerType">
+</ngx-ui-loader>
+
+
+<div class="ms-content-wrapper ms-auth">
+  <div class="ms-auth-container">
+      <div class="ms-auth-col justify-center">
+          <div class="ms-auth-bg m-10" style=" top: 20% ;left: 20% ;"></div>
+      </div>
+      <div class="ms-auth-col">
+          <div class="ms-auth-form">
+              <form [formGroup]="loginForm" (validSubmit)="onSubmit()" class="clearfix">
+                  <h1>Login to Account</h1>
+                  <p>Please enter your email and password to continue</p>
+                  <div class="mb-3">
+                      <label>Email Address</label>
+                      <div class="input-group">
+                          <input type="email" class="form-control" placeholder="Email Address"
+                              formControlName="Email">
+                      </div>
+                  </div>
+                  <div class="mb-2">
+                      <label>Password</label>
+                      <div class="input-group">
+                          <input type="password" class="form-control" placeholder="Password"
+                              formControlName="Password">
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="ms-checkbox-wrap">
+                          <input class="form-check-input" type="checkbox" value="">
+                          <i class="ms-checkbox-check"></i> 
+                      </label>
+                      <span> Remember Password </span>
+                      <label class="d-block mt-3"><a href="javascript:void(0)" class="btn-link"
+                              (click)="open(modalone)">Forgot Password?</a></label>
+                  </div>
+                  <button class="btn btn-primary mt-4 d-block w-100" type="submit">Sign In</button>
+                  <p class="mb-0 mt-3 text-center">Don't have an account? <a class="btn-link"
+                          routerLink="/prebuilt-pages/default-register">Create Account</a> </p>
+              </form>
+          </div>
+      </div>
+  </div> 
+</div>
+<ng-template #modalone let-modal>
+  <div class="modal-body text-center">
+      <button type="button" class="close" (click)="modal.dismiss('Cross click')"><span
+              aria-hidden="true">&times;</span></button>
+      <i class="flaticon-secure-shield d-block"></i>
+      <h1>Forgot Password?</h1>
+      <p> Enter your email to recover your password </p>
+      <form>
+          <div class="ms-form-group has-icon">
+              <input type="text" placeholder="Email Address" class="form-control" name="forgot-password" value="">
+              <i class="material-icons">email</i>
+          </div>
+          <button type="submit" class="btn btn-primary shadow-none">Reset Password</button>
+      </form>
+  </div>
+</ng-template>

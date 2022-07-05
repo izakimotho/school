@@ -1,0 +1,268 @@
+<ngx-ui-loader fgsSize="180" bdColor="rgba(245, 54, 92,0.8)" size="large" color="#fff" [fgsType]="spinnerType">
+</ngx-ui-loader>
+
+
+<div class="ms-content-wrapper">
+  <div class="row">
+    <div class="col-md-12">
+<!--      <app-breadcrumb></app-breadcrumb>-->
+      <breadcrumb #parent>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb breadcrumb-arrow has-gap first-rounded pl-0">
+            <ng-template ngFor let-route [ngForOf]="parent.breadcrumbs">
+              <li class="breadcrumb breadcrumb-arrow has-gap first-rounded"><a routerLink="/schools/list"><i class="material-icons">home</i> Home</a></li>
+              <!-- <li *ngIf="!route.terminal" class="breadcrumb-item">
+                 <a href="" [routerLink]="[route.url]">{{ route.displayName }}</a>
+               </li>-->
+              <li *ngIf="route.terminal" class="breadcrumb-item active" aria-current="page">{{
+                route.displayName }}</li>
+            </ng-template>
+          </ol>
+        </nav>
+      </breadcrumb>
+      <div class="ms-panel">
+        <div class="row ms-panel-header">
+          <div class="col">
+            <h6>Class List</h6>
+          </div>
+          <div class="col">
+            <button class="btn btn-danger btn-sm btn-rounded float-right" (click)="openmax(add)"
+              data-toggle="modal">
+              <i class="fa fa-plus"></i> Add Class
+            </button>
+          </div>
+        </div>
+        <div class="ms-panel-body">
+          <!-- <p class="ms-directions">Check <code>/src/app/data/datatable.json</code> for reference</p>
+                    <div class="row mb-3">
+                        <div class="col-lg-3 col-md-6">
+                            <input #search class="search" class="form-control" type="text" placeholder="Search..." (keydown.enter)="onSearch(search.value)">
+                        </div>
+                    </div> -->
+          <div class="table-responsive">
+            <table  *ngIf="classList" datatable="ng" dtOptions="dtOptions"  class="table table-striped table-bordered">
+              <thead class="thead-light pb-3 mb-5">
+                <tr>
+                  <th>#SN</th>
+                  <th class="sort" data-sort="title">Name</th>
+                  <th>Description</th>
+                  <th>Education System</th>
+                  <th>School Level</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+
+              <tbody class="list">
+                <tr *ngFor="let class of classList; let ix = index">
+                  <td scope="row">{{ ix + 1 }}</td>
+                  <td scope="row">{{ class.class_name }}</td>
+                  <td scope="row">{{ class.description }}</td>
+                  <td scope="row">
+                    {{ class.education_system.education_system_name }}
+                  </td>
+                  <td class="budget">
+                    {{ class.school_level.school_level_name }}
+                  </td>
+                  <td>
+                    <a class="" (click)="viewDetails(class,view)">
+                      <i class="fa fa-eye"><strong></strong></i>
+                    </a>
+                    <a class="" (click)="editDetails(class,edit)">
+                      <i class="fas fa-edit"><strong></strong></i>
+                    </a>
+                    <a class="" (click)="delete_class(class)">
+                      <i class="fas fa-trash"><strong></strong></i>
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #edit let-modal>
+  <div class="modal-body">
+    <button type="button" class="close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h1>Edit  Class</h1>
+
+    <form #form="ngForm" (ngSubmit)="editClass(form)" autocomplete="off" class="form form-register">
+      <fieldset >
+        <div class="ms-form-group has-icon">
+          <label>Class Name</label>
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Class Name"
+                   [(ngModel)]="class.class_name" name="class_name" #class_name="ngModel" required/>
+          </div>
+          <small class="text-danger"
+                 *ngIf="class_name?.errors && class_name.touched"> Class Name is empty or
+            invalid </small>
+        </div>
+
+        <div class="ms-form-group has-icon">
+          <label for="exampleTextarea">Description</label>
+          <textarea class="form-control" id="exampleTextarea" rows="3"
+                    [(ngModel)]="class.description"
+                    name="description" #description="ngModel" required></textarea>
+          <small class="text-danger"
+                 *ngIf="description?.errors && description.touched">Description is empty or
+            invalid </small>
+        </div>
+
+        <div class="ms-form-group has-icon">
+          <label>Education System</label>
+          <ng-select placeholder="Choose Education System..."
+                     [(ngModel)]="class.education_system.education_system_id"
+                     name="education_system_id" #education_system_id="ngModel" required>
+            <ng-option *ngFor="let educationSystem of educationSystems" [value]="educationSystem.education_system_id">
+              {{educationSystem.education_system_name}}</ng-option>
+          </ng-select>
+          <small class="text-danger"
+                 *ngIf="education_system_id?.errors && education_system_id.touched"> Education System is empty or
+            invalid </small>
+        </div>
+
+        <div class="ms-form-group has-icon">
+          <label>School Level</label>
+          <ng-select placeholder="Choose School Level..."
+                     [(ngModel)]="class.school_level.school_level_id" name="school_level_id" #school_level_name="ngModel" required>
+            <ng-option *ngFor="let schoolLevel of schoolLevels" [value]="schoolLevel.school_level_id">
+              {{schoolLevel.school_level_name}}</ng-option>
+          </ng-select>
+          <small class="text-danger"
+                 *ngIf="school_level_name?.errors && school_level_name.touched"> School Level is empty or
+            invalid </small>
+        </div>
+
+      </fieldset>
+      <div class="d-flex justify-content-between">
+        <button type="button" class="btn btn-light" (click)="modal.dismiss('Cross click')">
+          Cancel
+        </button>
+        <button type="submit" [disabled]="!form.valid" class="btn btn-primary shadow-none">Save</button>
+      </div>
+    </form>
+  </div>
+</ng-template>
+
+<ng-template #add let-modal>
+  <div class="modal-body">
+    <button type="button" class="close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h1>Add  Class</h1>
+
+    <form #form="ngForm" (ngSubmit)="submit(form)" autocomplete="off" class="form form-register">
+      <fieldset >
+        <div class="ms-form-group has-icon">
+          <label>Class Name</label>
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Class Name" [(ngModel)]="classData.class_name" name="class_name" #class_name="ngModel" required/>
+          </div>
+          <small class="text-danger"
+                 *ngIf="class_name?.errors && class_name.touched"> Class Name is empty or
+            invalid </small>
+        </div>
+
+        <div class="ms-form-group has-icon">
+          <label for="exampleTextarea">Description</label>
+          <textarea class="form-control" id="exampleTextarea1" rows="3"
+                    [(ngModel)]="classData.description"
+                    name="description" #description="ngModel" required></textarea>
+          <small class="text-danger"
+                 *ngIf="description?.errors && description.touched">Description is empty or
+            invalid </small>
+        </div>
+
+        <div class="ms-form-group has-icon">
+          <label>Education System</label>
+          <ng-select placeholder="Choose Education System..."
+                     [(ngModel)]="educationSystem.education_system_id"
+                     name="education_system_id" #education_system_id="ngModel" required>
+            <ng-option *ngFor="let educationSystem of educationSystems" [value]="educationSystem.education_system_id">
+              {{educationSystem.education_system_name}}</ng-option>
+          </ng-select>
+          <small class="text-danger"
+                 *ngIf="education_system_id?.errors && education_system_id.touched"> Education System is empty or
+            invalid </small>
+        </div>
+
+        <div class="ms-form-group has-icon">
+          <label>School Level</label>
+          <ng-select placeholder="Choose School Level..."
+                     [(ngModel)]="schoolLevel.school_level_id" name="school_level_id" #school_level_name="ngModel" required>
+            <ng-option *ngFor="let schoolLevel of schoolLevels" [value]="schoolLevel.school_level_id">
+              {{schoolLevel.school_level_name}}</ng-option>
+          </ng-select>
+          <small class="text-danger"
+                 *ngIf="school_level_name?.errors && school_level_name.touched"> School Level is empty or
+            invalid </small>
+        </div>
+
+      </fieldset>
+      <div class="d-flex justify-content-between">
+        <button type="button" class="btn btn-light" (click)="modal.dismiss('Cross click')">
+          Cancel
+        </button>
+        <button type="submit" [disabled]="!form.valid" class="btn btn-primary shadow-none">Save</button>
+      </div>
+    </form>
+  </div>
+</ng-template>
+
+<ng-template #view let-modal>
+  <div class="modal-body">
+    <button type="button" class="close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h1>View  Class</h1>
+
+    <form #form="ngForm" (ngSubmit)="editClass(form)" autocomplete="off" class="form form-register">
+      <fieldset >
+        <div class="ms-form-group has-icon">
+          <label>Class Name</label>
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Class Name"
+                   [(ngModel)]="class.class_name" name="class_name" #class_name="ngModel" readonly/>
+          </div>
+          <small class="text-danger"
+                 *ngIf="class_name?.errors && class_name.touched"> Class Name is empty or
+            invalid </small>
+        </div>
+
+        <div class="ms-form-group has-icon">
+          <label for="exampleTextarea">Description</label>
+          <textarea class="form-control" id="exampleTextarea3" rows="3"
+                    [(ngModel)]="class.description"
+                    name="description" #description="ngModel" readonly></textarea>
+          <small class="text-danger"
+                 *ngIf="description?.errors && description.touched">Description is empty or
+            invalid </small>
+        </div>
+
+        <div class="ms-form-group has-icon" >
+          <label>Education System</label>
+          <input type="text" class="form-control" [(ngModel)]="class.education_system.education_system_name"
+                 name="education_system_name" readonly/>
+        </div>
+
+        <div class="ms-form-group has-icon">
+          <label>School Level</label>
+          <input type="text" class="form-control" [(ngModel)]="class.school_level.school_level_name"
+                 name="school_level_name" readonly/>
+        </div>
+
+      </fieldset>
+      <div class="" align="right">
+        <button type="button" class="btn btn-light" (click)="modal.dismiss('Cross click')">
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+</ng-template>

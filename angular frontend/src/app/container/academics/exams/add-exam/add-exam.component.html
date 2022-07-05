@@ -1,0 +1,176 @@
+<ngx-ui-loader fgsSize="180" bdColor="rgba(255, 0, 24,0.8)" size="large" color="#fff" [fgsType]="spinnerType">
+</ngx-ui-loader>
+
+<div class="ms-content-wrapper">
+  <div class="row">
+    <div class="col-md-12">
+<!--      <app-breadcrumb></app-breadcrumb>-->
+      <breadcrumb #parent>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb breadcrumb-arrow has-gap first-rounded pl-0">
+            <ng-template ngFor let-route [ngForOf]="parent.breadcrumbs">
+              <li class="breadcrumb breadcrumb-arrow has-gap first-rounded"><a routerLink="/academics/exams"><i class="material-icons">home</i> Home</a></li>
+              <!-- <li *ngIf="!route.terminal" class="breadcrumb-item">
+                 <a href="" [routerLink]="[route.url]">{{ route.displayName }}</a>
+               </li>-->
+              <li *ngIf="route.terminal" class="breadcrumb-item active" aria-current="page">{{
+                route.displayName }}</li>
+            </ng-template>
+          </ol>
+        </nav>
+      </breadcrumb>
+      <div class="ms-panel">
+        <div class="ms-panel-header">
+          <h6>Add Exam</h6>
+        </div>
+        <div class="ms-panel-body">
+          <form #form="ngForm" (ngSubmit)="submit(form)" autocomplete="off">
+            <div class="form-row">
+              <div class="col-md-4 mb-3 form-group">
+                <label >Exam Name</label>
+                <div class="input-group">
+                  <input ngModel type="text"  class="form-control" placeholder="Exam Name"
+                         [(ngModel)]="exam.exam_schedule_name" name="exam_schedule_name" #exam_schedule_name="ngModel" required/>
+                </div>
+                <small class="form-text  danger"
+                       *ngIf="exam_schedule_name?.errors && exam_schedule_name.touched"> Exam Name is empty or
+                  invalid </small>
+              </div>
+
+              <div class="col-md-4 mb-3 md-2">
+                <label>Exam Type</label>
+                <ng-select placeholder="Choose Exam Type..."
+                           [(ngModel)]="examType.exam_type_name" name="exam_type_id" #exam_type_id="ngModel" >
+                  <ng-option *ngFor="let examType of examTypes" [value]="examType.exam_type_id">
+                    {{examType.exam_type_name}} </ng-option>
+                </ng-select>
+                <small class="form-text text-muted danger"
+                       *ngIf="exam_type_id?.errors && exam_type_id.touched"> Exam Type is empty or
+                  invalid </small>
+              </div>
+
+
+
+              <!-- <div class="col-md-4 mb-3 md-2">
+                <label>Subject</label>
+                <ng-select placeholder="Choose Subject..."
+                           [(ngModel)]="subject.subject_name" name="subject_id" #subject_name="ngModel" >
+                  <ng-option *ngFor="let subject of subjects" [value]="subject.subject_id">
+                    {{subject.subject_name}}</ng-option>
+                </ng-select>
+                <small class="form-text text-muted danger"
+                       *ngIf="subject_name?.errors && subject_name.touched"> Subject is empty or
+                  invalid </small>
+              </div> -->
+
+
+
+
+              <div class="col-md-4 mb-3 md-2">
+                <label>Subject</label>
+                <ng-select placeholder="Choose Subject..."
+                           [(ngModel)]="schoolSubject.subject" name="school_subject_id" #school_subject_id="ngModel" >
+                  <ng-option *ngFor="let subject of schoolSubjects" [value]="subject.school_subject_id">
+                    {{subject.subject.subject_name}}</ng-option>
+                </ng-select>
+                <small class="form-text text-muted danger"
+                       *ngIf="school_subject_id?.errors && school_subject_id.touched"> Subject is empty or
+                  invalid </small>
+              </div>
+
+              <div class="col-md-4 mb-3 form-group">
+                <label>Exam Date</label>
+                <input class="round form-control" placeholder="Exam Date"
+                       required="true"
+                       type="text"
+                       name="exam_date"
+                       mwlFlatpickr
+                       [(ngModel)]="exam.exam_date" #exam_date="ngModel">
+                <small class="form-text text-muted danger"
+                       *ngIf="exam_date?.errors && exam_date.touched">Exam Date is empty or
+                  invalid</small>
+              </div>
+
+              <!--<div class="col-md-4 mb-3 form-group">
+                <label>Exam Time</label>
+                <input [ngxTimepicker]="picker">
+                <ngx-material-timepicker #picker></ngx-material-timepicker>
+                <small class="form-text text-muted danger"
+                       *ngIf="exam_time?.errors && exam_time.touched">Exam Time is empty or
+                  invalid</small>
+              </div>-->
+
+              <div class="col-md-4 mb-3 form-group">
+                <label >Exam Time</label>
+                <div class="input-group">
+                  <!-- <input ngModel type="text"  class="form-control" placeholder="Exam Time" ngbDatepicker #d="ngbDatepicker"
+                         [(ngModel)]="exam.exam_time" name="exam_time" #exam_time="ngModel" required/> -->
+                         <input
+                         class="form-control"
+                         type="text" #exam_time="ngModel" required
+                         mwlFlatpickr
+                         [(ngModel)]="exam.exam_time"
+                         [noCalendar]="true"
+                         [enableTime]="true"
+                         [dateFormat]="'H:i'"
+                       >
+                </div>
+
+              
+                
+                <small class="form-text  danger"
+                       *ngIf="exam_time?.errors && exam_time.touched"> Exam Time is empty or
+                  invalid </small>
+              </div>
+              
+              
+              <div class="col-md-4 mb-3 md-2">
+                <label>Class</label>
+                <ng-select placeholder="Choose Class..."
+                           [(ngModel)]="class.class_name" name="class_id" #class_name="ngModel" >
+                  <ng-option *ngFor="let class of classes" [value]="class.class_id">
+                    {{class.class_name}}</ng-option>
+                </ng-select>
+                <small class="form-text text-muted danger"
+                       *ngIf="class_name?.errors && class_name.touched"> Class is empty or
+                  invalid </small>
+              </div>
+
+              <!-- <div class="col-md-4 mb-3 md-2">
+                <label>School</label>
+                <ng-select placeholder="Choose School..."
+                           [(ngModel)]="school.org_id" name="org_id" #org_name="ngModel" >
+                  <ng-option *ngFor="let school of schools" [value]="school.org_id">
+                    {{school.org_name}}</ng-option>
+                </ng-select>
+                <small class="form-text text-muted danger"
+                       *ngIf="org_name?.errors && org_name.touched"> School is empty or
+                  invalid </small>
+              </div>
+
+              <div class="col-md-4 mb-3 md-2">
+                <label>Staff</label>
+                <ng-select placeholder="Choose Staff..."
+                           [(ngModel)]="staff.staff_id" name="staff_id" #username="ngModel" >
+                  <ng-option *ngFor="let staff of staffs" [value]="staff.staff_id">
+                    {{staff.first_name}}</ng-option>
+                </ng-select>
+                <small class="form-text text-muted danger"
+                       *ngIf="username?.errors && username.touched"> Staff is empty or
+                  invalid </small>
+              </div> -->
+
+            </div>
+            <div class="row ">
+             
+              <div align="left" class="col-6"><button routerLink="/academics/exams" class="btn btn-secondary"  type="submit">Back</button></div>
+              <div  class="col-6 text-right"> <button [disabled]="!form.valid" class="btn btn-primary"  type="submit">Submit</button></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

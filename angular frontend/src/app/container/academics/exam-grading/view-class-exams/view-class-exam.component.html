@@ -1,0 +1,183 @@
+<ngx-ui-loader fgsSize="180" bdColor="rgba(255, 0, 24,0.8)" size="large" color="#fff" [fgsType]="spinnerType">
+</ngx-ui-loader>
+
+<div class="ms-content-wrapper">
+  <div class="row">
+    <div class="col-md-12">
+      <breadcrumb #parent>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb breadcrumb-arrow has-gap first-rounded pl-0">
+            <ng-template ngFor let-route [ngForOf]="parent.breadcrumbs">
+              <li class="breadcrumb breadcrumb-arrow has-gap first-rounded"><a routerLink="/academics/exams"><i class="material-icons">home</i> Home</a></li>
+             <!-- <li *ngIf="!route.terminal" class="breadcrumb-item">
+                <a href="" [routerLink]="[route.url]">{{ route.displayName }}</a>
+              </li>-->
+              <li *ngIf="route.terminal" class="breadcrumb-item active" aria-current="page">{{
+                route.displayName }}</li>
+            </ng-template>
+          </ol>
+        </nav>
+      </breadcrumb>
+
+    </div>
+    <div class="col-md-12">
+      <div class="ms-panel ms-panel-fh">
+        <div class="ms-panel-header">
+          <h6>Exam Details</h6>
+        </div>
+          <div class="row" >
+            <div class="col-4 p-5">
+              <h5 class="i font-bold m-b m-t-none">{{exam.exam_schedule_name}} </h5>
+              <p><i class="i i-info fa-lg fa-fw m-r-sm"></i>Exam Type: <b>{{exam.exam_type.exam_type_name}}</b></p>
+              <p><i class="i i-info fa-lg fa-fw m-r-sm"></i>Exam Date: <b>{{exam.exam_date | date}}</b></p>
+              <p><i class="i i-info fa-lg fa-fw m-r-sm"></i>Exam Time: <b>{{exam.exam_time}}</b></p>
+              <!-- <p><i class="i i-info fa-lg fa-fw m-r-sm"></i>Class: <b>{{exam.class_model.class_name }}</b></p> -->
+
+            </div>
+            <div class="col-4 p-5 text-right">
+              <h4 class="i font-bold m-b m-t-none float-right">Subject: <b>{{exam.subject.subject.subject_name}}</b> </h4>
+              <!--
+              <p><i class="i i-info fa-lg fa-fw m-r-sm float-right"></i>Subject: <b>{{exam.subject.subject.subject_name}}</b></p>
+              <p><i class="i i-info fa-lg fa-fw m-r-sm"></i>Class Level: <b>{{exam.class_model.school_level.school_level_name }}</b></p>
+              <p><i class="i i-info fa-lg fa-fw m-r-sm"></i>Education System: <b>{{exam.class_model.education_system.education_system_name }}</b></p>
+              <p><i class="i i-info fa-lg fa-fw m-r-sm"></i>Subject: <b>{{exam.subject.subject.subject_name}}</b></p>
+              <p><i class="i i-info fa-lg fa-fw m-r-sm"></i>Date Created: <b>{{exam.createAt | date}}</b></p> -->
+            </div>
+            <hr/>
+          </div>
+
+      </div>
+    </div>
+    <hr/>
+
+    <div class="col-md-12"> 
+    <div class="ms-panel">
+      <div class="row ms-panel-header">
+        <div class="col">
+          <h6>Exams Student List</h6>
+        </div>
+        <div class="col">
+<!--           
+          <button routerLink="['/academics/grade-student', exam.exam_schedule_id]"  class="btn btn-danger btn-sm btn-rounded float-right"
+                  data-toggle="modal">
+            <i class="fa fa-plus"></i> Add Exam Type
+          </button>  -->
+
+          <button [routerLink]="['/academics/exam-graded-student/', exam.exam_schedule_id]" class="btn btn-danger btn-sm btn-rounded float-right">
+            <i class="fa fa-plus"></i> View Exam Postings
+          </button> 
+        </div>
+      </div>
+      <div class="ms-panel-body">
+        <div class="table-responsive">
+          <table id="data-table-5" class="table w-100 thead-primary"></table>
+        </div>
+        <div class="col-xl-12 justify-content-end">
+          <div class="table-responsive">
+          <table *ngIf="students" datatable="ng" [dtOptions]="dtOptions" class="table table-striped table-bordered" id="datatableStudents">
+          
+                <thead class="thead-light pb-3 mb-5">
+                  <tr>
+                    <th>#SN</th>
+                    <th class="sort" data-sort="title">Names</th>
+                    <th>Class</th> 
+                    <th>Stream</th> 
+                    <th>Grade</th> 
+                    <th>Remarks</th> 
+                    <th>Action</th>
+                  </tr>
+                  </thead>
+                <tbody class="list">
+                <tr *ngFor="let student of this.studentsGrades;let ix=index;">
+                  <td scope="row">{{ ix+1 }}</td>
+                  <td scope="row">{{ student.student.first_name }} {{ student.middle_name }} {{ student.surname }}</td>
+                  <td scope="row">{{ student.student.school_stream.class_model.class_name }}</td>
+                  <td scope="row">{{ student.student.school_stream.stream_name }}</td>
+                  <td scope="row">{{ student.grade  }}</td>
+                  <td scope="row">{{ student.remarks  }}</td>
+                  <td> 
+                    <a class="" (click)="gradeStudent(student,modalGrade)">
+                      Set Grade
+                    </a>
+                    
+                    <!-- <a class="" (click)="gradeStudent(student,modalGrade)">
+                      <i class="fa fa-eye"><strong></strong></i>
+                    </a> -->
+                  </td>
+                </tr>
+                </tbody> 
+
+          </table>
+
+          </div>
+        </div>
+<!--              <ng2-smart-table [settings]="settings" [source]="schools" class="table w-100 thead-primary"></ng2-smart-table>-->
+      </div>
+    </div>
+
+
+    </div>
+
+  </div>
+</div>
+
+
+
+<ng-template #modalGrade let-modal>
+  <div class="modal-body">
+    <button type="button" class="close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h1>Set Grade</h1>
+    <!--
+    {{student.student| json }} <form [formGroup]="myForm" (ngSubmit)="submit($event)" autocomplete="off" class="form form-register"> -->
+      <form #form="ngForm" (ngSubmit)="submit(form)" autocomplete="off" class="form form-register">
+      <fieldset>
+        <div class="ms-form-group has-icon">
+          <label>Student Name</label>
+          <input type="text" placeholder="Student Name" class="form-control" id="student"
+              name="exam_type_name" required value="{{studentsname}}" readonly/>
+          
+        </div>
+        <div class="ms-form-group has-icon">
+          <label>Subject: </label>
+          <input type="text" placeholder="Student Name" class="form-control" id="student"
+              name="exam_type_name" required value="{{exam.subject.subject.subject_name}}" readonly/>   
+            
+        </div>
+        
+
+
+        <div class="ms-form-group has-icon">
+          <label>Grade</label>
+          <input type="text" placeholder="Grade given" class="form-control"
+                 [(ngModel)]="gradePosting.grade" name="grade" #grade="ngModel"required />
+          <div *ngIf="(grade.touched || submitted) && grade.invalid">
+            <span class="text-danger" *ngIf="grade.errors.required">Grade is required.</span>
+          </div>
+        </div>      
+
+
+
+        <div class="ms-form-group has-icon">
+          <label>Remarks</label>
+          <textarea rows="5" class="form-control" placeholder="remarks"
+                    [(ngModel)]="gradePosting.remarks" name="remarks" #remarks="ngModel" required ></textarea>
+          <div *ngIf="
+              (remarks.touched || submitted) && remarks.invalid
+            ">
+            <span class="text-danger" *ngIf="remarks.errors.required">Remarks is required.</span>
+          </div>
+        </div>
+
+
+      </fieldset>
+      <div class="d-flex justify-content-between">
+        <button type="button" class="btn btn-light" (click)="modal.dismiss('Cross click')">
+          Cancel
+        </button>
+        <button type="submit" class="btn btn-primary shadow-none">Save</button>
+      </div>
+    </form>
+  </div>
+</ng-template>

@@ -1,0 +1,241 @@
+<ngx-ui-loader fgsSize="180" bdColor="rgba(255, 0, 24,0.8)" size="large" color="#fff" [fgsType]="spinnerType">
+</ngx-ui-loader>
+
+<div class="ms-content-wrapper">
+  <div class="row">
+    <div class="col-md-12">
+<!--      <app-breadcrumb></app-breadcrumb>-->
+      <breadcrumb #parent>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb breadcrumb-arrow has-gap first-rounded pl-0">
+            <ng-template ngFor let-route [ngForOf]="parent.breadcrumbs">
+              <li class="breadcrumb breadcrumb-arrow has-gap first-rounded"><a routerLink="/students/list"><i class="material-icons">home</i> Home</a></li>
+              <!-- <li *ngIf="!route.terminal" class="breadcrumb-item">
+                 <a href="" [routerLink]="[route.url]">{{ route.displayName }}</a>
+               </li>-->
+              <li *ngIf="route.terminal" class="breadcrumb-item active" aria-current="page">{{
+                route.displayName }}</li>
+            </ng-template>
+          </ol>
+        </nav>
+      </breadcrumb>
+      <div class="ms-panel">
+        <div class="ms-panel-header">
+          <h6>Add Student</h6>
+        </div>
+        <div class="ms-panel-body">
+          <form #form="ngForm" (ngSubmit)="submit(form)" autocomplete="off">
+            <div class="form-row">
+              <div class="col-md-4 mb-3 form-group">
+                <label >First Name</label>
+                <div class="input-group">
+                  <input ngModel type="text"  class="form-control" placeholder="First Name"
+                         [(ngModel)]="student.first_name" name="first_name" #first_name="ngModel" required/>
+                </div>
+                <small class="form-text  danger"
+                       *ngIf="first_name?.errors && first_name.touched"> First Name is empty or
+                  invalid </small>
+              </div>
+
+              <div class="col-md-4 mb-3 form-group">
+                <label >Middle Name</label>
+                <div class="input-group">
+                  <input ngModel type="text"  class="form-control" placeholder="Middle Name"
+                         [(ngModel)]="student.middle_name" name="middle_name" #middle_name="ngModel" required/>
+                </div>
+                <small class="form-text  danger"
+                       *ngIf="middle_name?.errors && middle_name.touched"> Middle Name is empty or
+                  invalid </small>
+              </div>
+
+              <div class="col-md-4 mb-3 form-group">
+                <label >Surname</label>
+                <div class="input-group">
+                  <input ngModel type="text"  class="form-control" placeholder="Surname"
+                         [(ngModel)]="student.surname" name="surname" #surname="ngModel" required/>
+                </div>
+                <small class="form-text  danger"
+                       *ngIf="surname?.errors && surname.touched"> Surname is empty or
+                  invalid </small>
+              </div>
+
+              <div class="col-md-4 mb-3 ">
+                <label>Gender</label>
+                <select class="form-control" id="gender" [(ngModel)]="student.gender" name="gender" #gender="ngModel" required>
+                  <option value="" disabled selected>Choose Gender...</option>
+                  <option value="MALE">Male</option>
+                  <option value="FEMALE">Female</option>
+                  <option value="UNKNOWN">Others</option>
+                </select>
+                <small class="form-text text-muted danger"
+                       *ngIf="gender?.errors && gender.touched"> Gender is empty or
+                  invalid </small>
+              </div>
+
+              <div class="col-md-4 mb-3 form-group">
+                <label>DOB</label>
+                <input class="round form-control" placeholder="DOB"
+                       required="true"
+                       type="text"
+                       name="dob"
+                       mwlFlatpickr
+                       [(ngModel)]="student.dob" #dob="ngModel"
+
+                >
+                <small class="form-text text-muted danger"
+                       *ngIf="dob?.errors && dob.touched">DOB is empty or
+                  invalid</small>
+              </div>
+
+              <div class="col-md-4 mb-3 form-group">
+                <label >Guardians Name</label>
+                <div class="input-group">
+                  <input ngModel type="text"  class="form-control" placeholder="Guardians Name"
+                         [(ngModel)]="student.guardians_name" name="guardians_name" #guardians_name="ngModel" required/>
+                </div>
+                <small class="form-text  danger"
+                       *ngIf="guardians_name?.errors && guardians_name.touched"> Guardians Name is empty or
+                  invalid </small>
+              </div>
+
+              <div class="col-md-4 mb-3 form-group">
+                <label >Guardian Phone</label>
+                <div class="input-group">
+                  <input ngModel type="text"  class="form-control" placeholder="Guardian Phone"
+                         [(ngModel)]="student.guardian_phone" name="guardian_phone" #guardian_phone="ngModel" required/>
+                </div>
+                <small class="form-text  danger"
+                       *ngIf="guardian_phone?.errors && guardian_phone.touched"> Guardian Phone is empty or
+                  invalid </small>
+              </div>
+
+              <div class="col-md-4 mb-3 form-group">
+                <label >Next Of Kin</label>
+                <div class="input-group">
+                  <input ngModel type="text"  class="form-control" placeholder="Next Of Kin"
+                         [(ngModel)]="student.next_of_kin" name="next_of_kin" #next_of_kin="ngModel" required/>
+                </div>
+                <small class="form-text  danger"
+                       *ngIf="next_of_kin?.errors && next_of_kin.touched"> Next Of Kin is empty or
+                  invalid </small>
+              </div>
+
+              <div class="col-md-4 mb-3 form-group">
+                <label >Kin Phone</label>
+                <div class="input-group">
+                  <input ngModel type="text"  class="form-control" placeholder="Kin Phone"
+                         [(ngModel)]="student.kin_phone" name="kin_phone" #kin_phone="ngModel" required/>
+                </div>
+                <small class="form-text  danger"
+                       *ngIf="kin_phone?.errors && kin_phone.touched"> Kin Phone is empty or
+                  invalid </small>
+              </div>
+
+              <div class="col-md-4 mb-3 form-group">
+                <label >Kin Relationship</label>
+                <div class="input-group">
+                  <input ngModel type="text"  class="form-control" placeholder="Kin Relationship"
+                         [(ngModel)]="student.kin_relationship" name="kin_relationship" #kin_relationship="ngModel" required/>
+                </div>
+                <small class="form-text  danger"
+                       *ngIf="kin_relationship?.errors && kin_relationship.touched"> Kin Relationship is empty or
+                  invalid </small>
+              </div>
+
+              <div class="col-md-4 mb-3 ">
+                <label>Boarder OR Day</label>
+                <select class="form-control" id="is_boarder" [(ngModel)]="student.is_boarder" name="is_boarder" #is_boarder="ngModel" required>
+                  <option value="" disabled selected>Choose...</option>
+                  <option value="true">Boarder</option>
+                  <option value="false">Day</option>
+                </select>
+                <small class="form-text text-muted danger"
+                       *ngIf="is_boarder?.errors && is_boarder.touched"> Gender is empty or
+                  invalid </small>
+              </div>
+
+              <div class="col-md-4 mb-3 form-group">
+                <label>Admission Date</label>
+                <input class="round form-control" placeholder="Admission Date"
+                       required="true"
+                       type="text"
+                       name="admission_date"
+                       mwlFlatpickr
+                       [(ngModel)]="student.admission_date" #admission_date="ngModel"
+
+                >
+                <small class="form-text text-muted danger"
+                       *ngIf="admission_date?.errors && admission_date.touched">Purchase Date is empty or
+                  invalid</small>
+              </div>
+
+              <div class="col-md-4 mb-3 md-2">
+                <label>Stream</label>
+                <ng-select placeholder="Choose Stream..."
+                           [(ngModel)]="school_stream.school_stream_id" name="school_stream_id" #stream_name="ngModel" >
+                  <ng-option *ngFor="let stream of school_streams" [value]="stream.school_stream_id">
+                    {{stream.stream_name}}</ng-option>
+                </ng-select>
+                <small class="form-text text-muted danger"
+                       *ngIf="stream_name?.errors && stream_name.touched"> Stream is empty or
+                  invalid </small>
+              </div>
+
+              <div class="col-md-4 mb-3 md-2">
+                <label>Hostel</label>
+                <ng-select placeholder="Choose Hostel..."
+                           [(ngModel)]="hostel.hostel_id" name="hostel_id" #hostel_name="ngModel" >
+                  <ng-option *ngFor="let hostel of hostels" [value]="hostel.hostel_id">
+                    {{hostel.hostel_name}}</ng-option>
+                </ng-select>
+                <small class="form-text text-muted danger"
+                       *ngIf="hostel_name?.errors && hostel_name.touched"> Hostel is empty or
+                  invalid </small>
+              </div>
+
+              <div class="col-md-4 mb-3 md-2">
+                <label>Positions</label>
+                <ng-select placeholder="Choose Positions..."
+                           [(ngModel)]="position.position_id" name="position_id" #position_name="ngModel" >
+                  <ng-option *ngFor="let positionData of positions" [value]="positionData.position_id">
+                    {{positionData.position_name}}</ng-option>
+                </ng-select>
+                <small class="form-text text-muted danger"
+                       *ngIf="position_name?.errors && position_name.touched"> Positions is empty or
+                  invalid </small>
+              </div>
+              <div class="col-md-4 mb-3 form-group">
+                <label for="exampleTextarea">Student Photo</label>
+              <ngx-dropzone (change)="onImageSelect($event)" class="custom-dropzone">
+                <ngx-dropzone-label>
+                  <h2 class='text-base font-medium  text-dark'>
+                    Upload Image<br />
+                    <i class="fas fa-cloud-upload-alt"></i>
+                  </h2>
+                </ngx-dropzone-label>
+                 <!--<ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+                      <ngx-dropzone-label>
+                      </ngx-dropzone-label>
+                    </ngx-dropzone-preview>-->
+                <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f"
+                                            [removable]="true" id="dropzone" (removed)="onRemove(f)">
+                  <!-- style="align-items: center; border-radius: 5px; display: flex; /*! height: 300px; */ justify-content: center; margin: 10px; max-width: 300px; /*! min-height: 300px; */ min-width: 300px; padding: 0px 10px; position: relative;"> -->
+
+                </ngx-dropzone-image-preview>
+              </ngx-dropzone>
+              </div>
+            </div>
+            <div class="row ">
+              <div  class="col-lg-12 mb-3">
+                <button [disabled]="!form.valid" class="btn btn-primary d-block float-right" type="submit">Save and Continue</button>
+                <button routerLink="/students/list" class="btn btn-secondary float-right mr-3"  type="submit">Back</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

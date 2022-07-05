@@ -1,0 +1,263 @@
+<ngx-ui-loader fgsSize="180" bdColor="rgba(254, 45, 2,0.8)" size="large" color="#fff" [fgsType]="spinnerType">
+</ngx-ui-loader>
+
+<div class="ms-content-wrapper">
+  <div class="row">
+    <div class="col-md-12">
+<!--      <app-breadcrumb></app-breadcrumb>-->
+      <breadcrumb #parent>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb breadcrumb-arrow has-gap first-rounded pl-0">
+            <ng-template ngFor let-route [ngForOf]="parent.breadcrumbs">
+              <li class="breadcrumb breadcrumb-arrow has-gap first-rounded"><a routerLink="/dashboard"><i class="material-icons">home</i> Home</a></li>
+              <!-- <li *ngIf="!route.terminal" class="breadcrumb-item">
+                 <a href="" [routerLink]="[route.url]">{{ route.displayName }}</a>
+               </li>-->
+              <li *ngIf="route.terminal" class="breadcrumb-item active" aria-current="page">{{
+                route.displayName }}</li>
+            </ng-template>
+          </ol>
+        </nav>
+      </breadcrumb>
+      <div class="ms-panel">
+        <div class="row ms-panel-header">
+          <div class="col">
+            <h6>Staff List</h6>
+          </div>
+          <div class="col">
+            <!-- <button class="btn btn-danger btn-sm btn-rounded float-right" (click)="openmax(modalAddStaff)"
+              data-toggle="modal">
+              <i class="fa fa-plus"></i> Add Staff
+            </button> -->
+            <button class="btn btn-danger btn-sm btn-rounded float-right" routerLink="/school/add-staff"
+              data-toggle="modal">
+              <i class="fa fa-plus"></i> Add Staff
+            </button>
+
+ 
+          </div>
+        </div>
+        <div class="ms-panel-body">
+          <!-- <p class="ms-directions">Check <code>/src/app/data/datatable.json</code> for reference</p>
+                    <div class="row mb-3">
+                        <div class="col-lg-3 col-md-6">
+                            <input #search class="search" class="form-control" type="text" placeholder="Search..." (keydown.enter)="onSearch(search.value)">
+                        </div>
+                    </div> -->
+          <div class="table-responsive">
+            <table *ngIf="staffList" datatable [dtOptions]="dtOptions" class="table table-striped table-bordered">
+              <thead class="thead-light pb-3 mb-5">
+                <tr>
+                  <th>#SN</th>
+                  <th class="sort" data-sort="title">Name</th>
+                  <th>Email</th>
+                  <th>Gender</th>
+                  <th>Phone Number</th>
+                  <th>Marital Status</th>
+                  <!-- <th *ngIf="!staff.positions">Position</th>  -->
+                  <th>Employment Date</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+
+
+              <tbody class="list">
+                <tr *ngFor="let staff of staffList; let ix = index">
+                  <td scope="row">{{ ix + 1 }}</td>
+                  <td scope="row">{{ staff.title }} {{ staff.first_name }} {{ staff.middle_name }} {{ staff.surname }}
+                  </td>
+                  <td scope="row">{{ staff.email }}</td>
+                  <td scope="row">{{ staff.gender }}</td>
+                  <th scope="row">{{ staff.phone_number }}</th>
+                  <th scope="row">{{ staff.marital_status }}</th>
+                  <!-- <td scope="row"  *ngIf="!staff.positions">{{ staff.positions.position_name }}</td> -->
+                  <th scope="row">{{ staff.employment_date | date}}</th>
+
+                  <td>
+                    <a [routerLink]="['/school/view-staff/', staff.staff_id]" class="">
+                      <i class="fa fa-eye"><strong></strong></i>
+                    </a>
+                    <a [routerLink]="['/school/edit-staff/', staff.staff_id]" class="">
+                      <i class="fas fa-edit"><strong></strong></i>
+                    </a>
+                    <!-- <a class="" (click)="viewDetails(staff,modalAddStaff)">
+                      <i class="fa fa-eye"><strong></strong></i>
+                    </a>
+                    <a class="" (click)="editDetails(staff,modalAddStaff)">
+                      <i class="fas fa-edit"><strong></strong></i>
+                    </a> -->
+                    <a class="" (click)="delete_class(staff)">
+                      <i class="fas fa-trash"><strong></strong></i>
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #modalAddStaff let-modal>
+  <div class="modal-body">
+    <button type="button" class="close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h1>Add/Edit Staff</h1>
+
+    <form [formGroup]="staffForm" (ngSubmit)="submit($event)" autocomplete="off" class="form form-register">     
+      <fieldset>
+
+        <div class="form-row">
+          <div class="col-md-2 mb-3">
+
+            <label>Title</label>
+            <div class="ms-form-group has-icon">
+              <select formControlName="title" class="custom-select">
+                <option *ngFor="let title of title_list" [ngValue]="title">
+                  {{ title.name }}
+                </option>
+              </select> 
+            </div>
+            <div *ngIf="(f.title.touched || submitted) && f.title.invalid">
+              <span class="text-danger" *ngIf="f.title.errors.required">Staff title is required.</span>
+            </div>
+          </div>
+          <div class="col-md-3 mb-3">
+
+            <label>First Name</label>
+            <div class="ms-form-group has-icon">
+              <input type="text" placeholder="First Name" class="form-control" id="first_name"
+                formControlName="first_name" name="first_name" required value="{{staff.first_name}}" />
+            </div>
+            <div *ngIf="(f.first_name.touched || submitted) && f.first_name.invalid">
+              <span class="text-danger" *ngIf="f.first_name.errors.required">Staff Name is required.</span>
+            </div>
+          </div>
+          <div class="col-md-3 mb-3">
+            <label>Middle Name</label>
+            <div class="ms-form-group has-icon">
+              <input type="text" placeholder="MIddle Name" class="form-control" id="middle_name"
+                formControlName="middle_name" name="first_name" required value="{{staff.middle_name}}" />
+            </div>
+            <div *ngIf="(f.middle_name.touched || submitted) && f.middle_name.invalid">
+              <span class="text-danger" *ngIf="f.middle_name.errors.required">Middle Name is required.</span>
+            </div>
+          </div>
+          <div class="col-md-3 mb-2">
+            <label>SurName</label>
+            <div class="ms-form-group has-icon">
+              <input type="text" placeholder="SurName" class="form-control" id="surname" formControlName="surname"
+                name="surname" required value="{{staff.surname}}" />
+            </div>
+            <div *ngIf="(f.surname.touched || submitted) && f.surname.invalid">
+              <span class="text-danger" *ngIf="f.surname.errors.required">SurName is required.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="col-md-6 mb-3">
+            <label>Email</label>
+            <div class="ms-form-group has-icon">
+              <input type="text" placeholder="Email" class="form-control" id="email" formControlName="email"
+                name="email" required value="{{staff.email}}" />
+            </div>
+              <div *ngIf="(f.email.touched || submitted) && f.email.invalid">
+                <span class="text-danger" *ngIf="f.email.errors.required">Email is required.</span>
+              </div>
+          </div>
+          <div class="col-md-6 mb-2">
+            <label>Phone Number </label>
+            <div class="ms-form-group has-icon">
+              <input type="text" placeholder="Phone Number " class="form-control" id="phone_number"
+                formControlName="phone_number" name="phone_number" required value="{{staff.phone_number}}" />
+            </div>
+              <div *ngIf="(f.phone_number.touched || submitted) && f.phone_number.invalid">
+                <span class="text-danger" *ngIf="f.phone_number.errors.required">Phone Number is required.</span>
+              </div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="col-md-4 mb-3">
+            <label>Gender</label>
+            <div class="ms-form-group has-icon">
+              <select formControlName="gender" class="custom-select">
+                <option *ngFor="let gender of genders" [ngValue]="gender">
+                  {{ gender.name }}
+                </option>
+              </select>
+            </div>
+            <div *ngIf=" (f.gender.touched || submitted) && f.gender.invalid ">
+              <span class="text-danger" *ngIf="f.gender.errors.required">Gender is required.</span>
+            </div>
+          </div>
+          <div class="col-md-4 mb-2">
+            <label>Marital Status</label>
+            <div class="ms-form-group has-icon">
+              <select formControlName="marital_status" class="custom-select">
+                <option *ngFor="let marital_status of marital_status_list" [ngValue]="marital_status">
+                  {{ marital_status.name }}
+                </option>
+              </select>
+            </div>
+            <div *ngIf=" (f.marital_status.touched || submitted) && f.marital_status.invalid ">
+              <span class="text-danger" *ngIf="f.marital_status.errors.required">Marital status is required.</span>
+            </div>
+          </div>
+          <div class="col-md-4 mb-2">
+            <label>Spouse Name</label>
+            <div class="ms-form-group has-icon">
+              <input type="text" placeholder="spouse name" class="form-control" id="spouse_name"
+                formControlName="spouse_name" name="spouse_name" value="{{staff.spouse_name}}" />
+            </div>
+            <!-- <div *ngIf=" (f.spouse_name.touched || submitted) && f.spouse_name.invalid ">
+              <span class="text-danger" *ngIf="f.spouse_name.errors.required">Spouse Name is required.</span>
+            </div> -->
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="col-md-6 mb-3">
+            <label>Position</label>
+            <div class="ms-form-group has-icon">
+              <select formControlName="position" class="custom-select">
+                <option *ngFor="let position of positions" [ngValue]="position.position_id">
+                  {{ position.position_name }}
+                </option>
+              </select>
+            </div>
+            <div *ngIf=" (f.position.touched || submitted) && f.position.invalid ">
+              <span class="text-danger" *ngIf="f.position.errors.required">Position is required.</span>
+            </div>
+          </div>
+          <div class="col-md-6 mb-2">
+            <label>Employment Date</label>
+            
+            <div class="ms-form-group has-icon">
+            <input type="date"  placeholder="Employment date" class="form-control" id="employment_date"
+              formControlName="employment_date" name="employment_date" required value="{{staff.employment_date}}" />
+            </div>
+          
+            <div *ngIf="(f.employment_date.touched || submitted) && f.employment_date.invalid">
+              <span class="text-danger" *ngIf="f.employment_date.errors.required">employment_date is required.</span>
+            </div>
+          </div>
+        </div>
+
+      </fieldset>      
+      <div class="d-flex justify-content-between">
+        <button type="button" class="btn btn-light" (click)="modal.dismiss('Cross click')">
+          Cancel
+        </button>
+        <button type="submit" class="btn btn-primary shadow-none">Save</button>
+      </div>
+    </form>
+
+  </div>
+</ng-template>
+
+

@@ -1,0 +1,287 @@
+<ngx-ui-loader fgsSize="180" bdColor="rgba(245, 54, 92,0.8)" size="large" color="#fff" [fgsType]="spinnerType">
+</ngx-ui-loader>
+
+<div class="ms-content-wrapper">
+  <div class="row">
+    <div class="col-md-12">
+<!--      <app-breadcrumb></app-breadcrumb>-->
+      <breadcrumb #parent>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb breadcrumb-arrow has-gap first-rounded pl-0">
+            <ng-template ngFor let-route [ngForOf]="parent.breadcrumbs">
+              <li class="breadcrumb breadcrumb-arrow has-gap first-rounded"><a routerLink="/schools/list"><i class="material-icons">home</i> Home</a></li>
+              <!-- <li *ngIf="!route.terminal" class="breadcrumb-item">
+                 <a href="" [routerLink]="[route.url]">{{ route.displayName }}</a>
+               </li>-->
+              <li *ngIf="route.terminal" class="breadcrumb-item active" aria-current="page">{{
+                route.displayName }}</li>
+            </ng-template>
+          </ol>
+        </nav>
+      </breadcrumb>
+     
+      <div class="ms-panel">
+        <div class="row ms-panel-header">
+          <div class="col">
+            <h6>Class Stream List</h6>
+          </div>
+          <div class="col">
+            <button class="btn btn-danger btn-sm btn-rounded float-right" (click)="openmax(add)"
+              data-toggle="modal">
+              <i class="fa fa-plus"></i> Add Stream
+            </button>
+          </div>
+        </div>
+        <div class="ms-panel-body">
+          <!-- <p class="ms-directions">Check <code>/src/app/data/datatable.json</code> for reference</p>
+                    <div class="row mb-3">
+                        <div class="col-lg-3 col-md-6">
+                            <input #search class="search" class="form-control" type="text" placeholder="Search..." (keydown.enter)="onSearch(search.value)">
+                        </div>
+                    </div> -->
+          <div class="table-responsive">
+            <table *ngIf="school_streamList" datatable [dtOptions]="dtOptions"
+              class="table table-striped table-bordered">
+              <thead class="thead-light pb-3 mb-5">
+                <tr>
+                  <th>#SN</th>
+                  <th class="sort" data-sort="title">Stream Name</th>
+                  <th>Description</th>
+                  <th>Abbr</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+
+              <tbody class="list">
+                <tr *ngFor="let stream of school_streamList; let ix = index">
+                  <td scope="row">{{ ix + 1 }}</td>
+                  <td scope="row">{{ stream.stream_name }}</td>
+                  <td scope="row">                   
+                    <div *ngIf="!stream.description">
+                      N/A
+                    </div>
+                    <div *ngIf="stream.description">
+                      {{ stream.description }}
+                    </div>
+                  </td>
+                  <td scope="row"> {{ stream.abbr }} </td>
+                  <td>
+                    <a class="" (click)="viewDetails(stream,view)">
+                      <i class="fa fa-eye"><strong></strong></i>
+                    </a>
+                    <a class="" (click)="editDetails(stream,edit)">
+                      <i class="fas fa-edit"><strong></strong></i>
+                    </a>
+                    <a class="" (click)="delete_class(stream)">
+                      <i class="fas fa-trash"><strong></strong></i>
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #add let-modal>
+  <div class="modal-body">
+    <button type="button" class="close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h1>Add Stream</h1>
+
+    <form #myForm="ngForm" (ngSubmit)="addPosition(myForm)" autocomplete="off" class="form form-register">
+      <fieldset>
+        <div class="ms-form-group has-icon">
+          <label>Stream Name</label>
+          <input type="text" placeholder="Stream Name" class="form-control"
+                 [(ngModel)]="schoolStreamData.stream_name" name="stream_name" #stream_name="ngModel"required />
+          <div *ngIf="(stream_name.touched || submitted) && stream_name.invalid">
+            <span class="text-danger" *ngIf="stream_name.errors.required">Stream Name is required.</span>
+          </div>
+        </div>        
+
+        <div class="ms-form-group has-icon">
+          <label>Description</label>
+          <textarea rows="5" class="form-control" placeholder="description"
+                    [(ngModel)]="schoolStreamData.description" name="description" #description="ngModel" required ></textarea>
+          <div *ngIf="
+              (description.touched || submitted) && description.invalid
+            ">
+            <span class="text-danger" *ngIf="description.errors.required">Description is required.</span>
+          </div>
+        </div>
+
+     
+        <div class="ms-form-group has-icon">
+          <label>Abbr.</label>
+          <input type="text" placeholder="abbreviation" class="form-control"
+                 [(ngModel)]="schoolStreamData.abbr" name="abbr" #abbr="ngModel"required />
+          <div *ngIf="(abbr.touched || submitted) && abbr.invalid">
+            <span class="text-danger" *ngIf="abbr.errors.required">Abbreviation is required.</span>
+          </div>
+        </div>  
+        
+        <div class="ms-form-group has-icon">
+          <label>Class</label>
+          <ng-select placeholder="Choose Class..."
+                     [(ngModel)]="class.class_id" name="class_id" #class_id="ngModel" required>
+            <ng-option *ngFor="let class of classList" [value]="class.class_id">
+              {{class.class_name}} {{class.description}}</ng-option>
+          </ng-select>
+          <small class="form-text text-muted danger"
+                 *ngIf="class_id?.errors && class_id.touched">Class is empty or
+            invalid </small>
+        </div>
+
+
+
+ 
+
+        <div class="ms-form-group has-icon">
+          <label>Class Capacity</label>
+          <input type="number" placeholder="Class Capacity" class="form-control"
+                 [(ngModel)]="schoolStreamData.class_capacity" class="form-control"name="class_capacity" #class_capacity="ngModel"required />
+          <div *ngIf="(class_capacity.touched || submitted) && class_capacity.invalid">
+            <span class="text-danger" *ngIf="class_capacity.errors.required">Class Capacity is required.</span>
+          </div>
+        </div> 
+ 
+      </fieldset>
+      <div class="d-flex justify-content-between">
+        <button type="button" class="btn btn-light" (click)="modal.dismiss('Cross click')">
+          Cancel
+        </button>
+        <button type="submit" class="btn btn-primary shadow-none">Save</button>
+      </div>
+    </form>
+  </div>
+</ng-template>
+
+<ng-template #edit let-modal>
+  <div class="modal-body">
+    <button type="button" class="close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h1>Edit Stream</h1>
+
+    <form #myForm="ngForm" (ngSubmit)="editposition(myForm)" autocomplete="off" class="form form-register">
+      <fieldset>
+        <div class="ms-form-group has-icon">
+          <label>Stream Name</label>
+          <input type="text" placeholder="Stream Name" class="form-control"
+                 [(ngModel)]="schoolStreamData.stream_name" name="stream_name" #stream_name="ngModel"required />
+          <div *ngIf="(stream_name.touched || submitted) && stream_name.invalid">
+            <span class="text-danger" *ngIf="stream_name.errors.required">Stream Name is required.</span>
+          </div>
+        </div>        
+
+        <div class="ms-form-group has-icon">
+          <label>Description</label>
+          <textarea rows="5" class="form-control" placeholder="description"
+                    [(ngModel)]="schoolStreamData.description" name="description" #description="ngModel" required ></textarea>
+          <div *ngIf="
+              (description.touched || submitted) && description.invalid
+            ">
+            <span class="text-danger" *ngIf="description.errors.required">Description is required.</span>
+          </div>
+        </div>
+
+     
+        <div class="ms-form-group has-icon">
+          <label>Abbr.</label>
+          <input type="text" placeholder="abbreviation" class="form-control"
+                 [(ngModel)]="schoolStreamData.abbr" name="abbr" #abbr="ngModel"required />
+          <div *ngIf="(abbr.touched || submitted) && abbr.invalid">
+            <span class="text-danger" *ngIf="abbr.errors.required">Abbreviation is required.</span>
+          </div>
+        </div>  
+        
+        <div class="ms-form-group has-icon">
+          <label>Class</label>
+          <ng-select placeholder="Choose Class..."
+                     [(ngModel)]="class.class_id" name="class_id" #class_id="ngModel" required>
+            <ng-option *ngFor="let class of classList" [value]="class.class_id">
+              {{class.class_name}} {{class.description}}</ng-option>
+          </ng-select>
+          <small class="form-text text-muted danger"
+                 *ngIf="class_id?.errors && class_id.touched">Class is empty or
+            invalid </small>
+        </div>
+
+
+
+ 
+
+        <div class="ms-form-group has-icon">
+          <label>Class Capacity</label>
+          <input type="number" placeholder="Class Capacity" class="form-control"
+                 [(ngModel)]="schoolStreamData.class_capacity" class="form-control"name="class_capacity" #class_capacity="ngModel"required />
+          <div *ngIf="(class_capacity.touched || submitted) && class_capacity.invalid">
+            <span class="text-danger" *ngIf="class_capacity.errors.required">Class Capacity is required.</span>
+          </div>
+        </div> 
+      </fieldset>
+      <div class="d-flex justify-content-between">
+        <button type="button" class="btn btn-light" (click)="modal.dismiss('Cross click')">
+          Cancel
+        </button>
+        <button type="submit" class="btn btn-primary shadow-none">Save</button>
+      </div>
+    </form>
+  </div>
+</ng-template>
+
+<ng-template #view let-modal>
+  <div class="modal-body">
+    <button type="button" class="close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h1>View position</h1>
+
+    <form autocomplete="off" class="form form-register">
+      <fieldset>
+        <div class="ms-form-group has-icon">
+          <label>position Name</label>
+          <input type="text" placeholder="position Name" class="form-control"
+                 [(ngModel)]="schoolStreamData.stream_name" name="stream_name" #stream_name="ngModel" readonly required />
+        </div>        
+
+        <div class="ms-form-group has-icon">        
+          <label>Abbreviations</label>
+          <input type="text" placeholder="position capacity" class="form-control"
+                 [(ngModel)]="schoolStreamData.abbr" name="abbr" #abbr="ngModel" readonly required /> 
+        </div>
+
+
+        <div class="ms-form-group has-icon">
+          <label>Description</label>
+          <textarea rows="5" class="form-control" placeholder="description"
+                    [(ngModel)]="schoolStreamData.description" name="description" #description="ngModel"  readonly required ></textarea>
+        </div>
+
+        <div class="ms-form-group has-icon">        
+          <label>Class </label>
+          <input type="text" placeholder="position capacity" class="form-control"
+                 [(ngModel)]="schoolStreamData.class_model.class_name" name="class_name" #class_name="ngModel" readonly required /> 
+        </div>
+
+        <div class="ms-form-group has-icon">        
+          <label>Class Capacity</label>
+          <input type="text" placeholder="position capacity" class="form-control"
+                 [(ngModel)]="schoolStreamData.class_capacity" name="class_capacity" #class_capacity="ngModel" readonly required /> 
+        </div>
+  
+
+      </fieldset>
+      <div class="" >
+        <button type="button" class="btn btn-light" (click)="modal.dismiss('Cross click')">
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+</ng-template>

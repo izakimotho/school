@@ -1,0 +1,145 @@
+<ngx-ui-loader fgsSize="180" bdColor="rgba(255, 0, 24,0.8)" size="large" color="#fff" [fgsType]="spinnerType">
+</ngx-ui-loader>
+
+<div class="ms-content-wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <!--      <app-breadcrumb></app-breadcrumb>-->
+            <breadcrumb #parent>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb breadcrumb-arrow has-gap first-rounded pl-0">
+                        <ng-template ngFor let-route [ngForOf]="parent.breadcrumbs">
+                            <li class="breadcrumb breadcrumb-arrow has-gap first-rounded"><a routerLink="/dashboard"><i
+                                        class="material-icons">home</i> Home</a></li>
+                            <!-- <li *ngIf="!route.terminal" class="breadcrumb-item">
+                 <a href="" [routerLink]="[route.url]">{{ route.displayName }}</a>
+               </li>-->
+                            <li *ngIf="route.terminal" class="breadcrumb-item active" aria-current="page">{{
+                                route.displayName }}</li>
+                        </ng-template>
+                    </ol>
+                </nav>
+            </breadcrumb>
+            <div class="ms-panel">
+                <div class="row ms-panel-header">
+                    <div class="col">
+                        <h6>Change Password</h6>
+                    </div>
+                    <div class="col">
+
+
+                    </div>
+                </div>
+                <div class="ms-panel-body">
+                    <div class="col-md-6">
+                        <!-- form card change password -->
+                        <div class="card card-outline-secondary">
+                            <div class="card-body">
+                                <form #myForm="ngForm" (ngSubmit)="updateUserProfile(myForm)" autocomplete="off"
+                                    class="form form-register">
+                                   
+                                    phone_number: null | number;
+    email:string;
+    password: string; 
+    username: string;
+    firstName:string;
+    lastName:string;
+    avatar: string; 
+                                   
+                                   
+                                    <div class="form-group">
+                                        <label for="inputPasswordOld">Current Password</label>
+                                        <input type="password" class="form-control" id="username"
+                                            [(ngModel)]="userProfile.username" name="username" #username="ngModel"
+                                            required>
+                                        <div *ngIf="(username.touched || submitted) && username.invalid">
+                                            <span class="text-danger" *ngIf="username.errors.required">Old Password
+                                                is required.</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6 orm-group">
+                                            <label for="inputPasswordNew">First Name</label>
+                                            <input type="password" class="form-control" id="inputPasswordNew"
+                                                [(ngModel)]="userProfile.firstName" name="firstName" #firstName="ngModel"
+                                                required>
+                                            <span class="form-text small text-muted">
+                                                The password must be 8-20 characters, and must <em>not</em> contain spaces.
+                                            </span>
+                                            <div *ngIf="(firstName.touched || submitted) && firstName.invalid">
+                                                <span class="text-danger" *ngIf="firstName.errors.required">New Password
+                                                    is required.</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 orm-group">
+                                            <label for="inputPasswordNew">New Password</label>
+                                            <input type="password" class="form-control" id="inputPasswordNew"
+                                                [(ngModel)]="userProfile.firstName" name="firstName" #firstName="ngModel"
+                                                required>
+                                            <span class="form-text small text-muted">
+                                                The password must be 8-20 characters, and must <em>not</em> contain spaces.
+                                            </span>
+                                            <div *ngIf="(firstName.touched || submitted) && firstName.invalid">
+                                                <span class="text-danger" *ngIf="firstName.errors.required">New Password
+                                                    is required.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    
+
+
+
+                                    <div class="form-group">
+                                        <label for="phone_number">Phone number</label>
+                                        <input type="text" class="form-control" id="phone_number"
+                                            [(ngModel)]="userProfile.phone_number" name="phone_number"
+                                            #phone_number="ngModel" required>
+                                        <span class="form-text small text-muted">
+                                            To confirm, type the new password again.
+                                        </span>
+                                        <div
+                                            *ngIf="(phone_number.touched || submitted) && phone_number.invalid">
+                                            <span class="text-danger" *ngIf="phone_number.errors.required">Confirm
+                                                Password is required.</span>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label for="exampleTextarea">Profile Photo</label>
+                                      <ngx-dropzone (change)="onImageSelect($event)" class="custom-dropzone">
+                                        <ngx-dropzone-label>
+                                          <h2 class='text-base font-medium  text-dark'>
+                                            Upload Image<br />
+                                            <i class="fas fa-cloud-upload-alt"></i>
+                                          </h2>
+                                        </ngx-dropzone-label>
+                                         <!--<ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+                                              <ngx-dropzone-label>
+                                              </ngx-dropzone-label>
+                                            </ngx-dropzone-preview>-->
+                                        <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f"
+                                                                    [removable]="true" id="dropzone" (removed)="onRemove(f)">
+                                         
+                                        </ngx-dropzone-image-preview>
+                                      </ngx-dropzone>
+                                      </div>
+
+
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary btn-lg float-right">Save</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- /form card change password -->
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

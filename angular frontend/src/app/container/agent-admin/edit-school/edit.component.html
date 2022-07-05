@@ -1,0 +1,337 @@
+<ngx-ui-loader fgsSize="180" bdColor="rgba(255, 0, 24,0.8)" size="large" color="#fff" [fgsType]="spinnerType">
+</ngx-ui-loader>
+
+<div class="ms-content-wrapper">
+  <div class="row">
+    <div class="col-md-12">
+<!--      <app-breadcrumb></app-breadcrumb>-->
+      <breadcrumb #parent>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb breadcrumb-arrow has-gap first-rounded pl-0">
+            <ng-template ngFor let-route [ngForOf]="parent.breadcrumbs">
+              <li class="breadcrumb breadcrumb-arrow has-gap first-rounded"><a routerLink="/schools/list"><i class="material-icons">home</i> Home</a></li>
+              <!-- <li *ngIf="!route.terminal" class="breadcrumb-item">
+                 <a href="" [routerLink]="[route.url]">{{ route.displayName }}</a>
+               </li>-->
+              <li *ngIf="route.terminal" class="breadcrumb-item active" aria-current="page">{{
+                route.displayName }}</li>
+            </ng-template>
+          </ol>
+        </nav>
+      </breadcrumb>
+      <div class="ms-panel">
+        <div class="ms-panel-header">
+          <h6>Edit School</h6>
+        </div>
+        <div class="ms-panel-body">
+          <form #form="ngForm" (ngSubmit)="submit(form)" autocomplete="off">
+            <div class="form-row">
+              <div class="col-md-4 mb-3 form-group">
+                <label >School Name</label>
+                <div class="input-group">
+                  <input ngModel type="text"  class="form-control" placeholder="School Name"
+                         [(ngModel)]="school.org_name" name="org_name" #org_name="ngModel" required/>
+                </div>
+                <small class="form-text  danger"
+                       *ngIf="org_name?.errors && org_name.touched"> Name is empty or
+                  invalid </small>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label>School Code</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="School Code"
+                         [(ngModel)]="school.code" name="code" #code="ngModel" required/>
+                </div>
+                <small class="form-text text-muted danger"
+                       *ngIf="code?.errors && code.touched"> Code is empty or
+                  invalid </small>
+              </div>
+
+              <div class="col-md-4 mb-3 md-2">
+                <label>County</label>
+                <ng-select placeholder="County..." (change)="getSubCounties($event)"
+                           [(ngModel)]="school.county.county_id" name="county_id" #county_name="ngModel" required>
+                  <ng-option *ngFor="let county of counties" [value]="county.county_id">
+                    {{county.county_name}}
+                  </ng-option>
+                </ng-select>
+                <small class="form-text text-muted danger"
+                       *ngIf="county_name?.errors && county_name.touched"> County is empty or
+                  invalid </small>
+              </div>
+
+              <div class="col-md-4 mb-3 md-2">
+                <label>Sub County</label>
+                <ng-select placeholder="Sub County..."  (change)="getWards($event)"
+                           [(ngModel)]="school.sub_county.sub_county_id" name="sub_county_id" #sub_county_name="ngModel" >
+                  <ng-option *ngFor="let subCounty of subCounties" [value]="subCounty.sub_county_id">
+                    {{subCounty.sub_county_name}}</ng-option>
+                </ng-select>
+                <small class="form-text text-muted danger"
+                       *ngIf="sub_county_name?.errors && sub_county_name.touched"> Sub County is empty or invalid
+                </small>
+                <small class="form-text text-muted danger"> {{sub_county_error_message}}
+                </small>
+              </div>
+
+              <div class="col-md-4 mb-3 md-2">
+                <label>Ward</label>
+                <ng-select placeholder="Choose Ward..." (change)="changeErrorMessage()"
+                           [(ngModel)]="school.ward.ward_id" name="ward_id" #ward_name="ngModel" >
+                  <ng-option *ngFor="let ward of wards" [value]="ward.ward_id">
+                    {{ward.ward_name}}</ng-option>
+                </ng-select>
+                <small class="form-text text-muted danger"
+                       *ngIf="ward_name?.errors && ward_name.touched"> Ward is empty or
+                  invalid </small>
+                <small class="form-text text-muted danger"> {{ward_error_message}}
+                </small>
+              </div>
+
+              <div class="col-md-4 mb-3 md-2">
+                <label>Education System</label>
+                <ng-select placeholder="Choose Education System..."
+                           [(ngModel)]="school.education_system.education_system_id" name="education_system_id" #education_system_id="ngModel" required>
+                  <ng-option *ngFor="let educationSystem of educationSystems" [value]="educationSystem.education_system_id">
+                    {{educationSystem.education_system_name}}</ng-option>
+                </ng-select>
+                <small class="form-text text-muted danger"
+                       *ngIf="education_system_id?.errors && education_system_id.touched"> Education System is empty or
+                  invalid </small>
+              </div>
+
+              <div class="col-md-4 mb-3 md-2">
+                <label>Sponsor</label>
+                <ng-select placeholder="Choose Sponsor..."
+                           [(ngModel)]="school.school_sponsor.school_sponsor_id" name="school_sponsor_id" #school_sponsor_name="ngModel" required>
+                  <ng-option *ngFor="let school_sponsor of sponsors" [value]="school_sponsor.school_sponsor_id">
+                    {{school_sponsor.school_sponsor_name}}</ng-option>
+                </ng-select>
+                <small class="form-text text-muted danger"
+                       *ngIf="school_sponsor_name?.errors && school_sponsor_name.touched"> Sponsor is empty or
+                  invalid </small>
+              </div>
+
+              <div class="col-md-4 mb-3 md-2">
+                <label>School Level</label>
+                <ng-select placeholder="Choose School Level..."
+                           [(ngModel)]="school.school_level.school_level_id" name="school_level_id" #school_level_name="ngModel" required>
+                  <ng-option *ngFor="let schoolLevel of schoolLevels" [value]="schoolLevel.school_level_id">
+                    {{schoolLevel.school_level_name}}</ng-option>
+                </ng-select>
+                <small class="form-text text-muted danger"
+                       *ngIf="school_level_name?.errors && school_level_name.touched"> School Level is empty or
+                  invalid </small>
+              </div>
+
+              <div class="col-md-4 mb-3 md-2">
+                <label>School Category</label>
+                <ng-select placeholder="Choose School Category..."
+                           [(ngModel)]="school.school_category.school_category_id" name="school_category_id" #school_category_name="ngModel" required>
+                  <ng-option *ngFor="let schoolCategory of schoolCategories" [value]="schoolCategory.school_category_id">
+                    {{schoolCategory.school_category_name}}</ng-option>
+                </ng-select>
+                <small class="form-text text-muted danger"
+                       *ngIf="school_category_name?.errors && school_category_name.touched"> School Category is empty or
+                  invalid </small>
+              </div>
+
+              <div class="col-md-4 mb-3 md-2" *ngIf="school.cluster">
+                <label>Cluster</label>
+                <ng-select placeholder="Choose Cluster..."
+                           [(ngModel)]="school.cluster.cluster_id" name="cluster_id" #cluster_name="ngModel">
+                  <ng-option *ngFor="let cluster of clusters" [value]="cluster.cluster_id">
+                    {{cluster.cluster_name}}</ng-option>
+                </ng-select>
+                &lt;!&ndash;<small class="form-text text-muted danger"
+                       *ngIf="cluster_name?.errors && cluster_name.touched"> Cluster is empty or
+                  invalid </small>&ndash;&gt;
+              </div>
+
+              <!--<div class="col-md-4 mb-3 md-2">
+                <label>Gender</label>
+                <ng-select placeholder="Choose Gender..."
+                           [(ngModel)]="school.gender.school_gender_id" name="school_gender_id" #school_gender_name="ngModel" required>
+                  <ng-option *ngFor="let genderType of genderTypes" [value]="genderType.school_gender_id">
+                    {{genderType.school_gender_name}}</ng-option>
+                </ng-select>
+                <small class="form-text text-muted danger"
+                       *ngIf="school_gender_name?.errors && school_gender_name.touched"> Gender is empty or
+                  invalid </small>
+              </div>-->
+
+              <div class="col-md-4 mb-3 md-2">
+                <label>School Type</label>
+                <ng-select placeholder="Choose School Type..."
+                           [(ngModel)]="school.school_type.school_type_id" name="school_type_id" #school_type_name="ngModel" required>
+                  <ng-option *ngFor="let schoolType of schoolTypes" [value]="schoolType.school_type_id">
+                    {{schoolType.school_type_name}}</ng-option>
+                </ng-select>
+                <small class="form-text text-muted danger"
+                       *ngIf="school_type_name?.errors && school_type_name.touched"> School Type is empty or
+                  invalid </small>
+              </div>
+
+              <div class="col-md-4 mb-3">
+                <label>Email Address</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Email Address"
+                         [(ngModel)]="school.email_address" name="email_address" #email_address="ngModel" required/>
+                </div>
+                <small class="form-text text-muted danger"
+                       *ngIf="email_address?.errors && email_address.touched"> Email Address is empty or
+                  invalid </small>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label>Postal Address</label>
+                <div class="input-group" >
+                  <input multiple type="text" class="form-control" placeholder="Postal Address"
+                         [(ngModel)]="school.postal_address" name="postal_address" #postal_address="ngModel" required/>
+                </div>
+                <small class="form-text text-muted danger"
+                       *ngIf="postal_address?.errors && postal_address.touched"> Postal Address is empty or
+                  invalid </small>
+              </div>
+              <div class="col-md-4 mb-3">
+                <label>Motto</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Motto" [(ngModel)]="school.motto" name="motto" #motto="ngModel" required/>
+                </div>
+                <small class="form-text text-muted danger"
+                       *ngIf="motto?.errors && motto.touched"> Motto is empty or
+                  invalid </small>
+              </div>
+              <div class="col-md-4 mb-3 " >
+                <label>Phone Numbers</label>
+                <a *ngIf="phoneNumbers.length === 0" class="input-group">
+                  <input  type="text" class="form-control" placeholder="Phone Numbers"
+                          [(ngModel)]="school.phone_numbers" name="phone_numbers" #phone_numbers="ngModel"
+                          (click)="open(modalOne)" readonly>
+                </a>
+                <label class="form-control" *ngFor="let phoneNumber of phoneNumbers"
+                          name="phone_numbers" (click)="open(modalOne)"
+                          readonly> Number: {{phoneNumber}}</label>
+
+                <!--<div *ngIf="phoneNumbers.length === 0" class="input-group">
+                  <input  type="text" class="form-control" placeholder="Phone Numbers" (click)="open(modalthree)" readonly
+                         [(ngModel)]="school.phone_numbers" name="phone_numbers" #phone_numbers="ngModel">
+                </div>-->
+                <!--<small class="form-text text-muted danger"
+                       *ngIf="phone_numbers?.errors && phone_numbers.touched"> Phone Numbers is empty or
+                  invalid </small>-->
+
+              </div>
+              <div class="col-md-4 mb-3">
+                <label>Mobile Phone Numbers</label>
+                <a *ngIf="mobilePhoneNumbers.length === 0" class="input-group">
+                  <input  type="text" class="form-control" placeholder="Mobile Phone Numbers"
+                          [(ngModel)]="school.mobile_phone_numbers" name="mobile_phone_numbers" #mobile_phone_numbers="ngModel"
+                          (click)="open(modalTwo)" readonly>
+                </a>
+                <label class="form-control" *ngFor="let mobilePhoneNumber of mobilePhoneNumbers"
+                       name="phone_numbers" (click)="open(modalTwo)"
+                       readonly> Number: {{mobilePhoneNumber}}</label>
+
+                <!--<div class="input-group">
+                  <input type="text" class="form-control" placeholder="Mobile Phone Numbers"
+                         [(ngModel)]="school.mobile_phone_numbers" name="mobile_phone_numbers" #mobile_phone_numbers="ngModel" required/>
+                </div>
+                <small class="form-text text-muted danger"
+                       *ngIf="mobile_phone_numbers?.errors && mobile_phone_numbers.touched">Mobile Phone Numbers is empty or
+                  invalid </small>
+                <label *ngFor="let number of school.mobile_phone_numbers">Number: {{number}}</label>-->
+              </div>
+              <div class="col-md-4 mb-3 form-group">
+                <label for="exampleTextarea">School History</label>
+                <textarea class="form-control" id="exampleTextarea" rows="3"
+                          [(ngModel)]="school.school_history"
+                          name="school_history" #school_history="ngModel" required></textarea>
+                <small class="form-text text-muted danger"
+                       *ngIf="school_history?.errors && school_history.touched">School History is empty or
+                  invalid </small>
+              </div>
+
+              <div class="col-md-4 mb-3 form-group">
+                <label for="exampleTextarea">School Logo</label>
+              <ngx-dropzone (change)="onImageSelect($event)" class="custom-dropzone">
+                <ngx-dropzone-label>
+                  <h2 class='text-base font-medium text-dark'>
+                    Upload Image<br />
+                    <i class="fas fa-cloud-upload-alt"></i>
+                  </h2>
+                </ngx-dropzone-label>
+                 <!--<ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+                      <ngx-dropzone-label>
+                      </ngx-dropzone-label>
+                    </ngx-dropzone-preview>-->
+                <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f"
+                                            [removable]="true" id="dropzone" (removed)="onRemove(f)">
+                  <!-- style="align-items: center; border-radius: 5px; display: flex; /*! height: 300px; */ justify-content: center; margin: 10px; max-width: 300px; /*! min-height: 300px; */ min-width: 300px; padding: 0px 10px; position: relative;"> -->
+
+                </ngx-dropzone-image-preview>
+              </ngx-dropzone>
+              </div>
+
+              <!--<div class="col-md-4 mb-3 form-group custom-file">
+                <label for="exampleTextarea">School Logo</label>
+                <input type="file" class="custom-file-input" id="validatedCustomFile"
+                       [(ngModel)]="school.logo" required="false"
+                       name="logo" #logo="ngModel"/>
+                <label class="custom-file-label" for="validatedCustomFile">Choose logo...</label>
+                <div class="invalid-feedback">Invalid custom file feedback</div>
+              </div>-->
+            </div>
+            <div class="row ">
+              <div align="right" class="col-6" ><button [disabled]="!form.valid" class="btn btn-primary"  type="submit">Edit</button></div>
+              <div align="left" class="col-6"><button routerLink="/schools/list" class="btn btn-primary"  type="submit">Back</button></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #modalOne let-modal>
+  <div class="modal-header">
+    <h3 class="modal-title has-icon ms-icon-round "><i class="flaticon-share bg-primary text-white"></i>
+      Add Phone Number</h3>
+    <button type="button" class="close" (click)="modal.dismiss('Cross click')"><span
+      aria-hidden="true">&times;</span></button>
+  </div>
+  <div class="modal-body">
+    <form method="post" >
+      <div class="ms-form-group has-icon">
+        <label>Phone Number</label>
+        <input type="text" placeholder="Phone Number" class="form-control"
+                name="phoneNumber" [(ngModel)]="phoneNo" #phoneNumber="ngModel">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" (click)="modal.dismiss('Cross click')">Cancel</button>
+        <button type="button" (click)="addPhoneNumber(phoneNo)" class="btn btn-primary shadow-none">Add</button>
+      </div>
+    </form>
+  </div>
+</ng-template>
+
+<ng-template #modalTwo let-modal>
+  <div class="modal-header">
+    <h3 class="modal-title has-icon ms-icon-round "><i class="flaticon-share bg-primary text-white"></i>
+      Add Mobile Phone Number</h3>
+    <button type="button" class="close" (click)="modal.dismiss('Cross click')"><span
+      aria-hidden="true">&times;</span></button>
+  </div>
+  <div class="modal-body">
+    <form method="post" >
+      <div class="ms-form-group has-icon">
+        <label>Mobile Phone Number</label>
+        <input type="text" placeholder="Phone Number" class="form-control"
+                name="phoneNumber" [(ngModel)]="phoneNo" #phoneNumber="ngModel">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-light" (click)="modal.dismiss('Cross click')">Cancel</button>
+        <button type="button" (click)="addMobilePhoneNumber(phoneNo)" class="btn btn-primary shadow-none">Add</button>
+      </div>
+    </form>
+  </div>
+</ng-template>

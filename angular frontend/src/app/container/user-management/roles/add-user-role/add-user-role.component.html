@@ -1,0 +1,182 @@
+<ngx-ui-loader fgsSize="180" bdColor="rgba(254, 45, 2,0.8)" size="large" color="#fff" [fgsType]="spinnerType">
+</ngx-ui-loader>
+
+<div class="ms-content-wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <!--      <app-breadcrumb></app-breadcrumb>-->
+            <breadcrumb #parent>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb breadcrumb-arrow has-gap first-rounded pl-0">
+                        <ng-template ngFor let-route [ngForOf]="parent.breadcrumbs">
+                            <li class="breadcrumb breadcrumb-arrow has-gap first-rounded"><a routerLink="/dashboard"><i
+                                        class="material-icons">home</i> Home</a></li>
+                            <!-- <li *ngIf="!route.terminal" class="breadcrumb-item">
+                 <a href="" [routerLink]="[route.url]">{{ route.displayName }}</a>
+               </li>-->
+                            <li *ngIf="route.terminal" class="breadcrumb-item active" aria-current="page">{{
+                                route.displayName }}</li>
+                        </ng-template>
+                    </ol>
+                </nav>
+            </breadcrumb>
+            <div class="ms-panel">
+                <div class="row ms-panel-header">
+                    <div class="col-5">
+                        <h6>User Role Detail</h6>
+                    </div>
+                    <div class="col">
+                        <button routerLink="/user/roles" class="btn btn-secondary btn-sm btn-rounded float-right"
+                            data-toggle="modal">
+                            <i class="fa fa-back-arrow"></i> Back to Role List
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="row">
+                <!-- Chat Sidebar -->
+                <div class="col-xl-4 col-md-12">
+                    <div class="ms-panel ms-panel-fh">
+                        <div class="ms-panel-body py-3 px-0">
+                            <div class="ms-chat-container">
+                                <div class="ms-chat-header px-3">
+                                    <div class="ms-chat-user-container media clearfix">
+                                         
+                                        <div class="media-body ms-chat-user-info mt-1">
+                                            <h6>Role</h6>
+                                            <a href="#" class="text-disabled" >
+                                                Details of the role
+                                            </a> 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ms-panel-body">
+
+                                    <form #myForm="ngForm" (ngSubmit)="addRole(myForm)" autocomplete="off" class="form form-register">
+                                        <fieldset>
+                                            <div class="ms-form-group has-icon">
+                                              <label>Role Name</label>
+                                              <input type="text" placeholder="Role Name" class="form-control"
+                                                     [(ngModel)]="role.role_name" name="role_name" #role_name="ngModel"required />
+                                              <div *ngIf="(role_name.touched || submitted) && role_name.invalid">
+                                                <span class="text-danger" *ngIf="role_name.errors.required">Role Name is required.</span>
+                                              </div>
+                                            </div>        
+                                   
+                                                
+                                         
+                                              <div class="ms-form-group has-icon">
+                                                <label>Description</label>
+                                                <textarea rows="5" class="form-control" placeholder="description"
+                                                          [(ngModel)]="role.description" name="description" #description="ngModel" required ></textarea>
+                                                <div *ngIf="
+                                                    (description.touched || submitted) && description.invalid
+                                                  ">
+                                                  <span class="text-danger" *ngIf="description.errors.required">Description is required.</span>
+                                                </div>
+                                              </div>
+                                       
+                                   
+                                        </fieldset>
+                                        <div class="d-flex justify-content-between">
+                                          <!-- <button type="button" class="btn btn-light" (click)="close()">Close 
+                                            Cancel
+                                          </button>
+                                          <button type="submit" class="btn btn-primary shadow-none">Save</button> -->
+                                          <button class="btn btn-primary mt-4 d-block w-100" type="submit">Create Role</button>
+                                        </div>
+                                      </form>
+
+                                  
+                                  </div>
+                                  
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Chat Body -->
+                <div class="col-xl-8 col-md-12">
+                    <div class="ms-panel ">
+                        <div class="ms-panel-header">
+                            <div class="ms-chat-header justify-content-between">
+                                <div class="ms-chat-user-container media clearfix">
+                                    <div class="media-body ms-chat-user-info mt-1">
+                                        <h6>User Permission</h6>
+                                        <span class="text-disabled fs-12">
+                                            Permission is hereby granted to role
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="ms-panel-body ms-scrollable ps">
+
+                            <div class="table-responsive">
+                                <table *ngIf="permissionList" datatable [dtOptions]="dtOptions"
+                                    class="table table-striped table-bordered">
+                                    <thead class="thead-light pb-3 mb-5">
+                                        <tr>
+                                            <th>
+
+                                                <label class="ms-checkbox-wrap">
+                                                    <input type="checkbox" [value]="gridCheckAll"
+                                                        (change)="gridAllRowsCheckBoxChecked($event)" />
+                                                    <i class="ms-checkbox-check"></i>
+                                                </label>
+                                            </th>
+                                            <th>Description </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="list">
+                                        <tr *ngFor="let permission of permissionList; let ix = index">
+                                            <td>
+                                                <!-- <label class="ms-checkbox-wrap">
+                                                    <input type="checkbox" (ngModel)]="permission.checked"
+                                                        (change)="rowCheckBoxChecked($event, permission.permission_id)" />
+                                                    <i class="ms-checkbox-check"></i>
+                                                </label> -->
+
+                                               <div class="ms-checkbox-wrap">
+                                                <label class="ms-checkbox-wrap">
+                                                        <input class="form-check-input" type="checkbox"
+                                                            [(ngModel)]="permission.checked"
+                                                            (change)="rowCheckBoxChecked($event, permission.permission_id)">
+                                                            <i class="ms-checkbox-check"></i>
+                                                        <span class="form-check-sign">
+                                                            <span class="check"></span>
+                                                        </span>
+                                                    </label>
+                                                </div> 
+                                            </td>
+                                            <td scope="row">{{ permission.description }}</td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+
+<div>Checked items: {{checkedPermissionIds | json}}</div>
+<div>Unchecked items: {{uncheckedPermissionIds | json}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+

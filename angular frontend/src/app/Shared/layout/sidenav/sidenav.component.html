@@ -1,0 +1,65 @@
+<div class="ms-aside-overlay ms-overlay-left ms-toggler" id="overlayleft" (click)="navToggle()"></div>
+<perfect-scrollbar id="ms-side-nav" class="side-nav fixed ms-aside-scrollable ms-aside-left">
+    <!-- Logo -->
+    <div class="logo-sn ms-d-block-lg">
+        <a class="pl-0 ml-0 text-center" routerLink="/">
+            <img [src]="imageToShow" alt="logo" alt="" onerror="this.src='assets/img/costic/costic-logo-84x41.png'">
+
+
+        </a>
+    </div>
+    <!-- Navigation -->
+    <ngb-accordion [closeOthers]="true" class="accordion nav-accordion ms-main-aside fs-14" id="side-nav-accordion">
+        <!-- Dashboard -->
+        <ngb-panel>
+            <ng-template ngbPanelTitle>
+                <a routerLink="/analytics/dashboard">
+                    <span>
+                        <i class="material-icons fs-16">dashboard</i>
+                        Dashboard
+                    </span>
+                </a>
+            </ng-template>
+        </ngb-panel>
+        <!-- Dashboard -->
+
+
+        <ngb-panel id="static-{{item.id}}" *ngFor="let item of nav_list">
+            <div *ngIf="item.child===false">
+                <ng-template ngbPanelTitle>
+                    <a routerLink="{{item.link}}">
+                        <span>
+                            <i class="{{item.iconclass}}">{{item.icon}}</i>
+                            {{item.linktext}}
+                        </span>
+                    </a>
+                </ng-template>
+
+                <!-- <ng-template ngbPanelContent>
+                    <ul *ngIf="item.child">
+                        <li *ngFor="let item of item.submenu"> 
+                            <a routerLink="{{item.link}}">{{item.linktext}}</a> 
+                        </li>
+                    </ul>
+                </ng-template> -->
+
+
+
+            </div>
+
+            <div *ngIf="item.child===true">
+                <ng-template ngbPanelTitle>
+                    <span><i class="{{item.iconclass}}">{{item.icon}}</i>{{item.linktext}} </span>
+                </ng-template>
+                <ng-template ngbPanelContent>
+                    <ul *ngIf="item.child">
+                        <li *ngFor="let item of item.submenu">
+                            <a routerLink="{{item.link}}">{{item.linktext}}</a>
+                        </li>
+                    </ul>
+                </ng-template>
+            </div>
+
+        </ngb-panel>
+    </ngb-accordion>
+</perfect-scrollbar>

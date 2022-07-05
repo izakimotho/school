@@ -1,0 +1,13 @@
+{
+    "_comment": "live server ip is _http://192.168.9.18:9095/api_ test server is _http://192.168.20.35:9095/api_...",
+    "version": "2.0.0",
+    "appName": "Lunna SMIS",
+    "apiUrl":"http://localhost:9095/api",
+    "production": false,
+    "lang":[
+        "Swa",
+        "Eng",
+        "Fre"
+    ]
+  }
+

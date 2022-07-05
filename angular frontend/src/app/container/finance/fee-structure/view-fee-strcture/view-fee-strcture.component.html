@@ -1,0 +1,88 @@
+<div class="ms-content-wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <app-breadcrumb></app-breadcrumb>
+            <div class="ms-panel" *ngIf="feeStructure">
+                <!-- <div class="ms-panel-header header-mini">
+                    <div class="d-flex justify-content-between">
+                        <h6>Invoice</h6>
+                        <h6>#135178</h6>
+                    </div>
+                </div> -->
+               
+                <div class="ms-panel-body">
+                    <!-- Invoice To -->
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <div class="invoice-address">
+                                <h4>Class: {{feeStructure.class_model.class_name}} </h4>
+                                <!-- <p>education_system</p>
+                                <p>school_level</p> -->
+                            </div>
+                        </div>
+                        <div class="col-md-6 text-md-right">
+                            <ul class="invoice-date">
+                                <li>Academic Year : {{feeStructure.academic_year.academic_year_name}} </li>
+                                <!-- <li>Dates : {{feeStructure.academic_year.date_from | date:'mediumDate' }}  </li>to
+                                    {{feeStructure.academic_year.date_to | date:'mediumDate' }}  </li> -->
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Invoice Table -->
+                
+
+                    <div *ngFor="let term_fee of feeStructure.term_fee">
+                        <div class="ms-invoice-table table-responsive mt-5">
+                            <div class="d-flex justify-content-between">
+                                <h6>Term/Session</h6>
+                                <h6># {{term_fee.name}} </h6>
+                            </div>
+                        </div>
+                        <div class="ms-invoice-table table-responsive mt-2">
+                            <table class="table table-hover text-right thead-light">
+                                <thead>
+                                    <tr class="text-capitalize">
+                                        <th class="text-center w-5">Id</th>
+                                        <th class="text-left">Description</th>
+                                        <th>total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let item of term_fee.vote_heads;let ix = index">
+                                        <td scope=" text-center row">{{ ix + 1 }}</td>
+                                        <td class="text-left">{{item.vote_head_name}}</td>
+                                        <td>Ksh {{item.amount | number:'1.2-2'}}</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="2">Total Cost: </td>
+                                        <td>Ksh {{term_fee.total_amount | number:'1.2-2'}} </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+
+                    </div>
+
+
+
+
+                    <div class="ms-invoice-table table-responsive mt-5">
+                        <div class="d-flex justify-content-between">
+                            <h6></h6>
+                            <h6>Total : {{feeStructure.fee_total_amount}} {{calculateprice() | number:'1.2-2'}}</h6>
+                        </div>
+                    </div>
+                    <div class="invoice-buttons text-right">
+                        <button type="button" class="btn btn-primary mr-2"(click)="printPage()">Print Invoice</button>
+                        <button type="button" class="btn btn-primary">Send Invoice</button>
+                    </div>
+
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

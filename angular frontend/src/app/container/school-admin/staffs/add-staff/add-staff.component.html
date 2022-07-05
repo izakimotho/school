@@ -1,0 +1,238 @@
+<ngx-ui-loader fgsSize="180" bdColor="rgba(255, 0, 24,0.8)" size="large" color="#fff" [fgsType]="spinnerType">
+</ngx-ui-loader>
+
+<div class="ms-content-wrapper">
+  <div class="row">
+    <div class="col-md-12">
+<!--      <app-breadcrumb></app-breadcrumb>-->
+      <breadcrumb #parent>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb breadcrumb-arrow has-gap first-rounded pl-0">
+            <ng-template ngFor let-route [ngForOf]="parent.breadcrumbs">
+              <li class="breadcrumb breadcrumb-arrow has-gap first-rounded"><a routerLink="/staffs/list"><i class="material-icons">home</i> Home</a></li>
+              <!-- <li *ngIf="!route.terminal" class="breadcrumb-item">
+                 <a href="" [routerLink]="[route.url]">{{ route.displayName }}</a>
+               </li>-->
+              <li *ngIf="route.terminal" class="breadcrumb-item active" aria-current="page">{{
+                route.displayName }}</li>
+            </ng-template>
+          </ol>
+        </nav>
+      </breadcrumb>
+      <div class="ms-panel">
+        <div class="ms-panel-header">
+          <h6>Add staff</h6>
+        </div>
+        <div class="ms-panel-body">
+          <form #form="ngForm" (ngSubmit)="submit(form)" autocomplete="off">
+            <div class="form-row">
+                <div class="col-md-4 mb-3 ">
+                    <label>Title</label>
+                    <select class="form-control" id="title" [(ngModel)]="staff.title" name="title" #title="ngModel" required>
+                      <option value="" disabled selected>Choose Gender...</option>
+                      <option value="Mr">Mr</option>
+                      <option value="Mrs">Mrs</option>
+                      <option value="Miss">Miss</option>
+                      <option value="Ms">Ms</option>
+                      <option value="Mx">Mx</option>
+                      <option value="Sir">Sir</option>
+                      <option value="Sir">Sir</option>
+                      <option value="Sir">Sir</option>
+                      <option value="Dr">Dr</option>
+                      <option value="Lady">Lady</option>
+                    </select>
+                    <small class="form-text text-muted danger"
+                           *ngIf="title?.errors && title.touched"> Title is empty or
+                      invalid </small>
+                  </div> 
+
+
+              <div class="col-md-4 mb-3 form-group">
+                <label >First Name</label>
+                <div class="input-group">
+                  <input ngModel type="text"  class="form-control" placeholder="First Name"
+                         [(ngModel)]="staff.first_name" name="first_name" #first_name="ngModel" required/>
+                </div>
+                <small class="form-text  danger"
+                       *ngIf="first_name?.errors && first_name.touched"> First Name is empty or
+                  invalid </small>
+              </div>
+
+              <div class="col-md-4 mb-3 form-group">
+                <label >Middle Name</label>
+                <div class="input-group">
+                  <input ngModel type="text"  class="form-control" placeholder="Middle Name"
+                         [(ngModel)]="staff.middle_name" name="middle_name" #middle_name="ngModel" required/>
+                </div>
+                <small class="form-text  danger"
+                       *ngIf="middle_name?.errors && middle_name.touched"> Middle Name is empty or
+                  invalid </small>
+              </div>
+
+              <div class="col-md-4 mb-3 form-group">
+                <label >Surname</label>
+                <div class="input-group">
+                  <input ngModel type="text"  class="form-control" placeholder="Surname"
+                         [(ngModel)]="staff.surname" name="surname" #surname="ngModel" required/>
+                </div>
+                <small class="form-text  danger"
+                       *ngIf="surname?.errors && surname.touched"> Surname is empty or
+                  invalid </small>
+              </div>
+
+              <div class="col-md-4 mb-3 form-group">
+                <label >Email</label>
+                <div class="input-group">
+                  <input ngModel type="email"  class="form-control" placeholder="joe@example.com"
+                         [(ngModel)]="staff.email" name="email" #email="ngModel" required/>
+                </div>
+                <small class="form-text  danger"
+                       *ngIf="email?.errors && email.touched"> Email address is empty or
+                  invalid </small>
+              </div>
+
+              <div class="col-md-4 mb-3 form-group">
+                <label >Phone</label>
+                <div class="input-group">
+                  <input ngModel type="text"  class="form-control" placeholder="phone number"
+                         [(ngModel)]="staff.phone_number" name="phone_number" #phone_number="ngModel" required/>
+                </div>
+                <small class="form-text  danger"
+                       *ngIf="phone_number?.errors && phone_number.touched"> Guardian Phone is empty or
+                  invalid </small>
+              </div>
+              <div class="col-md-4 mb-3 ">
+                <label>Gender</label>
+                <select class="form-control" id="gender" [(ngModel)]="staff.gender" name="gender" #gender="ngModel" required>
+                  <option value="" disabled selected>Choose Gender...</option>
+                  <option value="MALE">Male</option>
+                  <option value="FEMALE">Female</option>
+                  <option value="UNKNOWN">Others</option>
+                </select>
+                <small class="form-text text-muted danger"
+                       *ngIf="gender?.errors && gender.touched"> Gender is empty or
+                  invalid </small>
+              </div>
+
+              <div class="col-md-4 mb-3 ">
+                <label>Marital Status</label>
+                <select class="form-control" id="marital_status" [(ngModel)]="staff.marital_status" name="marital_status" #marital_status="ngModel" required>
+                  <option value="" disabled selected>Choose Marital Status...</option>
+                  <option value="Single">Single</option>
+                  <option value="Married">Married</option>
+                  <option value="Separated">Separated</option>
+                  <option value="Divorced">Divorced</option>
+                  <option value="Widowed">Widowed</option>
+                </select>
+                <small class="form-text text-muted danger"
+                       *ngIf="marital_status?.errors && marital_status.touched"> Marital Status is empty or
+                  invalid </small>
+              </div>
+             
+
+              <div class="col-md-4 mb-3 form-group">
+                <label >Spouse Name</label>
+                <div class="input-group">
+                  <input ngModel type="text"  class="form-control" placeholder="Spouse Name"
+                         [(ngModel)]="staff.spouse_name" name="spouse_name" #spouse_name="ngModel" required/>
+                </div>
+                <small class="form-text  danger"
+                       *ngIf="spouse_name?.errors && spouse_name.touched"> Spouse Name is empty or
+                  invalid </small>
+              </div>
+
+              <div class="col-md-4 mb-3 form-group">
+                <label >Spouse Phone</label>
+                <div class="input-group">
+                  <input ngModel type="text"  class="form-control" placeholder="Spouse Phone"
+                         [(ngModel)]="staff.spouse_phone" name="spouse_phone" #spouse_phone="ngModel" required/>
+                </div>
+                <small class="form-text  danger"
+                       *ngIf="spouse_phone?.errors && spouse_phone.touched"> Spouse Phone is empty or
+                  invalid </small>
+              </div>
+
+              <div class="col-md-4 mb-3 form-group">
+                <label>Employment Date</label>
+                <input class="round form-control" placeholder="Employment Date"
+                       required="true"
+                       type="date"
+                       name="employment_date"
+                       mwlFlatpickr
+                       [(ngModel)]="staff.employment_date" #employment_date="ngModel"
+
+                >
+                <small class="form-text text-muted danger"
+                       *ngIf="employment_date?.errors && employment_date.touched">Purchase Date is empty or
+                  invalid</small>
+              </div>
+
+         
+
+              <div class="col-md-4 mb-3 md-2">
+                <label>Positions</label>
+                <ng-select placeholder="Choose Positions..."
+                           [(ngModel)]="position.position_id" name="position_id" #position_name="ngModel" >
+                  <ng-option *ngFor="let positionData of positions" [value]="positionData.position_id">
+                    {{positionData.position_name}}</ng-option>
+                </ng-select>
+                <small class="form-text text-muted danger"
+                       *ngIf="position_name?.errors && position_name.touched"> Positions is empty or
+                  invalid </small>
+              </div>
+
+
+              <div class="col-md-4 mb-3 md-2">
+                <label>User Type </label>
+                <ng-select placeholder="Choose Positions..."
+                           [(ngModel)]="userType.user_type_id" name="user_type_id" #user_type_id="ngModel" >
+                  <ng-option *ngFor="let usertype of userTypes" [value]="usertype.user_type_id">
+                    {{usertype.user_type_name}}</ng-option>
+                </ng-select>
+                <small class="form-text text-muted danger"
+                       *ngIf="user_type_id?.errors && user_type_id.touched"> User Type is empty or
+                  invalid </small>
+              </div>
+              
+
+              <div class="col-md-4 mb-3 form-group">
+                <label for="exampleTextarea">staff Photo</label>
+              <ngx-dropzone (change)="onImageSelect($event)" class="custom-dropzone">
+                <ngx-dropzone-label>
+                  <h2 class='text-base font-medium  text-dark'>
+                    Upload Image<br />
+                    <i class="fas fa-cloud-upload-alt"></i>
+                  </h2>
+                </ngx-dropzone-label>
+                 <!--<ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+                      <ngx-dropzone-label>
+                      </ngx-dropzone-label>
+                    </ngx-dropzone-preview>-->
+                <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f"
+                                            [removable]="true" id="dropzone" (removed)="onRemove(f)">
+                  <!-- style="align-items: center; border-radius: 5px; display: flex; /*! height: 300px; */ justify-content: center; margin: 10px; max-width: 300px; /*! min-height: 300px; */ min-width: 300px; padding: 0px 10px; position: relative;"> -->
+
+                </ngx-dropzone-image-preview>
+              </ngx-dropzone>
+              </div>
+            </div>
+            <!-- <div class="row ">
+              <div align="right" class="col-6" ><button [disabled]="!form.valid" class="btn btn-primary"  type="submit">Submit</button></div>
+              <div align="left" class="col-6"><button routerLink="/staffs/list" class="btn btn-primary"  type="submit">Back</button></div>
+            </div> -->
+
+
+            <div class="row ">
+                <div  class="col-lg-12 mb-3">
+                  <button [disabled]="!form.valid" class="btn btn-primary d-block float-right" type="submit">Save and Continue</button>
+                  <button routerLink="/school/staff" class="btn btn-secondary float-right mr-3"  type="submit">Back</button>
+                </div>
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

@@ -1,0 +1,279 @@
+[
+  {
+    "id": 1,
+    "link": "/analytics/dashboard",
+    "linktext": "Dashboard",
+    "iconclass": "material-icons fs-16",
+    "icon": "dashboard",
+    "child": true,
+    "priviledge": "can_view_school_dashboard_module",
+    "submenu": [
+      {
+        "id": 1.1,
+        "linktext": "Schools",
+        "link": "/schools/list",
+        "priviledge": "can_view_organization"
+      },
+      {
+        "id": 1.2,
+        "linktext": "Academic",
+        "link": "/schools/classes",
+        "priviledge": "can_view_class_model"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "linktext": "System Admin ",
+    "iconclass": "flaticon-spreadsheet fs-16",
+    "icon": "",
+    "child": true,
+    "priviledge": "can_view_sys_admin_module",
+    "submenu": [
+      {
+        "id": 2.1,
+        "linktext": "Schools",
+        "link": "/schools/list",
+        "priviledge": "can_view_organization"
+      },
+      {
+        "id": 2.2,
+        "linktext": "Classes",
+        "link": "/schools/classes",
+        "priviledge": "can_view_class_model"
+      },
+      {
+        "id": 2.3,
+        "linktext": "Subject",
+        "link": "/schools/subjects",
+        "priviledge": "can_view_subject"
+      },
+      {
+        "id": 2.4,
+        "linktext": "Education System",
+        "link": "/schools/education_system",
+        "priviledge": "can_view_educations_system"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "linktext": "Students",
+    "iconclass": "fa fa-archive fs-16",
+    "icon": "",
+    "child": true,
+    "priviledge": "can_view_students_module",
+    "submenu": [
+      {
+        "id": 3.1,
+        "linktext": "Students",
+        "link": "/students/list",
+        "priviledge": "can_view_student"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "linktext": "School Administration",
+    "iconclass": "fa fa-building fs-16",
+    "icon": "",
+    "child": true,
+    "priviledge": "can_view_school_admin_module",
+    "submenu": [
+      {
+        "id": 4.1,
+        "linktext": "Staff",
+        "link": "/school/staff",
+        "priviledge": "can_view_staff"
+      },
+      {
+        "id": 4.2,
+        "linktext": "Hostels",
+        "link": "/school/hostel",
+        "priviledge": "can_view_hostels"
+      },
+      {
+        "id": 4.3,
+        "linktext": "Leadership Positions",
+        "link": "/school/positions",
+        "priviledge": "can_view_positions"
+      },
+      {
+        "id": 4.4,
+        "linktext": "School Subject",
+        "link": "/school/school-subject",
+        "priviledge": "can_view_school-subject"
+      },
+      {
+        "id": 4.5,
+        "linktext": "Stream",
+        "link": "/school/classes",
+        "priviledge": "can_view_school_stream"
+      },
+      {
+        "id": 4.6,
+        "linktext": "Academic Year",
+        "link": "/school/academic-year",
+        "priviledge": "can_view_academic_year"
+      },
+      {
+        "id": 4.7,
+        "linktext": "Calendar",
+        "link": "/school/calender",
+        "priviledge": "can_view_calendar_event"
+      },
+      {
+        "id": 4.8,
+        "linktext": "Events Calendar",
+        "link": "/school/calender_events",
+        "priviledge": "can_view_calendar_items"
+      },
+      {
+        "id": 4.9,
+        "linktext": "Grading Setup",
+        "link": "/school/grading",
+        "priviledge": "can_view_exam_grading"
+      },
+      {
+        "id": 4.10,
+        "linktext": "Terms/Session Setup",
+        "link": "/school/sessions",
+        "priviledge": "can_view_terms"
+      },
+      {
+        "id": 4.11,
+        "linktext": "Terms/Session Details",
+        "link": "/school/term-details",
+        "priviledge": "can_view_term_details"
+      }
+     
+
+      
+    ]
+  },
+  {
+    "id": 5,
+    "linktext": "Academics",
+    "iconclass": "fa fa-archive fs-16",
+    "icon": "",
+    "child": true,
+    "priviledge": "can_view_school_academics_module",
+    "submenu": [
+      {
+        "id": 5.1,
+        "linktext": "Exam Grading",
+        "link": "/academics/grading",
+        "priviledge": "can_view_grade_posting"
+      },
+      {
+        "id": 5.2,
+        "linktext": "Exams",
+        "link": "/academics/exams",
+        "priviledge": "can_view_exam_schedule"
+      },
+      {
+        "id": 5.2,
+        "linktext": "Exams Types",
+        "link": "/academics/exam-type",
+        "priviledge": "can_view_exam_type"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "linktext": "Finance",
+    "iconclass": "fa fa-window-maximize fs-16",
+    "icon": "",
+    "child": true,
+    "priviledge": "can_view_users_module",
+    "submenu": [
+    
+      {
+        "id": 6.1,
+        "linktext": "Vote Heads",
+        "link": "/finance/vote-heads",
+        "priviledge": "can_view_fee_vote"
+      },
+      {
+        "id": 6.2,
+        "linktext": "Fee Payment Type",
+        "link": "/finance/payment-type",
+        "priviledge": "can_view_payment_type"
+      },    
+
+      {
+        "id": 6.3,
+        "linktext": "Fee Payment",
+        "link": "/finance/fee-payment",
+        "priviledge": "can_view_student_fee"
+      },
+      
+      {
+        "id": 6.4,
+        "linktext": "Fee Structures",
+        "link": "/finance/fee-structures",
+        "priviledge": "can_view_grade_posting"
+      }      
+    ]
+  },
+  {
+    "id": 7,
+    "linktext": "User Management",
+    "iconclass": "fa fa-users fs-16",
+    "icon": "",
+    "child": true,
+    "priviledge": "can_view_users_module",
+    "submenu": [
+      {
+        "id": 7.1,
+        "linktext": "Users",
+        "link": "/user/users",
+        "priviledge": "can_view_grade_posting"
+      }
+      
+    ]
+  }
+  ,
+  {
+    "id":8,
+    "linktext": "Global Accounting",
+    "iconclass": "fa fa-users fs-16",
+    "icon": "",
+    "child": true,
+    "priviledge": "can_view_global_accounting_module",
+    "submenu": [
+      {
+        "id": 8.1,
+        "linktext": "Account Types",
+        "link": "/user/users",
+        "priviledge": "can_view_account_types"
+      },
+      {
+        "id": 8.2,
+        "linktext": "Chart of Accounts",
+        "link": "/user/users",
+        "priviledge": "can_view_chart_of_accounts"
+      },     
+      {
+        "id": 8.3,
+        "linktext": "Payment Methods",
+        "link": "/user/users",
+        "priviledge": "can_view_payment_methods"
+      },     
+      {
+        "id": 8.4,
+        "linktext": "Reports",
+        "link": "/user/users",
+        "priviledge": "can_view_accounting_reports"
+      }
+       
+      
+      
+    ]
+  }
+
+
+
+
+
+]

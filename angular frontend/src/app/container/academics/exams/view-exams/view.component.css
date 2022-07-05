@@ -1,0 +1,54 @@
+.avatar-border {
+  width: auto !important;
+  height: auto !important;
+  display: inline-block;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  -khtml-border-radius: 50%;
+  padding: 4px;
+  background: #fff;
+}
+
+.shadow-4x {
+  box-shadow: 0px 2px 4px rgb(0 0 0 / 30%);
+  background: #fff;
+}
+
+
+.img-circle {
+  border-radius: 50%;
+}
+.img-responsive {
+  display: block;
+  height: auto;
+}
+.img-responsive, .img-thumbnail, .table, label {
+  max-width: 100%;
+}
+img {
+  border: 0;
+  vertical-align: middle;
+}
+*, :after, :before, input[type=search] {
+  box-sizing: border-box;
+}
+.text-center {
+  text-align: center;
+}
+.m-b {
+  margin-bottom: 15px;
+}
+.m-t-none {
+  margin-top: 0;
+}
+.font-bold {
+  font-weight: 700;
+}
+
+.i {
+  font-family: icon;
+  font-style: normal;
+  line-height: 1;
+  vertical-align: -5%;
+}

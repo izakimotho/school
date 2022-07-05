@@ -1,0 +1,152 @@
+[
+  {
+    "id": 1,
+    "link": "/analytics/dashboard",
+    "linktext": "Dashboard",
+    "iconclass": "material-icons fs-16",
+    "icon": "dashboard",
+    "child": false,
+    "priviledge": "can_view_school_dashboard",
+    "submenu": [      
+    ]
+  },
+   
+  {
+    "id": 2,
+    "linktext": "Schools",
+    "iconclass": "flaticon-spreadsheet fs-16",
+    "icon": "",
+    "child": true,
+    "priviledge": "can_view_schools",
+    "submenu": [
+      {
+        "id": 2.1,
+        "linktext": "Schools",
+        "link": "/schools/list",
+        "priviledge": "can_view_schools_list"
+      },
+      {
+        "id": 2.2,
+        "linktext": "Classes",
+        "link": "/schools/classes",
+        "priviledge": "can_view_school_class"
+      },
+      {
+        "id": 2.3,
+        "linktext": "Subject",
+        "link": "/schools/subjects",
+        "priviledge": "can_view_subjects"
+      }
+
+       
+    ]
+  },
+  {
+    "id": 3,
+    "linktext": "Students",
+    "iconclass": "fa fa-archive fs-16",
+    "icon": "",
+    "child": true,
+    "priviledge": "can_view_students",
+    "submenu": [
+      {
+        "id": 3.1,
+        "linktext": "Students",
+        "link": "/students/list",
+        "priviledge": "can_view_students_list"
+      }
+
+
+    ]
+  },
+  {
+    "id": 4,
+    "linktext": "School Administration",
+    "iconclass": "fa fa-building fs-16",
+    "icon": "",
+    "child": true,
+    "priviledge": "can_view_school_admin",
+    "submenu": [
+      {
+        "id": 4.1,
+        "linktext": "Staff",
+        "link": "/school/staff",
+        "priviledge": "can_view_staff"
+      },
+      {
+        "id": 4.2,
+        "linktext": "Hostels",
+        "link": "/school/hostel",
+        "priviledge": "can_view_hostels"
+      },
+      {
+        "id": 4.3,
+        "linktext": "Staff Positions",
+        "link": "/school/positions",
+        "priviledge": "can_view_positions"
+      },
+      {
+        "id": 4.4,
+        "linktext": "Stream",
+        "link": "/school/classes",
+        "priviledge": "can_view_school_stream" 
+      },
+      {
+        "id": 4.5,
+        "linktext": "Academic Year",
+        "link": "/school/academic-year",
+        "priviledge": "can_view_academic_year" 
+        
+      }
+      ,
+      {
+        "id": 4.6,
+        "linktext": "Calendar",
+        "link": "/school/calender",
+        "priviledge": "can_view_calender_items" 
+      },
+      {
+        "id": 4.7,
+
+        "linktext": "Events Calendar",
+        "link": "/school/calender_events",
+        "priviledge": "can_view_calender_event" 
+      },
+      {
+        "id": 3.8,
+        "linktext": "Exam Grading",
+        "link": "/school/grading",
+        "priviledge": "can_view_exam_grading" 
+      }
+
+    ]
+  },
+  {
+    "id": 5,
+    "linktext": "Academics",
+    "iconclass": "fa fa-archive fs-16",
+    "icon": "",
+    "child": true,
+    "priviledge": "can_view_school_academics",
+    "submenu": [
+      {
+        "id": 5.1,
+        "linktext": "Exam Grading",
+        "link": "/academics/grading"
+      },
+      {
+        "id": 5.2,
+        "linktext": "Exams",
+        "link": "/academics/exams"
+      },
+      {
+        "id": 5.2,
+        "linktext": "Exams Types",
+        "link": "/academics/exam-type"
+      }
+
+      
+    ]
+  } 
+
+]

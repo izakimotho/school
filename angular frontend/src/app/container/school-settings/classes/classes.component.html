@@ -1,0 +1,68 @@
+<div class="ms-content-wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <app-breadcrumb></app-breadcrumb>
+     
+
+            <div class="ms-panel">
+              <div class="row ms-panel-header">
+                <div class="col"><h6>Schools List</h6></div>
+                <div class="col float-right" >
+                  <button class="btn btn-danger btn-sm btn-rounded" data-target="#pop-institution-edit" data-toggle="modal">
+                    <i class="fa fa-plus"></i> Add Class</button>
+                </div>
+              </div>
+                <div class="ms-panel-body">
+                    <!-- <p class="ms-directions">Check <code>/src/app/data/datatable.json</code> for reference</p>
+                    <div class="row mb-3">
+                        <div class="col-lg-3 col-md-6">
+                            <input #search class="search" class="form-control" type="text" placeholder="Search..." (keydown.enter)="onSearch(search.value)">
+                        </div>
+                    </div> -->
+                    <div class="table-responsive">
+                        <table datatable [dtOptions]="dtOptions" class="table table-striped table-bordered">
+                              <thead class="thead-light pb-3 mb-5">
+                                <tr>
+                                  <th>#SN</th>
+                                  <th class="sort" data-sort="title">Name</th>
+                                  <th>gender</th>
+                                  <th>nationality</th>
+                                  <th>place_of_birth</th>
+                                  <th>Action</th>
+                                </tr>
+                              </thead>
+                  
+                              <tbody class="list">
+                                <tr *ngFor="let target of data;let ix=index;">
+                                  <td scope="row">{{ ix+1}}</td>
+                                  <td scope="row">{{ target.name }}</td>
+                                  <td scope="row">{{ target.gender }}</td>
+                                  <td scope="row">{{ target.nationality }}</td>
+                                  <td class="budget">{{ target.place_of_birth }}</td>
+                                  <td>   
+                                    <a href="#" class="">
+                                      <i class="fa fa-eye"><strong></strong></i>
+                                    </a>
+                                    <a href="#" class="">
+                                      <i class="fas fa-edit"><strong></strong></i>
+                                    </a>
+                                    <a href="#" class="">
+                                      <i class="fas fa-trash"><strong></strong></i>
+                                    </a>
+                                </td>
+                                </tr>
+                              </tbody>
+                   
+                        </table>
+                      
+                    </div>
+                </div>
+            </div>
+
+
+       
+
+
+        </div>
+    </div>
+</div>

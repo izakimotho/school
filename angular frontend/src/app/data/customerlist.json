@@ -1,0 +1,326 @@
+[
+    {
+        "id": 40521,
+        "img": "assets/img/costic/customer-1.jpg",
+        "name": "Merry",
+        "location": "HallStreet",
+        "email": "kbc@gfail.com",
+        "product": "GarlicBread",
+        "price": 43
+    },
+    {
+        "id": 98521,
+        "img": "assets/img/costic/customer-2.jpg",
+        "name": "Joe",
+        "location": "HallStreet",
+        "email": "lbc@gfail.com",
+        "product": "Pizza",
+        "price": 48
+    },
+    {
+        "id": 45454,
+        "img": "assets/img/costic/customer-3.jpg",
+        "name": "Bella",
+        "location": "HustonLoan",
+        "email": "abc@gfail.com",
+        "product": "Burger",
+        "price": 43
+    },
+    {
+        "id": 12121,
+        "img": "assets/img/costic/customer-4.jpg",
+        "name": "Herry",
+        "location": "JkRoad",
+        "email": "ghj@gfail.com",
+        "product": "Burger",
+        "price": 56
+    },
+    {
+        "id": 56454,
+        "img": "assets/img/costic/customer-5.jpg",
+        "name": "Joe",
+        "location": "HallStreet",
+        "email": "abc@gfail.com",
+        "product": "GarlicBread",
+        "price": 43
+    },
+    {
+        "id": 25252,
+        "img": "assets/img/costic/customer-6.jpg",
+        "name": "Dumsum",
+        "location": "HallStreet",
+        "email": "bbc@gfail.com",
+        "product": "Pizza",
+        "price": 43
+    },
+    {
+        "id": 45454,
+        "img": "assets/img/costic/customer-7.jpg",
+        "name": "Herry",
+        "location": "NewYork",
+        "email": "ghj@gfail.com",
+        "product": "GarlicBread",
+        "price": 56
+    },
+    {
+        "id": 64541,
+        "img": "assets/img/costic/customer-8.jpg",
+        "name": "Herry",
+        "location": "JkRoad",
+        "email": "khj@gfail.com",
+        "product": "GarlicBread",
+        "price": 56
+    },
+    {
+        "id": 56562,
+        "img": "assets/img/costic/customer-9.jpg",
+        "name": "Bella",
+        "location": "HallStreet",
+        "email": "lhj@gfail.com",
+        "product": "GarlicBread",
+        "price": 36
+    },
+    {
+        "id": 51558,
+        "img": "assets/img/costic/customer-10.jpg",
+        "name": "Merry",
+        "location": "HallStreet",
+        "email": "ihj@gfail.com",
+        "product": "Pizza",
+        "price": 56
+    },
+    {
+        "id": 55841,
+        "img": "assets/img/costic/customer-1.jpg",
+        "name": "Herry",
+        "location": "JkRoad",
+        "email": "mhj@gfail.com",
+        "product": "GarlicBread",
+        "price": 56
+    },
+    {
+        "id": 55811,
+        "img": "assets/img/costic/customer-2.jpg",
+        "name": "Max",
+        "location": "HallStreet",
+        "email": "ghj@gfail.com",
+        "product": "Noodles",
+        "price": 56
+    },
+    {
+        "id": 1475,
+        "img": "assets/img/costic/customer-3.jpg",
+        "name": "Joe",
+        "location": "Street21",
+        "email": "dhj@gfail.com",
+        "product": "Sandwich",
+        "price": 46
+    },
+    {
+        "id": 55454,
+        "img": "assets/img/costic/customer-4.jpg",
+        "name": "Max",
+        "location": "Street21",
+        "email": "bhj@gfail.com",
+        "product": "Sandwich",
+        "price": 46
+    },
+    {
+        "id": 12145,
+        "img": "assets/img/costic/customer-5.jpg",
+        "name": "Bella",
+        "location": "HustonLoan",
+        "email": "abc@gfail.com",
+        "product": "Burger",
+        "price": 43
+    },
+    {
+        "id": 52351,
+        "img": "assets/img/costic/customer-6.jpg",
+        "name": "Herry",
+        "location": "JkRoad",
+        "email": "ghj@gfail.com",
+        "product": "Burger",
+        "price": 56
+    },
+    {
+        "id": 45823,
+        "img": "assets/img/costic/customer-7.jpg",
+        "name": "Joe",
+        "location": "JkRoad",
+        "email": "abc@gfail.com",
+        "product": "Burger",
+        "price": 43
+    },
+    {
+        "id": 98541,
+        "img": "assets/img/costic/customer-8.jpg",
+        "name": "Merry",
+        "location": "HallStreet",
+        "email": "kbc@gfail.com",
+        "product": "GarlicBread",
+        "price": 43
+    },
+    {
+        "id": 22366,
+        "img": "assets/img/costic/customer-9.jpg",
+        "name": "Bella",
+        "location": "HustonLoan",
+        "email": "abc@gfail.com",
+        "product": "Burger",
+        "price": 43
+    },
+    {
+        "id": 56465,
+        "img": "assets/img/costic/customer-10.jpg",
+        "name": "Jake",
+        "location": "HustonLoan",
+        "email": "abc@gfail.com",
+        "product": "Burger",
+        "price": 43
+    },
+    {
+        "id": 34256,
+        "img": "assets/img/costic/customer-1.jpg",
+        "name": "Joe",
+        "location": "JkRoad",
+        "email": "abc@gfail.com",
+        "product": "Sandwich",
+        "price": 43
+    },
+    {
+        "id": 45484,
+        "img": "assets/img/costic/customer-2.jpg",
+        "name": "Dumsum",
+        "location": "HallStreet",
+        "email": "bbc@gfail.com",
+        "product": "Pizza",
+        "price": 43
+    },
+    {
+        "id": 41028,
+        "img": "assets/img/costic/customer-3.jpg",
+        "name": "Dumsum",
+        "location": "HallStreet",
+        "email": "bbc@gfail.com",
+        "product": "Pizza",
+        "price": 43
+    },
+    {
+        "id": 15485,
+        "img": "assets/img/costic/customer-4.jpg",
+        "name": "Herry",
+        "location": "JkRoad",
+        "email": "ghj@gfail.com",
+        "product": "Burger",
+        "price": 56
+    },
+    {
+        "id": 48568,
+        "img": "assets/img/costic/customer-5.jpg",
+        "name": "Bella",
+        "location": "HallStreet",
+        "email": "lhj@gfail.com",
+        "product": "GarlicBread",
+        "price": 36
+    },
+    {
+        "id": 45815,
+        "img": "assets/img/costic/customer-6.jpg",
+        "name": "Joe",
+        "location": "JkRoad",
+        "email": "abc@gfail.com",
+        "product": "Sandwich",
+        "price": 43
+    },
+    {
+        "id": 46542,
+        "img": "assets/img/costic/customer-7.jpg",
+        "name": "Joe",
+        "location": "JkRoad",
+        "email": "abc@gfail.com",
+        "product": "EggSandwich",
+        "price": 43
+    },
+    {
+        "id": 65412,
+        "img": "assets/img/costic/customer-8.jpg",
+        "name": "Joe",
+        "location": "HallStreet",
+        "email": "lbc@gfail.com",
+        "product": "Pizza",
+        "price": 54
+    },
+    {
+        "id": 89658,
+        "img": "assets/img/costic/customer-9.jpg",
+        "name": "Herry",
+        "location": "JkRoad",
+        "email": "ghj@gfail.com",
+        "product": "Burger",
+        "price": 56
+    },
+    {
+        "id": 2351,
+        "img": "assets/img/costic/customer-10.jpg",
+        "name": "Max",
+        "location": "HallStreet",
+        "email": "ghj@gfail.com",
+        "product": "Noodles",
+        "price": 56
+    },
+    {
+        "id": 56212,
+        "img": "assets/img/costic/customer-1.jpg",
+        "name": "Herry",
+        "location": "NewYork",
+        "email": "ghj@gfail.com",
+        "product": "GarlicBread",
+        "price": 56
+    },
+    {
+        "id": 78065,
+        "img": "assets/img/costic/customer-2.jpg",
+        "name": "Herry",
+        "location": "NewYork",
+        "email": "ahj@gfail.com",
+        "product": "FrenchFries",
+        "price": 56
+    },
+    {
+        "id": 56121,
+        "img": "assets/img/costic/customer-3.jpg",
+        "name": "Herry",
+        "location": "NewYork",
+        "email": "ghj@gfail.com",
+        "product": "FrenchFries",
+        "price": 56
+    },
+    {
+        "id": 14526,
+        "img": "assets/img/costic/customer-4.jpg",
+        "name": "Lulia",
+        "location": "Street21",
+        "email": "ehj@gfail.com",
+        "product": "Pizza",
+        "price": 56
+    },
+    {
+        "id": 15451,
+        "img": "assets/img/costic/customer-5.jpg",
+        "name": "Max",
+        "location": "HallStreet",
+        "email": "ghj@gfail.com",
+        "product": "Noodles",
+        "price": 56
+    },
+    {
+        "id": 14451,
+        "img": "assets/img/costic/customer-6.jpg",
+        "name": "Dumsum",
+        "location": "HallStreet",
+        "email": "bbc@gfail.com",
+        "product": "Pizza",
+        "price": 43
+    }
+]

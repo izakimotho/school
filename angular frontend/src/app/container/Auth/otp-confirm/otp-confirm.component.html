@@ -1,0 +1,79 @@
+
+<div class="main-content position-lg-5">
+  <!-- Page content -->
+  <div class="container mt-8 pb-5">
+    <div class="row align-items-center justify-content-xl-between">
+      <div class="col-xl-6 mr-20">
+        <div class="container">
+          <div class="image-header">
+    <h1>
+        <strong>
+          Verify your phone number
+  </strong>
+    </h1>
+  </div>
+  <br><br>
+    <img class="img-fluid" src="assets/images/artwork/artwork1.png" alt="">
+      </div>
+      </div>
+      <div class="col-xl-6 justify-content-center justify-content-xl-end " style="right: 0px;">
+
+        <div class="px-lg-5 px-md-5  ">
+
+          <div class="custom-div text-center">
+            <fieldset class="scheduler-border shadow">
+              <legend class="scheduler-border">Code Verification</legend>
+              <div class="container">
+                <div class="content">
+                  <div class="img-logo"><img src="assets/images/logos/Lunna_Logo_Red.png" alt="" class="img-fluid">
+                  </div>
+                  <br>
+                 
+
+                  <form action="#" (ngSubmit)="onSubmit($event)" [formGroup]="otpForm">
+                    <div class="row">            
+                        <!-- Phone Number -->
+                        <div class="input-group col-lg-12 mb-4">                                               
+                           
+                          <input type="text" name="code" placeholder="Enter Code" class="form-control pl-3" formControlName="otp"  style="-webkit-text-security: square;" >
+                          <div *ngIf="f.otp.touched && f.otp.invalid" >
+
+                              <span class="text-danger" *ngIf="f.otp.errors.required">OTP is required.</span>
+              
+              
+                          </div>
+                        </div> 
+                        <!-- Submit Button -->
+                        <div class="form-group col-lg-6 offset-lg-6 ">
+                        <p>Forgot Password?</p>
+                        </div>
+                        <div class="form-group col-lg-12 offset-lg-4 mx-auto mb-0">
+                                <button type="submit" class="btn btn-primary btn-block full-width m-b">Verify</button> 
+                           
+                        </div>
+                        <br><br><br>
+
+                        <!-- Already Registered -->
+                        <div class="text-center w-100">
+                            <p class="text-muted font-weight-bold">
+                              Didn't receive the code? 
+                                <a href="#" class="text-primary ml-2"  [routerLink]="['/auth/signup']">Resend</a></p>
+                        </div>            
+                    </div>
+                </form>
+
+              
+                </div>
+              </div>
+            </fieldset>
+          </div>
+
+
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>

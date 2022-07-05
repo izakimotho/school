@@ -1,0 +1,31 @@
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #b8b8b8;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #7c9192;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #7c9192;}
+
+select:required:invalid {
+  color: #b8b8b8;
+}
+option[value=""][disabled] {
+  display: none;
+}
+option {
+  color: black;
+}
+.danger{color:#ff586b!important}
+
+ng-select.custom {
+  min-height: 0px;
+  max-width: 350px;
+}
+
+ng-select.dropdown {
+  border: 1px solid black;
+}

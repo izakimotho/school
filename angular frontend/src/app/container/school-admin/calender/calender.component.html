@@ -1,0 +1,120 @@
+ 
+
+<ngx-ui-loader fgsSize="180" bdColor="rgba(255, 0, 24,0.8)" size="large" color="#fff" [fgsType]="spinnerType">
+</ngx-ui-loader>
+
+<div class="ms-content-wrapper">
+  <div class="row">
+    <div class="col-md-12">
+<!--      <app-breadcrumb></app-breadcrumb>-->
+      <breadcrumb #parent>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb breadcrumb-arrow has-gap first-rounded pl-0">
+            <ng-template ngFor let-route [ngForOf]="parent.breadcrumbs">
+              <li class="breadcrumb breadcrumb-arrow has-gap first-rounded"><a routerLink="/dashboard"><i class="material-icons">home</i> Home</a></li>
+              <!-- <li *ngIf="!route.terminal" class="breadcrumb-item">
+                 <a href="" [routerLink]="[route.url]">{{ route.displayName }}</a>
+               </li>-->
+              <li *ngIf="route.terminal" class="breadcrumb-item active" aria-current="page">{{
+                route.displayName }}</li>
+            </ng-template>
+          </ol>
+        </nav>
+      </breadcrumb>
+      <div class="ms-panel">
+        <div class="row ms-panel-header">
+          <div class="col">
+            <h6>Calender</h6>
+          </div>
+          <div class="col">
+            <button class="btn btn-danger btn-sm btn-rounded float-right" (click)="openmax(calenderModal)"
+              data-toggle="modal">
+              <i class="fa fa-plus"></i> Add Calender
+            </button>
+          </div>
+        </div>
+        <div class="ms-panel-body"> 
+          <div class="table-responsive ">
+            <table *ngIf="calenderList" datatable [dtOptions]="dtOptions" class="table table-striped table-bordered">
+              <thead class="thead-light pb-3 mb-5">
+                <tr>
+                  <th>#SN</th>
+                  <th class="sort" data-sort="title">Event Name</th>
+                  <th>Color Code</th> 
+                  <th>Action</th>
+                </tr>
+              </thead>
+
+              <tbody class="list">
+                <tr *ngFor="let calender of calenderList; let ix = index">
+                  <td scope="row">{{ ix + 1 }}</td>
+                  <td scope="row">{{ calender.calendar_item_name }}</td>
+                  <td scope="row">{{ calender.color_code }}</td>  
+                  <td>
+                    <a class="" (click)="viewDetails(calender,calenderModal)">
+                      <i class="fa fa-eye"><strong></strong></i>
+                    </a>
+                    <a class="" (click)="editDetails(calender,calenderModal)">
+                      <i class="fas fa-edit"><strong></strong></i>
+                    </a>
+                    <a class="" (click)="delete_class(calender)">
+                      <i class="fas fa-trash"><strong></strong></i>
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <ngb-alert *ngIf="!calenderList" [dismissible]="false" type="info">
+              <i class="flaticon-information"></i><strong>Heads up!</strong>There are no records found
+          </ngb-alert>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #calenderModal let-modal>
+  <div class="modal-body">
+    <button type="button" class="close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h1>Add/Edit Calender Item</h1>
+
+    <form [formGroup]="calenderForm" (ngSubmit)="submit($event)" autocomplete="off" class="form form-register">
+      <fieldset>
+        <div class="ms-form-group has-icon">
+          <label>calendar Item  Name</label>
+          <input type="text" placeholder="Calender Item" class="form-control" id="calendar_item_name"
+            formControlName="calendar_item_name" name="calendar_item_name" required value="{{calender.calendar_item_name}}" />
+          <div *ngIf="(f.calendar_item_name.touched || submitted) && f.calendar_item_name.invalid">
+            <span class="text-danger" *ngIf="f.calendar_item_name.errors.required">Calender Item is required.</span>
+          </div>
+        </div>
+
+        <div class="ms-form-group has-icon">
+          <label>Color Code.</label>
+          <!-- <input   class="form-control" id="color_code" formControlName="color_code"
+            name="color_code" required value="{{calender.color_code}}" [style.background]="color2" [(colorPicker)]="color2"/> -->
+            <input  class="form-control" name="color_code" 
+            [cpPosition]="'bottom'"
+            [cpOutputFormat]="'hex'" id="color_code" formControlName="color_code" 
+            (cpInputChange)="onEventLog('cpInputChange', $event)"
+            
+            (colorPickerChange)="changeColor($event)"
+            [value]="calender.color_code" [style.background]="calender.color_code" [(colorPicker)]="calender.color_code"/>
+          <div *ngIf="(f.color_code.touched || submitted) && f.color_code.invalid">
+            <span class="text-danger" *ngIf="f.color_code.errors.required">Color Code is required.</span>
+          </div>
+        </div> 
+
+      </fieldset>
+      <div class="d-flex justify-content-between">
+        <button type="button" class="btn btn-light" (click)="modal.dismiss('Cross click')">
+          Cancel
+        </button>
+        <button type="submit" class="btn btn-primary shadow-none">Save</button>
+      </div>
+    </form>
+  </div>
+</ng-template>

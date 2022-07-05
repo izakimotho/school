@@ -1,0 +1,613 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+@import "~@ng-select/ng-select/themes/default.theme.css";
+
+@import "~@ng-select/ng-select/themes/default.theme.css";
+@import '~ngx-toastr/toastr.css';
+:focus {
+    outline: none;
+}
+body{
+	overflow-x: hidden;
+}
+ .carousel-item,
+.carousel-item img,
+.produt-detail .carousel-item .picsum-img-wrapper img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+}
+.produt-detail .carousel-item .picsum-img-wrapper {
+	height: 300px;
+	width: 100%;
+}
+.ms-panel-body .accordion .card:last-child,
+.ms-panel-body .alert:last-child,
+.ms-panel-body>div:last-child .progress,
+.ms-website-performance li.ms-list-item {
+	margin-bottom: 0;
+}
+.cardspage .section-title {
+	font-size: 18px;
+}
+.ms-crop-preview img {
+	width: 100%!important;
+}
+.produt-detail .carousel-item {
+	height: 300px;
+}
+.produt-detail .carousel-item>img {
+	height: 100%;
+	object-fit: cover;
+}
+.nav-accordion .card {
+	display: block;
+	padding: 0;
+	border: none;
+	border-radius: 0;
+	background-color: transparent;
+}
+.nav-accordion .card .card-header {
+	flex: auto;
+	padding: 0;
+	background-color: transparent;
+}
+.nav-accordion .card ul>li>a,
+.nav-accordion .card .card-header .btn {
+	position: relative;
+	display: block;
+	padding: 15px 0 15px 25px;
+	color: #000000de;
+	transition: 0s;
+	margin-top: 0;
+	min-width: 100%;
+	text-align: left;
+	background: transparent;
+}
+.nav-accordion .card ul>li>a:hover,
+.nav-accordion .card ul>li>a:focus,
+.nav-accordion .card .card-header .btn:hover span,
+.nav-accordion .card .card-header .btn:focus span,
+.nav-accordion .card .card-header .btn:hover,
+.nav-accordion .card .card-header .btn:focus {
+    text-decoration: none;
+    box-shadow: none;
+    color: #ff0018;
+}
+.nav-accordion.accordion .card .card-header .btn:after {
+	content: '\e313';
+	font-family: 'Material Icons';
+	font-weight: 700;
+	font-style: normal;
+	position: absolute;
+	top: 16px;
+	right: 20px;
+	transition: 0.3s;
+}
+.nav-accordion .card .card-header .btn span {
+	display: flex;
+	align-items: center;
+	max-width: 100%;
+	color: #000000de;
+	font-weight: 400;
+}
+.nav-accordion .card .card-header .btn span i {
+	margin-right: 20px;
+	position: relative;
+	top: 0;
+	left: 0;
+}
+.nav-accordion .card .card-header .btn span i:before {
+	font-size: 16px;
+}
+.nav-accordion .card-header::after {
+	display: none;
+}
+.side-nav .card .card-body {
+	padding: 0;
+}
+.side-nav .card ul {
+	padding-left: 40px;
+	margin-bottom: 0;
+	background-color: #ebebeb;
+}
+ng2-smart-table.table.thead-primary .ng2-smart-th a {
+	color: #fff;
+}
+ng2-smart-table.table .ng2-smart-th a {
+	color: #212529;
+}
+.ng2-smart-pagination-nav {
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+	margin-top: 20px;
+}
+.ng2-smart-pagination {
+	margin-bottom: 0;
+}
+.ng2-smart-pagination.pagination .page-link {
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.table td.ng2-smart-actions {
+	white-space: nowrap;
+}
+.produt-detail .carousel-item {
+	height: 300px;
+}
+.produt-detail .carousel-item>img {
+	height: 100%;
+	object-fit: cover;
+}
+.ms-panel-header h6,
+.ms-instagram-feed .ms-feed-user,
+.ms-facebook-feed .ms-feed-user,
+.ms-device-sessions .ms-device h4 {
+	font-size: 16px;
+}
+.ms-website-performance li.ms-list-item h4,
+.ms-facebook-engagements .ms-graph-meta h2 {
+	font-size: 18px;
+}
+.produt-detail {
+	margin-bottom: 4rem;
+}
+.ms-list.ms-sortable-list h5,
+.ms-list.ms-sortable h5 {
+	font-size: 17px;
+}
+.modal-body h1,
+.ms-auth-form h1,
+.ms-profile-user-info h1 {
+	font-size: 28px;
+}
+.accordion.faq .card-header i {
+	top: 4px;
+}
+.progress-rounded.progress-round-tiny {
+	margin-bottom: 0;
+	text-align: center;
+}
+.ms-card-body h6 + p {
+	margin-bottom: 0;
+}
+.breadcrumb li {
+	margin-bottom: .75rem;
+}
+.breadcrumb {
+	padding-bottom: 0;
+}
+.ms-profile-skills .section-title {
+	margin-top: 0;
+}
+.profilepage .section-title {
+	font-size: 20px;
+}
+.table td,
+.table th {
+	white-space: nowrap;
+}
+.ms-quick-bar:not(.ms-quick-bar-open) .nav-tabs.ms-quick-bar-list .nav-item .nav-link,
+.ms-quick-bar:not(.ms-quick-bar-open) .nav-tabs.ms-quick-bar-list .nav-item .nav-link i,
+.ms-quick-bar:not(.ms-quick-bar-open) .nav-tabs.ms-quick-bar-list .nav-item .nav-link span{
+	background-color: #fff;
+	color: #34334a;
+}
+.nav-tabs .nav-item .nav-link{
+	border:none;
+	border-radius: 0;
+    margin-bottom: 0;
+}
+.nav-tabs .nav-item .nav-link.active {
+    color: #fff;
+    background-color: #ff0018;
+}
+.dropdown-toggle.toggle-icon-none::after{
+	display: none;
+}
+.tooltip{
+	padding: 5px;
+}
+.tooltip.show{
+	opacity: 1 !important;
+}
+.tooltip > .tooltip-inner{
+	box-shadow: 0px 1px 15px rgba( 0, 0, 0, 0.1 );
+	border:rgba(0, 0, 0, 0.12) solid 1px;
+	background-color: #eeeff7;
+	opacity: 1;
+	font-size: 14px;
+	color: #555b62;
+	white-space: nowrap;
+}
+.tooltip .arrow:before{
+	display: none;
+}
+.nav-tabs.has-gap .nav-item .nav-link{
+	border: none;
+	border-radius: 0;
+	margin-bottom: 0;
+}
+.nav-tabs.has-gap .nav-item .nav-link.active{
+	color: #fff;
+    background-color: #ff0018;
+}
+.nav-tabs.tab-pills .nav-item .nav-link {
+    border-radius: 25px;
+}
+.nav-tabs.tabs-round .nav-item .nav-link {
+    border-radius: 5px;
+}
+.tabs-bordered.nav-tabs .nav-item .nav-link{
+	border-bottom:1px solid rgba(0,0,0,0.1);
+}
+.tabs-bordered.nav-tabs .nav-item .nav-link.active{
+	background-color: #fff;
+	color:#ff0018;
+	border-bottom: 2px solid #ff0018;
+}
+.nav-tabs.tabs-bordered.right-tabs .nav-item .nav-link,
+.nav-tabs.tabs-bordered.left-tabs .nav-item .nav-link{
+	border-bottom: none;
+}
+ngb-rating:focus{
+    outline: none;
+}
+.ms-star-rating {
+    display: flex;
+	flex-direction: unset;
+	margin-bottom: 1rem;
+}
+.ms-star-rating .ms-rating-item::marker{
+    display: none;
+    content:'';
+}
+.ms-chat-bubble.ms-chat-outgoing + .ms-chat-bubble.ms-chat-outgoing .media-body{
+	margin-right: calc(40px + 1rem);
+}
+.ms-chat-bubble.ms-chat-outgoing + .ms-chat-bubble.ms-chat-outgoing .media-body .ms-chat-text p{
+	border-radius: 5px;
+}
+.ms-chat-bubble.ms-chat-outgoing + .ms-chat-bubble.ms-chat-outgoing .media-body .ms-chat-text p:after{
+	display:none;
+}
+.ms-chat-bubble.ms-chat-incoming + .ms-chat-bubble.ms-chat-incoming .media-body{
+	margin-left: calc(40px + 1rem);
+}
+.ms-chat-bubble.ms-chat-incoming + .ms-chat-bubble.ms-chat-incoming .media-body .ms-chat-text p{
+	border-radius: 5px;
+}
+.ms-chat-bubble.ms-chat-incoming + .ms-chat-bubble.ms-chat-incoming .media-body .ms-chat-text p:after{
+	display:none;
+}
+.ms-chat-conversations .ms-chat-controls li{
+	margin-left: 15px;
+	margin-right: 0px;
+}
+.ms-chat-conversations .ms-chat-controls li:first-child{
+	margin-left: 0;
+}
+td .ms-star-rating{
+	margin-bottom: 0;
+}
+td .ms-star-rating .ms-rating-item{
+	width:auto;
+	height:auto;
+	padding: 0;
+	line-height: 0;
+}
+td .ms-star-rating .ms-rating-item i{
+	margin-right: 0;
+	margin: 0 2px;
+}
+.ms-email-options .has-chevron::after,
+.ms-facebook-engagements .has-chevron::after,
+.ms-chat-user-info .has-chevron::after{
+	border: none;
+}
+.menu-grid .ms-card-img{
+	height: 100px;
+}
+.menu-grid .ms-card-img img{
+	height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+/* Pagination */
+pagination-template .ngx-pagination {
+	margin-top: 0px;
+	justify-content: center;
+	margin-bottom: 0;
+	display: flex;
+	padding-left: 0;
+	list-style: none;
+	border-radius: .25rem;
+}
+pagination-template .ngx-pagination li {
+	margin: 0;
+	position: relative;
+}
+pagination-template .ngx-pagination li.pagination-next,
+pagination-template .ngx-pagination li.pagination-previous {
+	padding: 0;
+	display: block;
+}
+pagination-template .ngx-pagination li.pagination-next span,
+pagination-template .ngx-pagination li.pagination-previous span,
+pagination-template .ngx-pagination li a {
+	background-color: #fff;
+    font-weight: 600;
+    padding: 8px 20px!important;
+    margin: 0;
+    position: relative;
+    margin-left: 0;
+    display: block;
+    font-size: 14px;
+    line-height: 1.5;
+    border: 2px solid #eee;
+    color: #020202;
+    border-radius: 0;
+}
+pagination-template .ngx-pagination li.current {
+	border-radius: 0px;
+	color: #fff;
+	border: 1px solid #ff0018;
+	background-color: #ff0018;
+	font-size: 14px;
+	font-weight: 600;
+	padding: 8px 20px!important;
+	margin: 0;
+	position: relative;
+	display: block;
+    line-height: 1.5;
+}
+pagination-template .ngx-pagination li.current span{
+	color:#fff;
+}
+pagination-template .ngx-pagination li.pagination-next::after,
+pagination-template .ngx-pagination li.pagination-next a:after,
+pagination-template .ngx-pagination li.pagination-previous a::before,
+pagination-template .ngx-pagination li.pagination-previous::before {
+	display: none!important;
+}
+/* carousel */
+.carousel-control-next, .carousel-control-prev{
+	height: 60px;
+	width: auto;
+	background: rgba(0,0,0,0.4);
+	padding: 0 5px;
+	top: 50%;
+	margin-top: -30px;
+	opacity: 1;
+}
+.carousel-control-next:hover, .carousel-control-prev:hover{
+	background: rgba(0,0,0,0.8);
+}
+.carousel-control-next span, .carousel-control-prev span{
+	color: #fff;
+}
+.carousel-control-next span, .carousel-control-prev span{
+	background-image: none;
+}
+.carousel-control-prev span:before{
+	content: "keyboard_arrow_left";
+}
+.carousel-control-next span:before{
+	content: "keyboard_arrow_right";
+}
+.carousel-control-next span:before, .carousel-control-prev span:before{
+	font-family: 'Material Icons';
+}
+.carousel-caption{
+	right: 0;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background-image: linear-gradient(to top, rgba(0,0,0,0.6), rgba(255,255,255,0));
+}
+.carousel-caption h5, .carousel-caption p{
+	color: #fff;
+}
+.ms-button-slider .carousel-control-next, .ms-button-slider .carousel-control-prev{
+	position: relative;
+	height: auto;
+	width: 60px;
+	margin: 1rem 0.5rem 0 0.5rem;
+	display: inline-block;
+	padding: 5px;
+	background: #878793;
+	border-radius: 5px;
+}
+.ms-button-slider .carousel-control-next:after{
+	content: 'Next';
+}
+.ms-button-slider .carousel-control-prev:after{
+	content: 'Prev';
+}
+.ms-button-slider .carousel-control-next>span, .ms-button-slider .carousel-control-prev>span{
+	display: none;
+}
+.ms-button-slider .carousel-control-next:hover, .ms-button-slider .carousel-control-prev:hover{
+	background: #75757c;
+}
+.ms-carousel-buttons{
+	text-align: center;
+}
+.ms-indicator-slider .carousel-indicators{
+	position: relative;
+	margin: 2rem 15% 1rem 15%;
+	bottom: auto;
+}
+.ms-indicator-slider.carousel{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+.ms-indicator-slider.carousel .carousel-indicators{
+	order: 2;
+}
+.ms-indicator-slider.carousel .carousel-inner{
+	order: 1;
+}
+.ms-indicator-slider .carousel-indicators li{
+	background: #445cc8;
+	border:none
+}
+.ms-indicator-slider .carousel-indicators li:not(.active){
+	opacity: 0.6;
+	width: 20px;
+}
+.ms-dotted-indicator-slider .carousel-indicators li{
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+	border: 1px solid #fff;
+}
+.ms-dotted-indicator-slider .carousel-indicators li:not(.active){
+	background: transparent;
+	border: 1px solid #fff;
+}
+.ms-image-slider .carousel-indicators{
+	margin: 2% 0 0;
+	bottom: 0;
+	background: rgba(0,0,0,0.4);
+	padding: 1rem 0;
+}
+.ms-image-slider .carousel-indicators li{
+	width: 100px;
+	height: 70px;
+}
+.ms-image-slider .carousel-indicators li:before{
+	width: 100%;
+	height: 100%;
+	content: '';
+	background-image: url('assets/img/costic/add-product-1.jpg');
+	display: block;
+	position: relative;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+.ms-image-slider .carousel-indicators li:nth-child(2):before{
+	background-image: url('assets/img/costic/add-product-2.jpg');
+}
+.ms-image-slider .carousel-indicators li:nth-child(3):before{
+	background-image: url('assets/img/costic/add-product-3.jpg');
+}
+.ms-image-slider .carousel-indicators li.active:before{
+	border: 1px solid #fff;
+}
+.ms-image-slider .carousel-indicators li:not(.active):before{
+	opacity: 0.7;
+}
+.ms-swipe-slider .carousel-inner{
+	display: flex;
+}
+.ms-swipe-slider .carousel-item{
+	display: block;
+	flex: 0 1 auto;
+	margin: 0 1rem 0 0;
+}
+.ms-swipe-slider .carousel-item:last-child{
+	margin: 0;
+}
+ng2-smart-table.table.thead-primary .ng2-smart-th a {
+	color: #fff;
+}
+ng2-smart-table.table .ng2-smart-th a {
+	color: #212529;
+}
+.ng2-smart-pagination-nav {
+	width: 100%;
+	display: flex;
+	justify-content: flex-end;
+	margin-top: 20px;
+}
+.ng2-smart-pagination {
+	margin-bottom: 0;
+}
+.ng2-smart-pagination.pagination .page-link {
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.table td.ng2-smart-actions {
+	white-space: nowrap;
+}
+.active-bordered .page-item.active .page-link{
+	background-color: #fff;
+	border-color: #dee2e6;
+	border-bottom: 2px solid #ff0018;
+}
+.touranchor--is-active {
+    padding: 10px;
+    box-shadow: 0 1px 10px rgb(0 0 0 / 40%);
+}
+.ms-dark-theme .ms-aside-left-open .ms-aside-left.side-nav{
+	background-color: transparent;
+}
+.ms-dark-theme .ms-form-wizard ul li::before{
+	border-left: 20px solid #292d5a;
+}
+.ms-dark-theme .ms-form-wizard .nav-tabs .nav-item .nav-link{
+	background-color: transparent;
+}
+.ms-dark-theme .ms-form-wizard ul li.active::after {
+    border-left-color: #009efb;
+}
+.ms-form-wizard .nav-tabs .nav-item.done .nav-link:hover,
+.ms-form-wizard .nav-tabs .nav-item.active .nav-link:hover{
+	color: #fff;
+}
+.ms-wizard-vertical.ms-form-wizard .nav-tabs .nav-item.active .nav-link:hover,
+.ms-wizard-vertical.ms-form-wizard .nav-tabs .nav-item.done .nav-link:hover{
+	color:#ff0018;
+}
+@media(max-width: 575px) {
+	.ms-todo-options, .ms-todo-options.ms-todo-nav {
+		justify-content: center;
+	}
+}
+@media(max-width: 500px) {
+	.ms-email-pagination {
+		position: relative;
+		left: -10px;
+		right: 0;
+		top: 6px;
+	}
+}
+@media(max-width: 540px) {
+	.btn-group {
+		width: 100%;
+	}
+}
+@media(max-width: 767px) {
+	.progress-rounded.progress-round-tiny {
+		margin-bottom: 20px;
+	}
+	.bg-white .row>div:last-child .progress-rounded.progress-round-tiny {
+		margin-bottom: 0;
+	}
+}
+@media(max-width: 767px) {
+	.ms-graph-labels.column-direction {
+		display: none;
+	}
+	.ms-cropper-controls {
+		flex-wrap: wrap;
+	}
+	.ms-wizard-vertical.ms-form-wizard .tab-content,
+	.ms-wizard-vertical.ms-form-wizard .actions {
+		margin-left: 0;
+	}
+}
+

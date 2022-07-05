@@ -1,0 +1,300 @@
+<ngx-ui-loader fgsSize="180" bdColor="rgba(245, 54, 92,0.8)" size="large" color="#fff" [fgsType]="spinnerType">
+</ngx-ui-loader>
+
+<div class="ms-content-wrapper">
+  <div class="row">
+    <div class="col-md-12">
+<!--      <app-breadcrumb></app-breadcrumb>-->
+      <breadcrumb #parent>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb breadcrumb-arrow has-gap first-rounded pl-0">
+            <ng-template ngFor let-route [ngForOf]="parent.breadcrumbs">
+              <li class="breadcrumb breadcrumb-arrow has-gap first-rounded"><a routerLink="/schools/list"><i class="material-icons">home</i> Home</a></li>
+              <!-- <li *ngIf="!route.terminal" class="breadcrumb-item">
+                 <a href="" [routerLink]="[route.url]">{{ route.displayName }}</a>
+               </li>-->
+              <li *ngIf="route.terminal" class="breadcrumb-item active" aria-current="page">{{
+                route.displayName }}</li>
+            </ng-template>
+          </ol>
+        </nav>
+      </breadcrumb>
+      <div class="ms-panel">
+        <div class="row ms-panel-header">
+          <div class="col">
+            <h6>Hostel List</h6>
+          </div>
+          <div class="col">
+            <button class="btn btn-danger btn-sm btn-rounded float-right" (click)="openmax(add)"
+              data-toggle="modal">
+              <i class="fa fa-plus"></i> Add Hostel
+            </button>
+          </div>
+        </div>
+        <div class="ms-panel-body"> 
+          <div class="table-responsive">
+            <table *ngIf="hostelList" datatable [dtOptions]="dtOptions" class="table table-striped table-bordered">
+              <thead class="thead-light pb-3 mb-5">
+                <tr>
+                  <th>#SN</th>
+                  <th class="sort" data-sort="title">Name</th>
+                  <th>Description</th>
+                  <th>Capacity</th>
+                  <th>Hostel Captain </th>
+                  <th>Hostel Master</th> 
+                  <th>Action</th>
+                </tr>
+              </thead>
+
+              <tbody class="list">
+                <tr *ngFor="let hostel of hostelList; let ix = index">
+                  <td scope="row">{{ ix + 1 }}</td>
+                  <td scope="row">{{ hostel.hostel_name }}</td>
+                  <td scope="row">{{ hostel.description }}</td>
+                  <td scope="row">{{ hostel.hostel_capacity }}</td>
+                  <td scope="row" *ngIf="hostel.hostel_captain"> 
+                    {{hostel.hostel_captain.first_name}} {{hostel.hostel_captain.middle_name}} {{hostel.hostel_captain.surname}}
+                  </td>
+                  <td  scope="row" *ngIf="hostel.hostel_master"> 
+                    {{hostel.hostel_master.title}} {{hostel.hostel_master.first_name}} {{hostel.hostel_master.middle_name}} {{hostel.hostel_master.surname}}
+                  </td>
+
+                  <td scope="row" *ngIf="!hostel.hostel_captain">
+                    N/A
+                  </td>
+                  <td  scope="row" *ngIf="!hostel.hostel_master">
+                   N/A
+                  </td>
+
+                  <td>
+                    <a class="" (click)="viewDetails(hostel,view)">
+                      <i class="fa fa-eye"><strong></strong></i>
+                    </a>
+                    <a class="" (click)="editDetails(hostel,edit)">
+                      <i class="fas fa-edit"><strong></strong></i>
+                    </a>
+                    <a class="" (click)="delete_class(hostel)">
+                      <i class="fas fa-trash"><strong></strong></i>
+                    </a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #add let-modal>
+  <div class="modal-body">
+    <button type="button" class="close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h1>Add Hostel</h1>
+
+    <form #myForm="ngForm" (ngSubmit)="addHostel(myForm)" autocomplete="off" class="form form-register">
+      <fieldset>
+        <div class="ms-form-group has-icon">
+          <label>Hostel Name</label>
+          <input type="text" placeholder="Hostel Name" class="form-control"
+                 [(ngModel)]="hostelData.hostel_name" name="hostel_name" #hostel_name="ngModel"required />
+          <div *ngIf="(hostel_name.touched || submitted) && hostel_name.invalid">
+            <span class="text-danger" *ngIf="hostel_name.errors.required">Hostel Name is required.</span>
+          </div>
+        </div>        
+
+        <div class="ms-form-group has-icon">
+          <label>Description</label>
+          <textarea rows="5" class="form-control" placeholder="description"
+                    [(ngModel)]="hostelData.description" name="description" #description="ngModel" required ></textarea>
+          <div *ngIf="
+              (description.touched || submitted) && description.invalid
+            ">
+            <span class="text-danger" *ngIf="description.errors.required">Description is required.</span>
+          </div>
+        </div>
+
+        <div class="ms-form-group has-icon">
+        
+          <label>Hostel Capacity</label>
+          <input type="number" placeholder="hostel capacity" class="form-control"
+                 [(ngModel)]="hostel.hostel_capacity" name="hostel_capacity" #hostel_capacity="ngModel"required />
+          <div *ngIf="
+              (hostel_capacity.touched || submitted) && hostel_capacity.invalid
+            ">
+            <span class="text-danger" *ngIf="hostel_capacity.errors.required">Hostel Capacity is required.</span>
+          </div>
+        </div>
+
+        <div class="ms-form-group has-icon">
+          <label>Hostel Master</label>
+          <ng-select placeholder="Choose Hostel Master..."
+                     [(ngModel)]="staff.staff_id"
+                     name="staff_id" #staff_id="ngModel" required>
+            <ng-option *ngFor="let staff of staffs" [value]="staff.staff_id">
+              {{staff.title}} {{staff.first_name}} {{staff.middle_name}} {{staff.surname}}</ng-option>
+          </ng-select>
+          <small class="text-danger"
+                 *ngIf="staff_id?.errors && staff_id.touched"> Hostel Master is empty or
+            invalid </small>
+        </div>
+
+        <div class="ms-form-group has-icon">
+          <label>House Captain</label>
+          <ng-select placeholder="Choose House Captain..."
+                     [(ngModel)]="student.student_id" name="student_id" #student_id="ngModel" required>
+            <ng-option *ngFor="let student of students" [value]="student.student_id">
+              {{student.first_name}} {{student.middle_name}} {{student.surname}}</ng-option>
+          </ng-select>
+          <small class="text-danger"
+                 *ngIf="student_id?.errors && student_id.touched"> House Captain is empty or
+            invalid </small>
+        </div>
+      </fieldset>
+      <div class="d-flex justify-content-between">
+        <button type="button" class="btn btn-light" (click)="modal.dismiss('Cross click')">
+          Cancel
+        </button>
+        <button type="submit" class="btn btn-primary shadow-none">Save</button>
+      </div>
+    </form>
+  </div>
+</ng-template>
+
+<ng-template #edit let-modal>
+  <div class="modal-body">
+    <button type="button" class="close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h1>Edit Hostel</h1>
+
+    <form #myForm="ngForm" (ngSubmit)="editHostel(myForm)" autocomplete="off" class="form form-register">
+      <fieldset>
+        <div class="ms-form-group has-icon">
+          <label>Hostel Name</label>
+          <input type="text" placeholder="Hostel Name" class="form-control"
+                 [(ngModel)]="hostelData.hostel_name" name="hostel_name" #hostel_name="ngModel"required />
+          <div *ngIf="(hostel_name.touched || submitted) && hostel_name.invalid">
+            <span class="text-danger" *ngIf="hostel_name.errors.required">Hostel Nname is required.</span>
+          </div>
+        </div>        
+
+        <div class="ms-form-group has-icon">
+          <label>Description</label>
+          <textarea rows="5" class="form-control" placeholder="description"
+                    [(ngModel)]="hostelData.description" name="description" #description="ngModel" required ></textarea>
+          <div *ngIf="
+              (description.touched || submitted) && description.invalid
+            ">
+            <span class="text-danger" *ngIf="description.errors.required">Description is required.</span>
+          </div>
+        </div>
+
+        <div class="ms-form-group has-icon">
+        
+          <label>Hostel Capacity</label>
+          <input type="number" placeholder="hostel capacity" class="form-control"
+                 [(ngModel)]="hostel.hostel_capacity" name="hostel_capacity" #hostel_capacity="ngModel"required />
+          <div *ngIf="
+              (hostel_capacity.touched || submitted) && hostel_capacity.invalid
+            ">
+            <span class="text-danger" *ngIf="hostel_capacity.errors.required">Hostel Capacity is required.</span>
+          </div>
+        </div>
+
+        <div class="ms-form-group has-icon">
+          <label>Hostel Master</label>
+          <ng-select placeholder="Choose Hostel Master..."
+                     [(ngModel)]="staff.staff_id"
+                     name="staff_id" #staff_id="ngModel" required>
+            <ng-option *ngFor="let staff of staffs" [value]="staff.staff_id">
+              {{staff.title}} {{staff.first_name}} {{staff.middle_name}} {{staff.surname}}</ng-option>
+          </ng-select>
+          <small class="text-danger"
+                 *ngIf="staff_id?.errors && staff_id.touched"> Hostel Master is empty or
+            invalid </small>
+        </div>
+
+        <div class="ms-form-group has-icon">
+          <label>House Captain</label>
+          <ng-select placeholder="Choose House Captain..."
+                     [(ngModel)]="student.student_id" name="student_id" #student_id="ngModel" required>
+            <ng-option *ngFor="let student of students" [value]="student.student_id">
+              {{student.first_name}} {{student.middle_name}} {{student.surname}}</ng-option>
+          </ng-select>
+          <small class="text-danger"
+                 *ngIf="student_id?.errors && student_id.touched"> House Captain is empty or
+            invalid </small>
+        </div>
+      </fieldset>
+      <div class="d-flex justify-content-between">
+        <button type="button" class="btn btn-light" (click)="modal.dismiss('Cross click')">
+          Cancel
+        </button>
+        <button type="submit" class="btn btn-primary shadow-none">Save</button>
+      </div>
+    </form>
+  </div>
+</ng-template>
+
+<ng-template #view let-modal>
+  <div class="modal-body">
+    <button type="button" class="close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h1>View hostel</h1>
+
+    <form autocomplete="off" class="form form-register">
+      <fieldset>
+        <div class="ms-form-group has-icon">
+          <label>Hostel Name</label>
+          <input type="text" placeholder="Hostel Name" class="form-control"
+                 [(ngModel)]="hostelData.hostel_name" name="hostel_name" #hostel_name="ngModel" readonly required />
+        </div>        
+
+        <div class="ms-form-group has-icon">
+          <label>Description</label>
+          <textarea rows="5" class="form-control" placeholder="description"
+                    [(ngModel)]="hostelData.description" name="description" #description="ngModel"  readonly required ></textarea>
+        </div>
+
+        <div class="ms-form-group has-icon">        
+          <label>Hostel Capacity</label>
+          <input type="text" placeholder="hostel capacity" class="form-control"
+                 [(ngModel)]="hostel.hostel_capacity" name="hostel_capacity" #hostel_abbr="ngModel" readonly required /> 
+        </div>
+
+        <div class="ms-form-group has-icon">
+          <label>Hostel Master</label>
+          
+          <input type="text" placeholder="hostel capacity" class="form-control"
+                 [(ngModel)]="hostel.hostel_capacity" name="hostel_capacity" #hostel_abbr="ngModel" readonly required /> 
+
+          <ng-select placeholder="Choose Hostel Master..."
+                     [(ngModel)]="staff.staff_id" [disabled]="true"
+                     name="staff_id" #staff_id="ngModel" required>
+            <ng-option *ngFor="let staff of staffs" [value]="staff.staff_id">
+              {{staff.title}} {{staff.first_name}} {{staff.middle_name}} {{staff.surname}}</ng-option>
+          </ng-select>
+        </div>
+
+        <div class="ms-form-group has-icon">
+          <label>House Captain</label>
+          <ng-select placeholder="Choose House Captain..." [disabled]="true"
+                     [(ngModel)]="student.student_id" name="student_id" #student_id="ngModel" required>
+            <ng-option *ngFor="let student of students" [value]="student.student_id">
+              {{student.first_name}} {{student.middle_name}} {{student.surname}}</ng-option>
+          </ng-select>
+        </div>
+
+      </fieldset>
+      <div class="" >
+        <button type="button" class="btn btn-light" (click)="modal.dismiss('Cross click')">
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+</ng-template>

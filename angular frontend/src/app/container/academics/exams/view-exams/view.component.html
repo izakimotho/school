@@ -1,0 +1,54 @@
+<ngx-ui-loader fgsSize="180" bdColor="rgba(255, 0, 24,0.8)" size="large" color="#fff" [fgsType]="spinnerType">
+</ngx-ui-loader>
+
+<div class="ms-content-wrapper">
+  <div class="row">
+    <div class="col-md-12">
+<!--      <app-breadcrumb></app-breadcrumb>-->
+
+      <breadcrumb #parent>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb breadcrumb-arrow has-gap first-rounded pl-0">
+            <ng-template ngFor let-route [ngForOf]="parent.breadcrumbs">
+              <li class="breadcrumb breadcrumb-arrow has-gap first-rounded"><a routerLink="/academics/exams"><i class="material-icons">home</i> Home</a></li>
+             <!-- <li *ngIf="!route.terminal" class="breadcrumb-item">
+                <a href="" [routerLink]="[route.url]">{{ route.displayName }}</a>
+              </li>-->
+              <li *ngIf="route.terminal" class="breadcrumb-item active" aria-current="page">{{
+                route.displayName }}</li>
+            </ng-template>
+          </ol>
+        </nav>
+      </breadcrumb>
+
+    </div>
+    <div class="col-md-12">
+      <div class="ms-panel ms-panel-fh">
+        <div class="ms-panel-header">
+          <h6>Exam Details</h6>
+        </div>
+          <div class="row" >
+            <div class="col-4 p-5">
+              <h4 class="i font-bold m-b m-t-none">{{exam.exam_schedule_name}} </h4>
+              <p><i class="i i-info fa-lg fa-fw m-r-sm"></i>Exam Type: <b>{{exam.exam_type.exam_type_name}}</b></p>
+              <p><i class="i i-info fa-lg fa-fw m-r-sm"></i>Exam Date: <b>{{exam.exam_date | date}}</b></p>
+              <p><i class="i i-info fa-lg fa-fw m-r-sm"></i>Exam Time: <b>{{exam.exam_time}}</b></p>
+              <p><i class="i i-info fa-lg fa-fw m-r-sm"></i>Class: <b>{{exam.class_model.class_name }}</b></p>
+
+            </div>
+            <div class="col-4 p-5">
+              <p><i class="i i-info fa-lg fa-fw m-r-sm"></i>Class Level: <b>{{exam.class_model.school_level.school_level_name }}</b></p>
+              <p><i class="i i-info fa-lg fa-fw m-r-sm"></i>Education System: <b>{{exam.class_model.education_system.education_system_name }}</b></p>
+              <p><i class="i i-info fa-lg fa-fw m-r-sm"></i>Subject: <b>{{exam.subject.subject.subject_name}}</b></p>
+              <p><i class="i i-info fa-lg fa-fw m-r-sm"></i>Date Created: <b>{{exam.createAt | date}}</b></p>
+            </div>
+            <hr/>
+          </div>
+
+      </div>
+    </div>
+    <hr/>
+  </div>
+</div>
+
+

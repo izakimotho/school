@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "img": "assets/img/costic/customer-7.jpg",
+        "name": "John Doe",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in arcu turpis. Nunc"
+    },
+    {
+        "id": 2,
+        "img": "assets/img/costic/customer-8.jpg",
+        "name": "Raymart Sandiago",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in arcu turpis. Nunc"
+    },
+    {
+        "id": 3,
+        "img": "assets/img/costic/customer-9.jpg",
+        "name": "Micheal John",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in arcu turpis. Nunc"
+    },
+    {
+        "id": 4,
+        "img": "assets/img/costic/customer-4.jpg",
+        "name": "Heather Brown",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in arcu turpis. Nunc"
+    },
+    {
+        "id": 5,
+        "img": "assets/img/costic/customer-5.jpg",
+        "name": "Mila Freign",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in arcu turpis. Nunc"
+    },
+    {
+        "id": 6,
+        "img": "assets/img/costic/customer-6.jpg",
+        "name": "James Zathila",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in arcu turpis. Nunc"
+    }
+]

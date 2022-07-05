@@ -1,0 +1,140 @@
+<ngx-ui-loader fgsSize="180" bdColor="rgba(255, 0, 24,0.8)" size="large" color="#fff" [fgsType]="spinnerType">
+</ngx-ui-loader>
+
+<div class="ms-content-wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <!--      <app-breadcrumb></app-breadcrumb>-->
+            <breadcrumb #parent>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb breadcrumb-arrow has-gap first-rounded pl-0">
+                        <ng-template ngFor let-route [ngForOf]="parent.breadcrumbs">
+                            <li class="breadcrumb breadcrumb-arrow has-gap first-rounded"><a
+                                    routerLink="/students/list"><i class="material-icons">home</i> Home</a></li>
+                            <!-- <li *ngIf="!route.terminal" class="breadcrumb-item">
+                 <a href="" [routerLink]="[route.url]">{{ route.displayName }}</a>
+               </li>-->
+                            <li *ngIf="route.terminal" class="breadcrumb-item active" aria-current="page">{{
+                                route.displayName }}</li>
+                        </ng-template>
+                    </ol>
+                </nav>
+            </breadcrumb>
+            <div class="ms-panel">
+                <div class="row ms-panel-header">
+                    <div class="col">
+                        <h6>Students List</h6>
+                    </div>
+                    <div class="col" align="right">
+                        <!-- <button routerLink="/students/add" class="btn btn-danger btn-sm btn-rounded"
+                            data-target="#pop-institution-edit" data-toggle="modal">
+                            <i class="fa fa-plus"></i> Add Student</button> -->
+                    </div>
+                </div>
+                <div class="ms-panel-body">
+                    <div class="table-responsive">
+                        <table id="data-table-5" class="table w-100 thead-primary"></table>
+                    </div>
+                    <div class="col-xl-12 justify-content-end">
+                        <div class="table-responsive">
+                            <table *ngIf="students" datatable="ng" [dtOptions]="dtOptions"
+                                class="table table-striped table-bordered">
+                                <thead class="thead-light pb-3 mb-5">
+                                    <tr>
+                                        <th>#SN</th>
+                                        <th class="sort" data-sort="title">Names</th>
+                                        <th>Class</th>
+                                        <th>Stream</th>
+                                        <th>Admission Date</th>
+                                        <th>Fee Balance</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody class="list">
+                                    <tr *ngFor="let student of students;let ix=index;">
+                                        <td scope="row">{{ ix+1 }}</td>
+                                        <td scope="row">{{ student.first_name }} {{ student.middle_name }} {{
+                                            student.surname }}</td>
+                                        <td scope="row">{{ student.dob }}</td>
+                                        <td scope="row">{{ student.guardians_name }}</td>
+                                        <td scope="row">{{ student.admission_date | date}}</td>
+                                        <td scope="row">{{ student.admission_date | date}}</td>
+                                        <td>
+                                            <!-- <a [routerLink]="['/finance/fee-payment-hist/', student.student_id]"
+                                                class="">
+                                                <i class="fa fa-eye"><strong></strong></i>
+                                            </a> -->
+                                            <a (click)="makePayment(student,add)" class="">
+                                                <i class="fas fa-plus"><strong></strong></i>
+                                            </a>
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+
+                            </table>
+
+                        </div>
+                    </div>
+                    <!--              <ng2-smart-table [settings]="settings" [source]="schools" class="table w-100 thead-primary"></ng2-smart-table>-->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #add let-modal>
+    <div class="modal-body">
+        <button type="button" class="close" (click)="modal.dismiss('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <h1>Pay Fee</h1>
+
+        <form #myForm="ngForm" (ngSubmit)="addPayment(myForm)" autocomplete="off" class="form form-register">
+            <fieldset>
+
+                <div class="ms-form-group has-icon">
+                    <label>Student Name</label>
+                    <input type="text" class="form-control" required readonly
+                        value="{{ student.first_name }} {{ student.middle_name }} {{ student.surname }}"
+                        [(ngModel)]="student.first_name" />
+
+                </div>
+
+
+                <div class="ms-form-group has-icon">
+                    <label>Term/Session</label>
+                    <ng-select placeholder="Choose term/session.." [(ngModel)]="feePayment.term" name="term_details_id"
+                        #term_details_id="ngModel" required>
+                        <ng-option *ngFor="let termDetail of termDetailsList" [value]="termDetail.term_details_id">
+                            {{termDetail.terms.name}}</ng-option>
+                    </ng-select>
+                    <small class="text-danger" *ngIf="term_details_id?.errors && term_details_id.touched"> Term is empty
+                        or invalid </small>
+                </div>
+
+
+                <div class="ms-form-group has-icon">
+                    <label>Amount</label>
+                    <input type="number" placeholder="amount" class="form-control" [(ngModel)]="feePayment.fee_amount"
+                        name="fee_amount" #fee_amount="ngModel" required />
+                    <div *ngIf="(fee_amount.touched || submitted) && fee_amount.invalid">
+                        <span class="text-danger" *ngIf="fee_amount.errors.required">Amount is required.</span>
+                    </div>
+                </div> 
+
+
+
+
+
+            </fieldset>
+            <div class="d-flex justify-content-between">
+                <button type="button" class="btn btn-light" (click)="modal.dismiss('Cross click')">
+                    Cancel
+                </button>
+                <button type="submit" class="btn btn-primary shadow-none">Save</button>
+            </div>
+        </form>
+    </div>
+</ng-template>

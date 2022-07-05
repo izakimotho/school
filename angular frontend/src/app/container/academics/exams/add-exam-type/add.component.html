@@ -1,0 +1,75 @@
+<ngx-ui-loader fgsSize="180" bdColor="rgba(255, 0, 24,0.8)" size="large" color="#fff" [fgsType]="spinnerType">
+</ngx-ui-loader>
+
+<div class="ms-content-wrapper">
+  <div class="row">
+    <div class="col-md-12">
+<!--      <app-breadcrumb></app-breadcrumb>-->
+      <breadcrumb #parent>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb breadcrumb-arrow has-gap first-rounded pl-0">
+            <ng-template ngFor let-route [ngForOf]="parent.breadcrumbs">
+              <li class="breadcrumb breadcrumb-arrow has-gap first-rounded"><a routerLink="/academics/exams"><i class="material-icons">home</i> Home</a></li>
+              <!-- <li *ngIf="!route.terminal" class="breadcrumb-item">
+                 <a href="" [routerLink]="[route.url]">{{ route.displayName }}</a>
+               </li>-->
+              <li *ngIf="route.terminal" class="breadcrumb-item active" aria-current="page">{{
+                route.displayName }}</li>
+            </ng-template>
+          </ol>
+        </nav>
+      </breadcrumb>
+      <div class="ms-panel">
+        <div class="ms-panel-header">
+          <h6>Add Exam Type</h6>
+        </div>
+        <div class="ms-panel-body">
+          <form #form="ngForm" (ngSubmit)="submit(form)" autocomplete="off">
+            <div class="form-row">
+              <div class="col-md-4 mb-3 form-group">
+                <label >Exam Type Name</label>
+                <div class="input-group">
+                  <input ngModel type="text"  class="form-control" placeholder="Exam Type Name"
+                         [(ngModel)]="examType.exam_type_name" name="exam_type_name" #exam_type_name="ngModel" required/>
+                </div>
+                <small class="form-text  danger"
+                       *ngIf="exam_type_name?.errors && exam_type_name.touched"> Exam Type Name is empty or
+                  invalid </small>
+              </div>
+
+              <div class="col-md-4 mb-3 form-group">
+                <label >Description</label>
+                <div class="input-group">
+                  <input ngModel type="text"  class="form-control" placeholder="Middle Name"
+                         [(ngModel)]="examType.description" name="description" #description="ngModel" required/>
+                </div>
+                <small class="form-text  danger"
+                       *ngIf="description?.errors && description.touched"> Description is empty or
+                  invalid </small>
+              </div>
+
+              <div class="col-md-4 mb-3 md-2">
+                <label>School</label>
+                <ng-select placeholder="Choose School..."
+                           [(ngModel)]="school.org_id" name="org_id" #org_name="ngModel" >
+                  <ng-option *ngFor="let school of schools" [value]="school.org_id">
+                    {{school.org_name}}</ng-option>
+                </ng-select>
+                <small class="form-text text-muted danger"
+                       *ngIf="org_name?.errors && org_name.touched"> School is empty or
+                  invalid </small>
+              </div>
+
+            </div>
+            <div class="row ">
+              <div align="right" class="col-6" ><button [disabled]="!form.valid" class="btn btn-primary"  type="submit">Submit</button></div>
+              <div align="left" class="col-6"><button routerLink="/academics/exams" class="btn btn-primary"  type="submit">Back</button></div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

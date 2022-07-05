@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "img": "assets/img/costic/customer-2.jpg",
+        "name": "James Zathila",
+        "time": "2 Hours ago",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in arcu turpis. Nunc",
+        "msgcount": 3,
+        "newmsg": true,
+        "online": false,
+        "offline": false,
+        "busy": false
+    },
+    {
+        "id": 2,
+        "img": "assets/img/costic/customer-3.jpg",
+        "name": "Raymart Sandiago",
+        "time": "3 Hours ago",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in arcu turpis. Nunc",
+        "msgcount": "",
+        "newmsg": false,
+        "online": true,
+        "offline": false,
+        "busy": false
+    },
+    {
+        "id": 3,
+        "img": "assets/img/costic/customer-4.jpg",
+        "name": "Heather Brown",
+        "time": "12 Hours ago",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in arcu turpis. Nunc",
+        "msgcount": "",
+        "newmsg": false,
+        "online": false,
+        "offline": true,
+        "busy": false
+    },
+    {
+        "id": 4,
+        "img": "assets/img/costic/customer-5.jpg",
+        "name": "Micheal John",
+        "time": "Yesterday",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in arcu turpis. Nunc",
+        "msgcount": "",
+        "newmsg": false,
+        "online": false,
+        "offline": false,
+        "busy": true
+    },
+    {
+        "id": 5,
+        "img": "assets/img/costic/customer-6.jpg",
+        "name": "John Doe",
+        "time": "3 Days ago",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in arcu turpis. Nunc",
+        "msgcount": "",
+        "newmsg": false,
+        "online": true,
+        "offline": false,
+        "busy": false
+    }
+]

@@ -1,0 +1,53 @@
+[
+    {
+        "id":1,
+        "title": "Don't forget to check with the designer",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vulputate urna in faucibus venenatis. Etiam at dapibus neque, vel varius metus. Pellentesque eget orci malesuada, venenatis magna et",
+        "members": [
+            {
+                "img": "assets/img/people/people-3.jpg"
+            },
+            {
+                "img": "assets/img/people/people-5.jpg"
+            }
+        ],
+        "shareuser": [
+            {
+                "img": "assets/img/people/people-10.jpg",
+                "name": "Jhon Doe"
+            },
+            {
+                "img": "assets/img/people/people-9.jpg",
+                "name": "Raymart Sandigo"
+            },
+            {
+                "img": "assets/img/people/people-7.jpg",
+                "name": "Heather Brown"
+            }
+        ]
+    },
+    {
+        "id":2,
+        "title": "Perform the required unit tests",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam vulputate urna in faucibus venenatis. Etiam at dapibus neque, vel varius metus. Pellentesque eget orci malesuada, venenatis magna et",
+        "members": [
+            {
+                "img": "assets/img/people/people-9.jpg"
+            }
+        ],
+        "shareuser": [
+            {
+                "img": "assets/img/people/people-10.jpg",
+                "name": "Jhon Doe"
+            },
+            {
+                "img": "assets/img/people/people-9.jpg",
+                "name": "Raymart Sandigo"
+            },
+            {
+                "img": "assets/img/people/people-7.jpg",
+                "name": "Heather Brown"
+            }
+        ]
+    }
+]

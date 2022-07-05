@@ -1,0 +1,542 @@
+[
+    {
+        "id": 1,
+        "img": [
+            "assets/img/costic/pizza.jpg",
+            "assets/img/costic/banner-1.jpg",
+            "assets/img/costic/banner-2.jpg",
+            "assets/img/costic/banner-3.jpg"
+        ],
+        "name": "pizza",
+        "shortdesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur adipiscing",
+        "longdesc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book type and scrambled it to make a type specimen book.",
+        "qty": 5421,
+        "status": "In Stock",
+        "price": 32
+    },
+    {
+        "id": 98521,
+        "img": [
+            "assets/img/costic/pizza.jpg",
+            "assets/img/costic/banner-1.jpg",
+            "assets/img/costic/banner-2.jpg",
+            "assets/img/costic/banner-3.jpg"
+        ],
+        "name": "shake",
+        "shortdesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur adipiscing",
+        "longdesc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book type and scrambled it to make a type specimen book.",
+        "qty": 8422,
+        "status": "In Stock",
+        "price": 17
+    },
+    {
+        "id": 45454,
+        "img": [
+            "assets/img/costic/egg-sandwich.jpg",
+            "assets/img/costic/banner-1.jpg",
+            "assets/img/costic/banner-2.jpg",
+            "assets/img/costic/banner-3.jpg"
+        ],
+        "name": "Burger",
+        "shortdesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur adipiscing",
+        "longdesc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book type and scrambled it to make a type specimen book.",
+        "qty": 1562,
+        "status": "In Stock",
+        "price": 86
+    },
+    {
+        "id": 12121,
+        "img": [
+            "assets/img/costic/egg-sandwich.jpg",
+            "assets/img/costic/banner-1.jpg",
+            "assets/img/costic/banner-2.jpg",
+            "assets/img/costic/banner-3.jpg"
+        ],
+        "name": "Noodels",
+        "shortdesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur adipiscing",
+        "longdesc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book type and scrambled it to make a type specimen book.",
+        "qty": 6224,
+        "status": "In Stock",
+        "price": 43
+    },
+    {
+        "id": 56454,
+        "img": [
+            "assets/img/costic/cereals.jpg",
+            "assets/img/costic/banner-1.jpg",
+            "assets/img/costic/banner-2.jpg",
+            "assets/img/costic/banner-3.jpg"
+        ],
+        "name": "cake",
+        "shortdesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur adipiscing",
+        "longdesc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book type and scrambled it to make a type specimen book.",
+        "qty": 5407,
+        "status": "Out Of Stock",
+        "price": 16
+    },
+    {
+        "id": 25252,
+        "img": [
+            "assets/img/costic/cereals.jpg",
+            "assets/img/costic/banner-1.jpg",
+            "assets/img/costic/banner-2.jpg",
+            "assets/img/costic/banner-3.jpg"
+        ],
+        "name": " Sandwich",
+        "shortdesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur adipiscing",
+        "longdesc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book type and scrambled it to make a type specimen book.",
+        "qty": 4804,
+        "status": "In Stock",
+        "price": 37
+    },
+    {
+        "id": 45454,
+        "img": [
+            "assets/img/costic/french-fries.jpg",
+            "assets/img/costic/banner-1.jpg",
+            "assets/img/costic/banner-2.jpg",
+            "assets/img/costic/banner-3.jpg"
+        ],
+        "name": "Spicy Sandwich",
+        "shortdesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur adipiscing",
+        "longdesc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book type and scrambled it to make a type specimen book.",
+        "qty": 9608,
+        "status": "Out Of Stock",
+        "price": 13
+    },
+    {
+        "id": 64541,
+        "img": [
+            "assets/img/costic/pizza.jpg",
+            "assets/img/costic/banner-1.jpg",
+            "assets/img/costic/banner-2.jpg",
+            "assets/img/costic/banner-3.jpg"
+        ],
+        "name": "Peri Peri Fries",
+        "shortdesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur adipiscing",
+        "longdesc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book type and scrambled it to make a type specimen book.",
+        "qty": 6200,
+        "status": "In Stock",
+        "price": 32
+    },
+    {
+        "id": 56562,
+        "img": [
+            "assets/img/costic/egg-sandwich.jpg",
+            "assets/img/costic/banner-1.jpg",
+            "assets/img/costic/banner-2.jpg",
+            "assets/img/costic/banner-3.jpg"
+        ],
+        "name": "Pasta",
+        "shortdesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur adipiscing",
+        "longdesc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book type and scrambled it to make a type specimen book.",
+        "qty": 2360,
+        "status": "In Stock",
+        "price": 20
+    },
+    {
+        "id": 51558,
+        "img": [
+            "assets/img/costic/cereals.jpg",
+            "assets/img/costic/banner-1.jpg",
+            "assets/img/costic/banner-2.jpg",
+            "assets/img/costic/banner-3.jpg"
+        ],
+        "name": "Nachos",
+        "shortdesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur adipiscing",
+        "longdesc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book type and scrambled it to make a type specimen book.",
+        "qty": 1667,
+        "status": "In Stock",
+        "price": 10
+    },
+    {
+        "id": 55841,
+        "img": [
+            "assets/img/costic/french-fries.jpg",
+            "assets/img/costic/banner-1.jpg",
+            "assets/img/costic/banner-2.jpg",
+            "assets/img/costic/banner-3.jpg"
+        ],
+        "name": "Mexican Pizza",
+        "shortdesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur adipiscing",
+        "longdesc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book type and scrambled it to make a type specimen book.",
+        "qty": 3814,
+        "status": "Out Of Stock",
+        "price": 9
+    },
+    {
+        "id": 55811,
+        "img": [
+            "assets/img/costic/french-fries.jpg",
+            "assets/img/costic/banner-1.jpg",
+            "assets/img/costic/banner-2.jpg",
+            "assets/img/costic/banner-3.jpg"
+        ],
+        "name": " Pastries",
+        "shortdesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur adipiscing",
+        "longdesc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book type and scrambled it to make a type specimen book.",
+        "qty": 9497,
+        "status": "In Stock",
+        "price": 34
+    },
+    {
+        "id": 1475,
+        "img": [
+            "assets/img/costic/french-fries.jpg",
+            "assets/img/costic/banner-1.jpg",
+            "assets/img/costic/banner-2.jpg",
+            "assets/img/costic/banner-3.jpg"
+        ],
+        "name": "French Fries",
+        "shortdesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur adipiscing",
+        "longdesc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book type and scrambled it to make a type specimen book.",
+        "qty": 6741,
+        "status": "In Stock",
+        "price": 47
+    },
+    {
+        "id": 55454,
+        "img": [
+            "assets/img/costic/pizza.jpg",
+            "assets/img/costic/banner-1.jpg",
+            "assets/img/costic/banner-2.jpg",
+            "assets/img/costic/banner-3.jpg"
+        ],
+        "name": " Munchurian",
+        "shortdesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur adipiscing",
+        "longdesc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book type and scrambled it to make a type specimen book.",
+        "qty": 3597,
+        "status": "In Stock",
+        "price": 31
+    },
+    {
+        "id": 12145,
+        "img": [
+            "assets/img/costic/egg-sandwich.jpg",
+            "assets/img/costic/banner-1.jpg",
+            "assets/img/costic/banner-2.jpg",
+            "assets/img/costic/banner-3.jpg"
+        ],
+        "name": "Garlic Bread",
+        "shortdesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur adipiscing",
+        "longdesc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book type and scrambled it to make a type specimen book.",
+        "qty": 1965,
+        "status": "Out Of Stock",
+        "price": 3
+    },
+    {
+        "id": 52351,
+        "img": [
+            "assets/img/costic/cereals.jpg",
+            "assets/img/costic/banner-1.jpg",
+            "assets/img/costic/banner-2.jpg",
+            "assets/img/costic/banner-3.jpg"
+        ],
+        "name": " Spaghetti",
+        "shortdesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur adipiscing",
+        "longdesc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book type and scrambled it to make a type specimen book.",
+        "qty": 1581,
+        "status": "In Stock",
+        "price": 19
+    },
+    {
+        "id": 45823,
+        "img": [
+            "assets/img/costic/cereals.jpg",
+            "assets/img/costic/banner-1.jpg",
+            "assets/img/costic/banner-2.jpg",
+            "assets/img/costic/banner-3.jpg"
+        ],
+        "name": "Mix Sause Pasta",
+        "shortdesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur adipiscing",
+        "longdesc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book type and scrambled it to make a type specimen book.",
+        "qty": 3059,
+        "status": "In Stock",
+        "price": 7
+    },
+    {
+        "id": 98541,
+        "img": [
+            "assets/img/costic/egg-sandwich.jpg",
+            "assets/img/costic/banner-1.jpg",
+            "assets/img/costic/banner-2.jpg",
+            "assets/img/costic/banner-3.jpg"
+        ],
+        "name": "Fried Egg Sandwich ",
+        "shortdesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur adipiscing",
+        "longdesc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book type and scrambled it to make a type specimen book.",
+        "qty": 1721,
+        "status": "In Stock",
+        "price": 23
+    },
+    {
+        "id": 22366,
+        "img": [
+            "assets/img/costic/egg-sandwich.jpg",
+            "assets/img/costic/banner-1.jpg",
+            "assets/img/costic/banner-2.jpg",
+            "assets/img/costic/banner-3.jpg"
+        ],
+        "name": "Multigrain Hot Cereal",
+        "shortdesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur adipiscing",
+        "longdesc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book type and scrambled it to make a type specimen book.",
+        "qty": 2558,
+        "status": "Out Of Stock",
+        "price": 13
+    },
+    {
+        "id": 56465,
+        "img": [
+            "assets/img/costic/pizza.jpg",
+            "assets/img/costic/banner-1.jpg",
+            "assets/img/costic/banner-2.jpg",
+            "assets/img/costic/banner-3.jpg"
+        ],
+        "name": "Spicy Sandwich",
+        "shortdesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur adipiscing",
+        "longdesc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book type and scrambled it to make a type specimen book.",
+        "qty": 2290,
+        "status": "In Stock",
+        "price": 21
+    },
+    {
+        "id": 34256,
+        "img": [
+            "assets/img/costic/pizza.jpg",
+            "assets/img/costic/banner-1.jpg",
+            "assets/img/costic/banner-2.jpg",
+            "assets/img/costic/banner-3.jpg"
+        ],
+        "name": "shake",
+        "shortdesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur adipiscing",
+        "longdesc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book type and scrambled it to make a type specimen book.",
+        "qty": 1937,
+        "status": "In Stock",
+        "price": 34
+    },
+    {
+        "id": 45484,
+        "img": [
+            "assets/img/costic/egg-sandwich.jpg",
+            "assets/img/costic/banner-1.jpg",
+            "assets/img/costic/banner-2.jpg",
+            "assets/img/costic/banner-3.jpg"
+        ],
+        "name": "Dim sum",
+        "shortdesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur adipiscing",
+        "longdesc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book type and scrambled it to make a type specimen book.",
+        "qty": 6154,
+        "status": "In Stock",
+        "price": 6
+    },
+    {
+        "id": 41028,
+        "img": [
+            "assets/img/costic/egg-sandwich.jpg",
+            "assets/img/costic/banner-1.jpg",
+            "assets/img/costic/banner-2.jpg",
+            "assets/img/costic/banner-3.jpg"
+        ],
+        "name": "spicy chicken soupe ",
+        "shortdesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur adipiscing",
+        "longdesc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book type and scrambled it to make a type specimen book.",
+        "qty": 8330,
+        "status": "In Stock",
+        "price": 10
+    },
+    {
+        "id": 15485,
+        "img": [
+            "assets/img/costic/french-fries.jpg",
+            "assets/img/costic/banner-1.jpg",
+            "assets/img/costic/banner-2.jpg",
+            "assets/img/costic/banner-3.jpg"
+        ],
+        "name": "Baked Nachos",
+        "shortdesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur adipiscing",
+        "longdesc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book type and scrambled it to make a type specimen book.",
+        "qty": 3023,
+        "status": "In Stock",
+        "price": 10
+    },
+    {
+        "id": 48568,
+        "img": [
+            "assets/img/costic/french-fries.jpg",
+            "assets/img/costic/banner-1.jpg",
+            "assets/img/costic/banner-2.jpg",
+            "assets/img/costic/banner-3.jpg"
+        ],
+        "name": "Spaghetti",
+        "shortdesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur adipiscing",
+        "longdesc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book type and scrambled it to make a type specimen book.",
+        "qty": 5797,
+        "status": "In Stock",
+        "price": 12
+    },
+    {
+        "id": 45815,
+        "img": [
+            "assets/img/costic/french-fries.jpg",
+            "assets/img/costic/banner-1.jpg",
+            "assets/img/costic/banner-2.jpg",
+            "assets/img/costic/banner-3.jpg"
+        ],
+        "name": "Munchurian",
+        "shortdesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur adipiscing",
+        "longdesc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book type and scrambled it to make a type specimen book.",
+        "qty": 8822,
+        "status": "In Stock",
+        "price": 9
+    },
+    {
+        "id": 46542,
+        "img": [
+            "assets/img/costic/french-fries.jpg",
+            "assets/img/costic/banner-1.jpg",
+            "assets/img/costic/banner-2.jpg",
+            "assets/img/costic/banner-3.jpg"
+        ],
+        "name": "Noodels",
+        "shortdesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur adipiscing",
+        "longdesc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book type and scrambled it to make a type specimen book.",
+        "qty": 9239,
+        "status": "In Stock",
+        "price": 35
+    },
+    {
+        "id": 65412,
+        "img": [
+            "assets/img/costic/egg-sandwich.jpg",
+            "assets/img/costic/banner-1.jpg",
+            "assets/img/costic/banner-2.jpg",
+            "assets/img/costic/banner-3.jpg"
+        ],
+        "name": "Fried Egg Sandwich",
+        "shortdesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur adipiscing",
+        "longdesc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book type and scrambled it to make a type specimen book.",
+        "qty": 1314,
+        "status": "In Stock",
+        "price": 20
+    },
+    {
+        "id": 89658,
+        "img": [
+            "assets/img/costic/egg-sandwich.jpg",
+            "assets/img/costic/banner-1.jpg",
+            "assets/img/costic/banner-2.jpg",
+            "assets/img/costic/banner-3.jpg"
+        ],
+        "name": "Hot Cereal",
+        "shortdesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur adipiscing",
+        "longdesc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book type and scrambled it to make a type specimen book.",
+        "qty": 2947,
+        "status": "In Stock",
+        "price": 8
+    },
+    {
+        "id": 2351,
+        "img": [
+            "assets/img/costic/pizza.jpg",
+            "assets/img/costic/banner-1.jpg",
+            "assets/img/costic/banner-2.jpg",
+            "assets/img/costic/banner-3.jpg"
+        ],
+        "name": "French Crostini",
+        "shortdesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur adipiscing",
+        "longdesc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book type and scrambled it to make a type specimen book.",
+        "qty": 8899,
+        "status": "In Stock",
+        "price": 16
+    },
+    {
+        "id": 56212,
+        "img": [
+            "assets/img/costic/pizza.jpg",
+            "assets/img/costic/banner-1.jpg",
+            "assets/img/costic/banner-2.jpg",
+            "assets/img/costic/banner-3.jpg"
+        ],
+        "name": "Spicy Noodels",
+        "shortdesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur adipiscing",
+        "longdesc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book type and scrambled it to make a type specimen book.",
+        "qty": 2769,
+        "status": "Out Of Stock",
+        "price": 9
+    },
+    {
+        "id": 78065,
+        "img": [
+            "assets/img/costic/cereals.jpg",
+            "assets/img/costic/banner-1.jpg",
+            "assets/img/costic/banner-2.jpg",
+            "assets/img/costic/banner-3.jpg"
+        ],
+        "name": "Lemon Yogurt Parfait",
+        "shortdesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur adipiscing",
+        "longdesc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book type and scrambled it to make a type specimen book.",
+        "qty": 6832,
+        "status": "In Stock",
+        "price": 11
+    },
+    {
+        "id": 56121,
+        "img": [
+            "assets/img/costic/cereals.jpg",
+            "assets/img/costic/banner-1.jpg",
+            "assets/img/costic/banner-2.jpg",
+            "assets/img/costic/banner-3.jpg"
+        ],
+        "name": "Potato Fries",
+        "shortdesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur adipiscing",
+        "longdesc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book type and scrambled it to make a type specimen book.",
+        "qty": 3606,
+        "status": "In Stock",
+        "price": 14
+    },
+    {
+        "id": 14526,
+        "img": [
+            "assets/img/costic/egg-sandwich.jpg",
+            "assets/img/costic/banner-1.jpg",
+            "assets/img/costic/banner-2.jpg",
+            "assets/img/costic/banner-3.jpg"
+        ],
+        "name": "Lemon Rice",
+        "shortdesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur adipiscing",
+        "longdesc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book type and scrambled it to make a type specimen book.",
+        "qty": 2860,
+        "status": "In Stock",
+        "price": 21
+    },
+    {
+        "id": 15451,
+        "img": [
+            "assets/img/costic/pizza.jpg",
+            "assets/img/costic/banner-1.jpg",
+            "assets/img/costic/banner-2.jpg",
+            "assets/img/costic/banner-3.jpg"
+        ],
+        "name": "Fried Rice",
+        "shortdesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur adipiscing",
+        "longdesc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book type and scrambled it to make a type specimen book.",
+        "qty": 8240,
+        "status": "In Stock",
+        "price": 32
+    },
+    {
+        "id": 14451,
+        "img": [
+            "assets/img/costic/french-fries.jpg",
+            "assets/img/costic/banner-1.jpg",
+            "assets/img/costic/banner-2.jpg",
+            "assets/img/costic/banner-3.jpg"
+        ],
+        "name": "pizza",
+        "shortdesc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, dolor sit amet, consectetur adipiscing",
+        "longdesc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book type and scrambled it to make a type specimen book.",
+        "qty": 5384,
+        "status": "Out Of Stock",
+        "price": 85
+    }
+]

@@ -1,0 +1,53 @@
+[
+    {
+        "id": 1,
+        "img": "assets/img/costic/customer-6.jpg",
+        "name": "James Zathila",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in arcu turpis. Nunc",
+        "moreuser": [
+            {
+                "img": "assets/img/costic/customer-1.jpg"
+            },
+            {
+                "img": "assets/img/costic/customer-2.jpg"
+            },
+            {
+                "img": "assets/img/costic/customer-3.jpg"
+            }
+        ],
+        "totaluser": "+ 12 more"
+    },
+    {
+        "id": 2,
+        "img": "assets/img/costic/customer-4.jpg",
+        "name": "Raymart Sandiago",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in arcu turpis. Nunc",
+        "moreuser": [
+            {
+                "img": "assets/img/costic/customer-6.jpg"
+            },
+            {
+                "img": "assets/img/costic/customer-7.jpg"
+            }
+        ],
+        "totaluser": ""
+    },
+    {
+        "id": 3,
+        "img": "assets/img/costic/customer-10.jpg",
+        "name": "John Doe",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In in arcu turpis. Nunc",
+        "moreuser": [
+            {
+                "img": "assets/img/costic/customer-1.jpg"
+            },
+            {
+                "img": "assets/img/costic/customer-2.jpg"
+            },
+            {
+                "img": "assets/img/costic/customer-3.jpg"
+            }
+        ],
+        "totaluser": "+ 4 more"
+    }
+]

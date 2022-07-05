@@ -1,0 +1,15 @@
+{
+    "version": "2.0.0",
+    "appName": "Lunna Portal",      
+    
+    "apiUrl":"https://lunna-test.lunna.chat",
+    "adsport": "9022",
+    "authport":"9020",
+    "production": false,
+    "lang":[
+        "Swa",
+        "Eng",
+        "Fre"
+
+    ]
+  }

@@ -1,0 +1,68 @@
+<div class="ms-content-wrapper">
+    <div class="row">
+        <div class="col-md-12">
+            <app-breadcrumb></app-breadcrumb>
+            <div class="ms-panel">
+                <div class="ms-panel-header">
+                    <h6>Hoverable Rows Datatable</h6>
+                </div>
+                <div class="ms-panel-body">
+                    <p class="ms-directions">Check <code>/src/app/data/datatable.json</code> for reference</p>
+                    <div class="row mb-3">
+                        <div class="col-lg-3 col-md-6">
+                            <input #search class="search" class="form-control" type="text" placeholder="Search..." (keydown.enter)="onSearch(search.value)">
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <ng2-smart-table [settings]="settings" [source]="source" class="table table-hover w-100"></ng2-smart-table>
+                    </div>
+                </div>
+            </div>
+            <div class="ms-panel">
+                <div class="ms-panel-header">
+                    <h6>Datatable With Header and Stripes</h6>
+                </div>
+                <div class="ms-panel-body">
+                    <div class="row mb-3">
+                        <div class="col-lg-3 col-md-6">
+                            <input #search class="search" class="form-control" type="text" placeholder="Search..." (keydown.enter)="onSearch(search.value)">
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <ng2-smart-table [settings]="settings" [source]="source" class="table table-striped thead-primary w-100"></ng2-smart-table>
+                    </div>
+                </div>
+            </div>
+            <div class="ms-panel">
+                <div class="ms-panel-header">
+                    <h6>Datatable With Scroll</h6>
+                </div>
+                <div class="ms-panel-body">
+                    <div class="row mb-3">
+                        <div class="col-lg-3 col-md-6">
+                            <input #search class="search" class="form-control" type="text" placeholder="Search..." (keydown.enter)="onSearch(search.value)">
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <ng2-smart-table [settings]="settings" [source]="source" class="table w-100"></ng2-smart-table>
+                    </div>
+                </div>
+            </div>
+            <div class="ms-panel">
+                <div class="ms-panel-header">
+                    <h6>Responsive Datatable</h6>
+                </div>
+                <div class="ms-panel-body">
+                    <div class="row mb-3">
+                        <div class="col-lg-3 col-md-6">
+                            <input #search class="search" class="form-control" type="text" placeholder="Search..." (keydown.enter)="onSearch(search.value)">
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <ng2-smart-table [settings]="settings" [source]="source" class="table w-100 thead-primary"></ng2-smart-table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

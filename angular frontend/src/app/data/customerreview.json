@@ -1,0 +1,57 @@
+[
+    {
+        "id":1,
+        "img":"assets/img/costic/customer-1.jpg",
+        "name":"John Doe",
+        "productname":"Grilled Sandwich",
+        "commentdate":"January 24, 2021",
+        "comment":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus lectus a facilisis bibendum. Duis quis convallis sapien...",
+        "rating":4,
+        "replies":16,
+        "attachment":4
+    },
+    {
+        "id":2,
+        "img":"assets/img/costic/customer-2.jpg",
+        "name":"Ricky Martin",
+        "productname":"Fried Egg Sandwich",
+        "commentdate":"January 24, 2021",
+        "comment":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus lectus a facilisis bibendum. Duis quis convallis sapien...",
+        "rating":4,
+        "replies":16,
+        "attachment":4
+    },
+    {
+        "id":3,
+        "img":"assets/img/costic/customer-3.jpg",
+        "name":"Joe semual",
+        "productname":"Peri Peri Fries",
+        "commentdate":"January 24, 2021",
+        "comment":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus lectus a facilisis bibendum. Duis quis convallis sapien...",
+        "rating":4,
+        "replies":16,
+        "attachment":4
+    },
+    {
+        "id":4,
+        "img":"assets/img/costic/customer-4.jpg",
+        "name":"Ricky Martin",
+        "productname":"Spicy Grilled Burger",
+        "commentdate":"January 24, 2021",
+        "comment":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus lectus a facilisis bibendum. Duis quis convallis sapien...",
+        "rating":4,
+        "replies":16,
+        "attachment":4
+    },
+    {
+        "id":5,
+        "img":"assets/img/costic/customer-5.jpg",
+        "name":"Lim Shojin",
+        "productname":"Grilled Sandwich",
+        "commentdate":"January 24, 2021",
+        "comment":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus lectus a facilisis bibendum. Duis quis convallis sapien...",
+        "rating":4,
+        "replies":16,
+        "attachment":4
+    }
+]

@@ -1,0 +1,80 @@
+<ngx-ui-loader fgsSize="180" bdColor="rgba(255, 0, 24,0.8)" size="large" color="#fff" [fgsType]="spinnerType">
+</ngx-ui-loader>
+
+<div class="ms-content-wrapper">
+  <div class="row">
+    <div class="col-md-12">
+<!--      <app-breadcrumb></app-breadcrumb>-->
+      <breadcrumb #parent>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb breadcrumb-arrow has-gap first-rounded pl-0">
+            <ng-template ngFor let-route [ngForOf]="parent.breadcrumbs">
+              <li class="breadcrumb breadcrumb-arrow has-gap first-rounded"><a routerLink="/academics/exams"><i class="material-icons">home</i> Home</a></li>
+              <!-- <li *ngIf="!route.terminal" class="breadcrumb-item">
+                 <a href="" [routerLink]="[route.url]">{{ route.displayName }}</a>
+               </li>-->
+              <li *ngIf="route.terminal" class="breadcrumb-item active" aria-current="page">{{
+                route.displayName }}</li>
+            </ng-template>
+          </ol>
+        </nav>
+      </breadcrumb>
+      <div class="ms-panel">
+        <div class="row ms-panel-header">
+          <div class="col">
+            <h6>Exams List</h6>
+          </div>
+          <div class="col">
+            <!--<button routerLink="/academics/add-exam" class="btn btn-danger btn-sm btn-rounded float-right"
+                    data-toggle="modal">
+              <i class="fa fa-plus"></i> Add Exam
+            </button>
+             <button routerLink="/academics/add-exam-type" class="btn btn-danger btn-sm btn-rounded float-right"
+                    data-toggle="modal">
+              <i class="fa fa-plus"></i> Add Exam Type
+            </button> -->
+          </div>
+        </div>
+        <div class="ms-panel-body">
+          <div class="table-responsive">
+            <table id="data-table-5" class="table w-100 thead-primary"></table>
+          </div>
+          <div class="col-xl-12 justify-content-end">
+            <div class="table-responsive">
+            <table *ngIf="exams" datatable="ng" [dtOptions]="dtOptions" class="table table-striped table-bordered">
+              <thead class="thead-light pb-3 mb-5">
+              <tr>
+                <th>#SN</th>
+                <th class="sort" data-sort="title">Exam Name</th>
+                <th>Type</th>
+                <th>Subject</th>
+                <th>Action</th>
+              </tr>
+              </thead>
+
+              <tbody class="list">
+              <tr *ngFor="let exam of exams;let ix=index;">
+                <td scope="row">{{ ix+1 }}</td>
+                <td scope="row">{{ exam.exam_schedule_name }} </td>
+                <td scope="row">{{ exam.exam_type.exam_type_name }}</td>
+                <td scope="row">{{ exam.subject.subject.subject_name }}</td>
+                <td>
+                  <a [routerLink]="['/academics/grade-student', exam.exam_schedule_id]" class="">
+                    <i class="fa fa-eye"><strong></strong></i>
+                  </a>  
+                </td>
+              </tr>
+              </tbody>
+
+            </table>
+
+            </div>
+          </div>
+<!--              <ng2-smart-table [settings]="settings" [source]="schools" class="table w-100 thead-primary"></ng2-smart-table>-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<swal #multistep (confirm)="deleteQuestion()" [swalOptions]="Step1"></swal>

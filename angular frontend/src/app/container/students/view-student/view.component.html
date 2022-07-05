@@ -1,0 +1,310 @@
+<ngx-ui-loader fgsSize="180" bdColor="rgba(255, 0, 24,0.8)" size="large" color="#fff" [fgsType]="spinnerType">
+</ngx-ui-loader>
+
+<div class="ms-content-wrapper">
+  <div class="row">
+    <div class="col-md-12">
+<!--      <app-breadcrumb></app-breadcrumb>-->
+
+      <breadcrumb #parent>
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb breadcrumb-arrow has-gap first-rounded pl-0">
+            <ng-template ngFor let-route [ngForOf]="parent.breadcrumbs">
+              <li class="breadcrumb breadcrumb-arrow has-gap first-rounded"><a routerLink="/students/list"><i class="material-icons">home</i> Home</a></li>
+             <!-- <li *ngIf="!route.terminal" class="breadcrumb-item">
+                <a href="" [routerLink]="[route.url]">{{ route.displayName }}</a>
+              </li>-->
+              <li *ngIf="route.terminal" class="breadcrumb-item active" aria-current="page">{{
+                route.displayName }}</li>
+            </ng-template>
+          </ol>
+        </nav>
+      </breadcrumb>
+
+    </div>
+    <div class="col-md-12">
+      <div class="ms-panel ms-panel-fh">
+        <div class="ms-panel-header">
+          <h6>Student Details</h6>
+        </div>
+          <div class="row" >
+            <div class="col-3 p-5">
+              <div class="text-center avatar-border shadow-4x m-b">
+                <img id="photo-40540" src="/assets/img/192x192.jpg" alt="." class="img-circle img-responsive">
+              </div>
+
+            </div>
+            <div class="col-4 mb-4 p-4">
+              <h4 class="i font-bold m-b m-t-none">{{student.first_name}} {{student.middle_name}} {{student.surname}}</h4>
+              <p><i class="i i-info fa-lg fa-fw m-r-sm"></i>Gender: <b>{{student.gender}}</b></p>
+              <p><i class="i i-info fa-lg fa-fw m-r-sm"></i>Date Of Birth: <b>{{student.dob | date}}</b></p>
+              <p><i class="i i-info fa-lg fa-fw m-r-sm"></i>Position: <b>{{position.position_name }}</b></p>
+              <p><i class="i i-info fa-lg fa-fw m-r-sm"></i>Is Boarder: <b>{{student._boarder}}</b></p>
+              <p><i class="i i-info fa-lg fa-fw m-r-sm"></i>Hostel: <b>{{hostel.hostel_name}}</b></p>
+              <p><i class="i i-info fa-lg fa-fw m-r-sm"></i>Admission Date: <b>{{student.admission_date | date}}</b></p>
+            </div>
+            <div class="col-4 mb-4 p-4">
+              <p><i class="i i-info fa-lg fa-fw m-r-sm"></i>Stream: <b>{{school_stream.stream_name}}</b></p>
+              <p><i class="i i-info fa-lg fa-fw m-r-sm"></i>Class Capacity: <b>{{school_stream.class_capacity}}</b></p>
+              <p><i class="i i-info fa-lg fa-fw m-r-sm"></i>Class Name: <b>{{school_stream.class_model.class_name}}</b></p>
+              <p><i class="i i-info fa-lg fa-fw m-r-sm"></i>Guardian Name: <b>{{student.guardians_name}}</b></p>
+              <p><i class="i i-info fa-lg fa-fw m-r-sm"></i>Guardian Phone Number: <b>{{student.guardian_phone}}</b></p>
+              <p><i class="i i-info fa-lg fa-fw m-r-sm"></i>Next Of Kin: <b>{{student.next_of_kin}}</b></p>
+              <p><i class="i i-info fa-lg fa-fw m-r-sm"></i>Kin Phone Number: <b>{{student.kin_phone}}</b></p>
+              <p><i class="i i-info fa-lg fa-fw m-r-sm"></i>Kin Relationship: <b>{{student.kin_relationship}}</b></p>
+            </div>
+          </div>
+
+      </div>
+    </div>
+    <div class="col-md-12">
+      <div class="ms-panel ms-panel-fh">
+        <div class="ms-panel-header">
+          <h6>Student Other Details</h6>
+        </div>
+        <div class="ms-panel-body clearfix">
+          <ul ngbNav #navfive="ngbNav" class="nav nav-tabs tabs-bordered d-flex nav-justified mb-4">
+            <li [ngbNavItem]="1">
+              <a ngbNavLink>Performance</a>
+              <ng-template ngbNavContent>
+                <div class="ms-content-wrapper">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="col-3 p-2 right">
+                        <select class="form-control" (change)="getStudentPerformance(yearSelected)" id="year" [(ngModel)]="yearSelected" name="yearSelected">
+                          <option value="" disabled selected>Choose year...</option>
+                          <option value="2018">2018</option>
+                          <option value="2019">2019</option>
+                          <option value="2020">2020</option>
+                          <option value="2021">2021</option>
+                          <option value="2022">2022</option>
+                          <option value="2023">2023</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-xl-6 col-md-12">
+                      <div class="ms-panel">
+                        <div class="ms-panel-header">
+                          <h6>Bar Chart</h6>
+                        </div>
+                        <div class="ms-panel-body">
+                          <canvas baseChart
+                                  [datasets]="barChartData"
+                                  [labels]="barChartLabels"
+                                  [options]="barChartOptions"
+                                  [legend]="barChartLegend"
+                                  [chartType]="barChartType">
+                          </canvas>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-xl-6 col-md-12">
+                      <div class="ms-panel">
+                        <div class="ms-panel-header">
+                          <h6>Pie Chart</h6>
+                        </div>
+                        <div class="ms-panel-body">
+                          <canvas baseChart [datasets]="PieChartData" [labels]="PieChartLabels" [options]="PieChartOptions"
+                                  [chartType]="PieChartType">
+                          </canvas>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </ng-template>
+            </li>
+            <li [ngbNavItem]="2">
+              <a ngbNavLink>Academics </a>
+              <ng-template ngbNavContent>
+                <div class="ms-panel-body">
+                  <div class="table-responsive">
+                    <table id="data-table-523" class="table w-100 thead-primary"></table>
+                  </div>
+                  <div class="col-xl-12 justify-content-end">
+                    <div class="table-responsive">
+                      <table *ngIf="students" datatable="ng" [dtOptions]="dtOptions" class="table table-striped table-bordered">
+                        <thead class="thead-light pb-3 mb-5">
+                        <tr>
+                          <th>#SN</th>
+                          <th class="sort" data-sort="title">Exam</th>
+                          <th>Class</th>
+                          <th>Stream</th>
+                          <th>Year</th>
+                          <th>Mean Score</th>
+                          <th>Grade</th>
+                          <th>Action</th>
+                        </tr>
+                        </thead>
+
+                        <tbody class="list">
+                        <tr *ngFor="let student of students;let ix=index;">
+                          <td scope="row">{{ ix+1 }}</td>
+                          <td scope="row">{{ student.first_name }} {{ student.middle_name }} {{ student.surname }}</td>
+                          <td scope="row">{{ student.dob }}</td>
+                          <td scope="row">{{ student.guardians_name }}</td>
+                          <td scope="row">{{ student.guardian_phone }}</td>
+                          <td scope="row">{{ student.kin_relationship }}</td>
+                          <td scope="row">{{ student.admission_date | date}}</td>
+                          <td>
+                            <a [routerLink]="['/students/view/', student.student_id]" class="">
+                              <i class="fa fa-eye"><strong></strong></i>
+                            </a>
+                          </td>
+                        </tr>
+                        </tbody>
+
+                      </table>
+
+                    </div>
+                  </div>
+                </div>
+              </ng-template>
+            </li>
+            <li [ngbNavItem]="3">
+              <a ngbNavLink>Classes </a>
+              <ng-template ngbNavContent>
+                <div class="ms-panel-body">
+                  <div class="table-responsive">
+                    <table id="data-table-52" class="table w-100 thead-primary"></table>
+                  </div>
+                  <div class="col-xl-12 justify-content-end">
+                    <div class="table-responsive">
+                      <table *ngIf="students" datatable="ng" [dtOptions]="dtOptions" class="table table-striped table-bordered">
+                        <thead class="thead-light pb-3 mb-5">
+                        <tr>
+                          <th>#SN</th>
+                          <th class="sort" data-sort="title">Year</th>
+                          <th>Class</th>
+                          <th>Stream</th>
+                          <th>Action</th>
+                        </tr>
+                        </thead>
+
+                        <tbody class="list">
+                        <tr *ngFor="let student of students;let ix=index;">
+                          <td scope="row">{{ ix+1 }}</td>
+                          <td scope="row">{{ student.first_name }} {{ student.middle_name }} {{ student.surname }}</td>
+                          <td scope="row">{{ student.dob }}</td>
+                          <td scope="row">{{ student.guardians_name }}</td>
+                          <td scope="row">{{ student.guardian_phone }}</td>
+                          <td scope="row">{{ student.kin_relationship }}</td>
+                          <td scope="row">{{ student.admission_date | date}}</td>
+                          <td>
+                            <a [routerLink]="['/students/view/', student.student_id]" class="">
+                              <i class="fa fa-eye"><strong></strong></i>
+                            </a>
+                          </td>
+                        </tr>
+                        </tbody>
+
+                      </table>
+
+                    </div>
+                  </div>
+                </div>
+              </ng-template>
+            </li>
+            <li [ngbNavItem]="4">
+              <a ngbNavLink>Parents/Guardian </a>
+              <ng-template ngbNavContent>
+                <div class="ms-panel-body">
+                  <div class="table-responsive">
+                    <table id="data-table-5" class="table w-100 thead-primary"></table>
+                  </div>
+                  <div class="col-xl-12 justify-content-end">
+                    <div class="table-responsive">
+                      <table *ngIf="students" datatable="ng" [dtOptions]="dtOptions" class="table table-striped table-bordered">
+                        <thead class="thead-light pb-3 mb-5">
+                        <tr>
+                          <th>#SN</th>
+                          <th class="sort" data-sort="title">Names</th>
+                          <th>Role</th>
+                          <th>Relationship</th>
+                          <th>Phone</th>
+                          <th>Email</th>
+                          <th>Action</th>
+                        </tr>
+                        </thead>
+
+                        <tbody class="list">
+                        <tr *ngFor="let student of students;let ix=index;">
+                          <td scope="row">{{ ix+1 }}</td>
+                          <td scope="row">{{ student.first_name }} {{ student.middle_name }} {{ student.surname }}</td>
+                          <td scope="row">{{ student.dob }}</td>
+                          <td scope="row">{{ student.guardians_name }}</td>
+                          <td scope="row">{{ student.guardian_phone }}</td>
+                          <td scope="row">{{ student.kin_relationship }}</td>
+                          <td scope="row">{{ student.admission_date | date}}</td>
+                          <td>
+                            <a [routerLink]="['/students/view/', student.student_id]" class="">
+                              <i class="fa fa-eye"><strong></strong></i>
+                            </a>
+                          </td>
+                        </tr>
+                        </tbody>
+
+                      </table>
+
+                    </div>
+                  </div>
+                  <!--              <ng2-smart-table [settings]="settings" [source]="schools" class="table w-100 thead-primary"></ng2-smart-table>-->
+                </div>
+              </ng-template>
+            </li>
+            <li [ngbNavItem]="5">
+              <a ngbNavLink>Disciplinary Cases</a>
+              <ng-template ngbNavContent>
+                <div class="ms-panel-body">
+                  <div class="table-responsive">
+                    <table id="data-table-54" class="table w-100 thead-primary"></table>
+                  </div>
+                  <div class="col-xl-12 justify-content-end">
+                    <div class="table-responsive">
+                      <table *ngIf="students" datatable="ng" [dtOptions]="dtOptions" class="table table-striped table-bordered">
+                        <thead class="thead-light pb-3 mb-5">
+                        <tr>
+                          <th>#SN</th>
+                          <th class="sort" data-sort="title">Name</th>
+                          <th>Type</th>
+                          <th>Date</th>
+                          <th>Action Taken</th>
+                          <th>Action</th>
+                        </tr>
+                        </thead>
+
+                        <tbody class="list">
+                        <tr *ngFor="let student of students;let ix=index;">
+                          <td scope="row">{{ ix+1 }}</td>
+                          <td scope="row">{{ student.first_name }} {{ student.middle_name }} {{ student.surname }}</td>
+                          <td scope="row">{{ student.dob }}</td>
+                          <td scope="row">{{ student.guardians_name }}</td>
+                          <td scope="row">{{ student.guardian_phone }}</td>
+                          <td scope="row">{{ student.kin_relationship }}</td>
+                          <td scope="row">{{ student.admission_date | date}}</td>
+                          <td>
+                            <a [routerLink]="['/students/view/', student.student_id]" class="">
+                              <i class="fa fa-eye"><strong></strong></i>
+                            </a>
+                        </tr>
+                        </tbody>
+
+                      </table>
+
+                    </div>
+                  </div>
+                  <!--              <ng2-smart-table [settings]="settings" [source]="schools" class="table w-100 thead-primary"></ng2-smart-table>-->
+                </div>
+              </ng-template>
+            </li>
+          </ul>
+          <div [ngbNavOutlet]="navfive"></div>
+        </div>
+      </div>
+    </div>
+
+    
+
+  </div>
+</div>
+
